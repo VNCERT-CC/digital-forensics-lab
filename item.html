@@ -5,11 +5,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quy trình - 🇻🇳 Digital Forensics Lab 🇻🇳</title>
+  <title>🇻🇳 Digital Forensics Lab 🇻🇳</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap"
+    rel="stylesheet">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
@@ -24,7 +26,7 @@
     }
 
     .content {
-      white-space: pre-line;
+      /* white-space: pre-line; */
       text-align: left;
       border-radius: 8px;
       border: 1px solid #55aeb9;
@@ -48,15 +50,12 @@
       </div>
 
       <div>
-        <h4>
-          Quy trình điều tra sự cố
-        </h4>
+        <h4 id="title"></h4>
       </div>
 
       <!-- <div class="container"> -->
 
-        <div class="content">Coming soon...
-        </div>
+      <div class="content markdown">Đang tải..</div>
       <!-- </div> -->
 
     </div>
@@ -73,6 +72,49 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
     integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
     crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"
+    integrity="sha512-LhccdVNGe2QMEfI3x4DVV3ckMRe36TfydKss6mJpdHjNFiV07dFpS2xzeZedptKZrwxfICJpez09iNioiSZ3hA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/monokai-sublime.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+
+  <script>
+    const queries = new URLSearchParams(location.search)
+    const pages = {
+      scenario: `Các tình huống - thử thách`,
+      references: `Tài nguyên tham khảo`,
+      procedure: `Quy trình điều tra sự cố`,
+      playbook: `Sổ tay điều tra, ứng cứu sự cố`,
+      tools: `Bộ công cụ điều tra, ứng cứu sự cố`,
+      distro: `Hệ thống hỗ trợ phân tích`
+    }
+    const page = queries.get('page')
+    if (!pages[page]) {
+      const mds = Array.from(document.querySelectorAll('.markdown'))
+      for (const md of mds) {
+        md.textContent = `Lỗi, vui lòng thử lại sau: Đường dẫn không tồn tại ` + page
+      }
+      throw new Error('No page found')
+    }
+    document.title = pages[page] + ' - ' + document.title
+    document.querySelector('#title').textContent = pages[page]
+    function markdownInit(mdTexts) {
+      const showdownConverter = new showdown.Converter()
+
+      const mds = Array.from(document.querySelectorAll('.markdown'))
+      for (const md of mds) {
+        md.innerHTML = showdownConverter.makeHtml(mdTexts.shift())
+      }
+
+    }
+    fetch('/' + page + '.md').then(r => r.text()).then(t => {
+      markdownInit([t])
+    }).catch(e => { console.error(e) }).then(() => {
+      hljs.initHighlightingOnLoad()
+    })
+  </script>
 
   <script>
     const categories = document.querySelectorAll('.category')
