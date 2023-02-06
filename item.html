@@ -26,11 +26,33 @@
     }
 
     .content {
+      font-size: 18px;
       /* white-space: pre-line; */
       text-align: left;
       border-radius: 8px;
       border: 1px solid #55aeb9;
       padding: 25px;
+    }
+
+    .content img {
+      max-width: 80%;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .content a {
+      text-decoration: none;
+    }
+
+    .content summary {
+      font-weight: bold;
+      color: rgb(250, 120, 120);
+    }
+
+    @media (min-width: 1124px) {
+      .content img {
+        max-width: 60%;
+      }
     }
   </style>
 </head>
