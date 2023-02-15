@@ -7,4 +7,6 @@
 
 3. [The Honeynet Project](https://www.honeynet.org/challenges/)
 
+4. [Purp1eW0lf/Blue-Team-Notes](https://github.com/Purp1eW0lf/Blue-Team-Notes)
+
 </details>
