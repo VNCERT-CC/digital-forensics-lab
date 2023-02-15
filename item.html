@@ -131,7 +131,7 @@
       }
 
     }
-    fetch('/' + page + '.md').then(r => r.text()).then(t => {
+    fetch('/' + page + '.md?_='+Math.random()).then(r => r.text()).then(t => {
       markdownInit([t])
     }).catch(e => { console.error(e) }).then(() => {
       hljs.initHighlightingOnLoad()

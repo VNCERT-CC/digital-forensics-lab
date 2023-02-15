@@ -1,1 +1,10 @@
-# References
+<details open>
+  <summary>Tài nguyên tham khảo</summary>
+
+1. [No Logs? No Problem! Incident Response without Windows Event Logs](https://labs.jumpsec.com/no-logs-no-problem-incident-response-without-windows-event-logs/)
+
+2. [Running Once, Running Twice, Pwned! Windows Registry Run Keys](https://labs.jumpsec.com/running-once-running-twice-pwned-windows-registry-run-keys/)
+
+3. [The Honeynet Project](https://www.honeynet.org/challenges/)
+
+</details>
