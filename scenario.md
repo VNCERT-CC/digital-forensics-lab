@@ -5,7 +5,7 @@ DFLab xây dựng một chuỗi kịch bản tấn công sát với thực tế 
 
 Sự cố được giả định tại một Công ty có tên DFCorp có trụ sở tại Việt Nam. Công ty có tên miền dfcorp.com và sử dụng các máy chủ, được thiết kế và lắp đặt, kết nối theo sơ đồ sau:
 
-![DFCorp Network](dfcorp-net.png)
+![DFCorp Network](images/dfcorp-net.png)
 
 Danh sách các dải mạng:
   * DMZ: 10.0.9.0/24
@@ -39,20 +39,37 @@ Cùng thời gian đó, máy chủ Email của hệ thống hoạt động chậ
 
 Bạn, với vai trò là chuyên viên điều tra, ứng cứu sự cố, hãy giúp công ty DFCorp điều tra sự cố này.
 
+Hình ảnh Máy chủ Email:
+![EXCH Screenshot](challenge1/exchange-screenshot.png)
+
+Hình ảnh Máy chủ ADDS:
+![DC Screenshot](challenge1/dc-screenshot.png)
+
+Hình ảnh do người dùng cung cấp:
+![User Screenshot](challenge1/user-screenshot.png)
+
 <details open>
 <summary>Câu hỏi</summary>
 
-1. Đây có phải là một cuộc tấn công nhắm vào DFCorp hay không?
-2. Đây là loại tấn công gì?
-3. Địa chỉ IP của kẻ tấn công là gì?
+1. Kẻ tấn công đã sử dụng công cụ gì để rà quét hệ thống của DFCorp? IP của kẻ tấn công sử dụng để rà quét là gì?
+2. Kẻ tấn công có phát hiện được lỗ hổng gì trong đợt rà quét đó không? Nếu có hãy chỉ ra lỗ hổng.
+3. Kẻ tấn công đã tấn công qua email nào của hệ thống? Có thành công hay không?
+4. Kẻ tấn công có lấy được dữ liệu quan trọng nào của DFCorp không?
+5. Đường dẫn kẻ tấn công thực hiện để khai thác lỗ hổng và sử dụng shell? Kẻ tấn công có sử dụng shell thành công hay không?
+6. CnC server của kẻ tấn công là gì?
+7. Quá trình mà kẻ tấn công thực hiện gây ra hậu quả như các hình ảnh trên.
 </details>
 
 <details open>
 <summary>Tệp đính kèm</summary>
 
-1. [Tệp pcap lưu trữ các gói tin qua hệ thống](/challenge-1-pcap.zip)
+1. [Tệp pcap khi phát hiện dấu hiệu tấn công (part 1)](https://github.com/VNCERT-CC/digital-forensics-lab-frontend/releases/download/challenge1/DFLab-challenge1-network1.zip.001)
+2. [Tệp pcap khi phát hiện dấu hiệu tấn công (part 2)](https://github.com/VNCERT-CC/digital-forensics-lab-frontend/releases/download/challenge1/DFLab-challenge1-network1.zip.002)
+3. [Tệp pcap (tiếp)](https://github.com/VNCERT-CC/digital-forensics-lab-frontend/releases/download/challenge1/DFLab-challenge1-network2.pcap.gz)
+4. [Tệp logs ADDS](https://github.com/VNCERT-CC/digital-forensics-lab-frontend/releases/download/challenge1/DFLab-challenge1-Logs-ADDS.zip)
+5. [Tệp logs User](https://github.com/VNCERT-CC/digital-forensics-lab-frontend/releases/download/challenge1/DFLab-challenge1-Logs-User.zip)
+6. [Tệp logs Exchange](https://github.com/VNCERT-CC/digital-forensics-lab-frontend/releases/download/challenge1/DFLab-challenge1-Logs-EXCH01.zip)
 </details>
 
 
 </details>
-

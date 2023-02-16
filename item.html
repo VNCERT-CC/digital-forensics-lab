@@ -58,6 +58,7 @@
 </head>
 
 <body>
+  <img src="images/main-page.png" style="display: none;">
   <div id="app">
     <div class="container text-center">
       <div class="row">
@@ -131,7 +132,7 @@
       }
 
     }
-    fetch('/' + page + '.md').then(r => r.text()).then(t => {
+    fetch('/' + page + '.md?_='+Math.random()).then(r => r.text()).then(t => {
       markdownInit([t])
     }).catch(e => { console.error(e) }).then(() => {
       hljs.initHighlightingOnLoad()
