@@ -1,10 +1,10 @@
 <details close>
-<summary class="h5">Công cụ do VNCERT phát triển</summary>
+<summary class="h6">Công cụ do VNCERT phát triển</summary>
 
 </details>
 
 <details close>
-<summary class="h5">Điều tra nhật ký sự kiện</summary>
+<summary class="h6">Công cụ điều tra nhật ký sự kiện</summary>
 
 <details close>
   <summary>AppCompatCacheParser</summary>
@@ -75,7 +75,7 @@ Chúng ta có thể sử dụng Timeline Explorer hoặc Excel để mở tập 
 </details>
 
 <details close>
-<summary class="h5">Điều tra phương tiện lưu trữ</summary>
+<summary class="h6">Công cụ điều tra phương tiện lưu trữ</summary>
 
 <details close>
   <summary>AccessData FTK Imager</summary>
@@ -234,7 +234,7 @@ Những tính năng chính của Guymager:
 </details>
 
 <details close>
-<summary class="h5">Điều tra dữ liệu bộ nhớ</summary>
+<summary class="h6">Công cụ điều tra dữ liệu bộ nhớ</summary>
 
 <details close>
   <summary>Volatility</summary>
@@ -422,7 +422,7 @@ Sau khi bắt đầu, hãy truy cập trình duyệt tới địa chỉ `IP:Port
 </details>
 
 <details close>
-<summary class="h5">Điều tra mạng</summary>
+<summary class="h6">Công cụ điều tra mạng</summary>
 
 <details close>
   <summary>Wireshark</summary>
@@ -603,7 +603,7 @@ Tab Anomalies giúp phát hiện các hiện tượng khả nghi và các sự c
 </details>
 
 <details close>
-<summary class="h5">Săn tìm mối đe doạ</summary>
+<summary class="h6">Công cụ săn tìm mối đe doạ</summary>
 
 <details close>
   <summary>THOR Lite</summary>
@@ -951,6 +951,6 @@ Ví dụ:
 </details>
 
 <details close>
-<summary class="h5">Điều tra thiết bị di động</summary>
+<summary class="h6">Công cụ điều tra thiết bị di động</summary>
 
 </details>
