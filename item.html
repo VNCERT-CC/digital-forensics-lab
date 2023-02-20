@@ -9,6 +9,18 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autolinker/prism-autolinker.min.css"
+    integrity="sha512-4ZmAB2UXPu3Rgy5ZClpqnJ/zXXZBdulFXY1eWMLgIjp2HWgkHGIpr1b7kmCK+rdD5NYfivTp47UR+bQ4oTBllQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.css"
+    integrity="sha512-Dqf5696xtofgH089BgZJo2lSWTvev4GFo+gA2o4GullFY65rzQVQLQVlzLvYwTo0Bb2Gpb6IqwxYWtoMonfdhQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
   <link
     href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap"
     rel="stylesheet">
@@ -36,7 +48,7 @@
 
     .content img {
       max-width: 80%;
-      display: block;
+      /* display: block; */
       margin: 0 auto;
     }
 
@@ -53,6 +65,68 @@
       .content img {
         max-width: 60%;
       }
+    }
+
+    .content>details>summary {
+      color: #cfd3dc;
+    }
+
+    .content {
+      position: relative;
+      padding: 30px;
+    }
+
+    .content details {
+      position: relative;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-left: 15px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    .content details[open]:after {
+      position: absolute;
+      top: 15px;
+      bottom: 10px;
+      left: 0;
+      width: 1px;
+      height: auto;
+      content: "";
+      background-color: rgba(221, 165, 165, 0.24);
+    }
+
+    code {
+      z-index: -1;
+      color: #c9d1d9;
+      background-color: rgb(52, 57, 65);
+      padding: .2em .4em;
+      margin: 0;
+      font-size: 85%;
+      white-space: break-spaces;
+      border-radius: 6px;
+    }
+
+    pre>code {
+      /* background-color: transparent; */
+    }
+
+    pre {
+      z-index: 9;
+      color: #c9d1d9;
+      background-color: #161b22;
+
+      padding: 16px;
+      overflow: auto;
+      font-size: 85%;
+      line-height: 1.45;
+      border-radius: 6px;
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-size: 16px !important;
     }
   </style>
 </head>
@@ -100,9 +174,19 @@
     integrity="sha512-LhccdVNGe2QMEfI3x4DVV3ckMRe36TfydKss6mJpdHjNFiV07dFpS2xzeZedptKZrwxfICJpez09iNioiSZ3hA=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/monokai-sublime.min.css">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"
+    integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"
+    integrity="sha512-SkmBfuA2hqjzEVpmnMt/LINrjop3GKWqsuLSSB3e7iBmYK7JuWw4ldmmxwD9mdm2IRTTi0OxSAfEGvgEi0i2Kw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.js"
+    integrity="sha512-st608h+ZqzliahyzEpETxzU0f7z7a9acN6AFvYmHvpFhmcFuKT8a22TT5TpKpjDa3pt3Wv7Z3SdQBCBdDPhyWA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"
+    integrity="sha512-/kVH1uXuObC0iYgxxCKY41JdWOkKOxorFVmip+YVifKsJ4Au/87EisD1wty7vxN2kAhnWh6Yc8o/dSAXj6Oz7A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
     const queries = new URLSearchParams(location.search)
     const pages = {
@@ -131,16 +215,14 @@
         md.innerHTML = showdownConverter.makeHtml(mdTexts.shift())
       }
 
+      const elms = document.querySelectorAll('p')
+      for (const elm of elms) if (elm.firstChild && elm.firstChild.tagName && elm.firstChild === elm.lastChild && elm.firstChild.tagName.toUpperCase() === 'IMG') elm.style.textAlign = 'center'
     }
-    fetch('/' + page + '.md?_='+Math.random()).then(r => r.text()).then(t => {
+    fetch('/' + page + '.md?_=' + Math.random()).then(r => r.text()).then(t => {
       markdownInit([t])
     }).catch(e => { console.error(e) }).then(() => {
-      hljs.initHighlightingOnLoad()
+      Prism.highlightAll()
     })
-  </script>
-
-  <script>
-    const categories = document.querySelectorAll('.category')
   </script>
 
 </body>
