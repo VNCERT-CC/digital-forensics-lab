@@ -225,6 +225,73 @@
     })
   </script>
 
+  <style>
+    /* markdown style */
+    .content {
+      --cui-bg-primary: #857dcc;
+      --cui-bg-secondary: #a7a7a7;
+      --cui-bg-success: #519668;
+      --cui-bg-info: #5299e0;
+      --cui-bg-warning: #d5a439;
+      --cui-bg-danger: #c77171;
+
+      --cui-primary-rgb: 133, 125, 204;
+      --cui-secondary-rgb: 167, 167, 167;
+      --cui-success-rgb: 81, 150, 104;
+      --cui-info-rgb: 82, 153, 224;
+      --cui-warning-rgb: 213, 164, 57;
+      --cui-danger-rgb: 199, 113, 113;
+    }
+
+    .bg-danger {
+      --cui-bg-opacity: 1;
+      background-color: rgba(var(--cui-danger-rgb), var(--cui-bg-opacity)) !important;
+    }
+
+    .bg-warning {
+      --cui-bg-opacity: 1;
+      background-color: rgba(var(--cui-warning-rgb), var(--cui-bg-opacity)) !important;
+    }
+
+    .bg-info {
+      --cui-bg-opacity: 1;
+      background-color: rgba(var(--cui-info-rgb), var(--cui-bg-opacity)) !important;
+    }
+
+    .bg-success {
+      --cui-bg-opacity: 1;
+      background-color: rgba(var(--cui-success-rgb), var(--cui-bg-opacity)) !important;
+    }
+
+    .bg-secondary {
+      --cui-bg-opacity: 1;
+      background-color: rgba(var(--cui-secondary-rgb), var(--cui-bg-opacity)) !important;
+    }
+
+    .bg-primary {
+      --cui-bg-opacity: 1;
+      background-color: rgba(var(--cui-primary-rgb), var(--cui-bg-opacity)) !important;
+    }
+
+    .badge {
+      --cui-badge-padding-x: 0.65em;
+      --cui-badge-padding-y: 0.35em;
+      --cui-badge-font-size: 0.75em;
+      --cui-badge-font-weight: 700;
+      --cui-badge-color: hsla(0, 0%, 100%, .87);
+      --cui-badge-border-radius: 0.375rem;
+      display: inline-block;
+      padding: var(--cui-badge-padding-y) var(--cui-badge-padding-x);
+      font-size: var(--cui-badge-font-size);
+      font-weight: var(--cui-badge-font-weight);
+      line-height: 1;
+      color: var(--cui-badge-color);
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: baseline;
+      border-radius: var(--cui-badge-border-radius, 0);
+    }
+  </style>
 </body>
 
 </html>
