@@ -130,3 +130,36 @@ pcap](https://github.com/VNCERT-CC/digital-forensics-lab-frontend/releases/downl
 </details>
 
 </details>
+
+<details open>
+<summary>Tình huống 3: Tấn công vào máy chủ web <span class="badge bg-warning">Chuyên viên</span></summary>
+Cấp độ: <span class="badge bg-warning">Chuyên viên</span>
+
+Máy chủ website của chúng tôi đột nhiên bị lỗi, các dữ liệu quan trọng lưu trên database bất ngờ bị xóa, chúng tôi không thể truy cập vào website của mình được. Hãy giúp chúng tôi tìm ra nguyên nhân và khôi phục lại website này.
+
+
+![Web error Screenshot](challenge3/web-error.png)
+
+
+<details open>
+<summary>Câu hỏi</summary>
+
+1. Thời gian xuất hiện tấn công nhiều nhất?
+2. Kẻ tấn công đã tìm thấy bao nhiêu điểm yếu trên website?
+3. Kẻ tấn công dùng cách gì để có thể thực thi được command trên server? Server nào đã bị kẻ tấn công kiểm soát?
+4. Cho biết payload thực hiện của kẻ tấn công?
+5. Kẻ tấn công dùng lệnh gì để thực hiện GET shell về hệ thống nhưng không thành công?
+6. Bằng chứng nào cho thấy dữ liệu quan trọng trên website đã bị xoá? Kẻ tấn công có xóa thêm dữ liệu nào khác không?
+7. Làm thế nào để chúng tôi có thể khôi phục được dịch vụ?
+</details>
+  
+
+<details open>
+<summary>Tệp đính kèm</summary>
+
+1. [Tệp access log](https://github.com/VNCERT-CC/digital-forensics-lab-frontend/releases/download/challenge3/DFLab-challenge3-access_log.zip)
+2. [Tệp SQL Log)](https://github.com/VNCERT-CC/digital-forensics-lab-frontend/releases/download/challenge3/DFLab-challenge3-SQLLog.zip)
+3. [Tệp bak](https://github.com/VNCERT-CC/digital-forensics-lab-frontend/releases/download/challenge3/DFLab-challenge3-bak.zip)
+</details>
+  
+</details>
