@@ -1,10 +1,298 @@
 <details close>
 <summary class="h6">Công cụ do VNCERT phát triển</summary>
 
+<details close>
+  <summary>0dayex-checker</summary>
+
+0dayex-checker là công cụ kiểm tra lỗ hổng zeroday của Microsoft Exchange Server ([CVE-2022-41040](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-41040) và [CVE-2022-41082](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-41082)).
+
+<details open>
+  <summary>Hướng dẫn sử dụng 0dayex-checker</summary>
+
+Tải xuống công cụ tại [đây](https://github.com/VNCERT-CC/0dayex-checker/releases):
+
+![](images/Tools/VNCERT/0dayex/releases.png)
+
+Chạy công cụ, nhập địa chỉ mail server vào ô đường dẫn và nhấn kiểm tra:
+
+![](images/Tools/VNCERT/0dayex/15-23-55.png)
+
+</details>
+</details>
+
 </details>
 
 <details close>
 <summary class="h6">Công cụ điều tra nhật ký sự kiện</summary>
+
+<details close>
+  <summary>Hayabusa</summary>
+
+Hayabusa là một công cụ xử lý nhanh Windows Event Log, tạo timeline và tìm kiếm mối đe dọa do Yamato Security ở Nhật Bản phát triển. Nó được viết bằng Rust và hỗ trợ xử lý đa luồng. Hayabusa có thể chạy trên các hệ thống đang hoạt động để phân tích trực tiếp, bằng cách thu thập Event Logs từ một hoặc nhiều hệ thống để phân tích ngoại tuyến hoặc bằng cách chạy công cụ Hayabusa với Velociraptor để tìm kiếm mối đe dọa và ứng phó sự cố trên quy mô lớn. Báo cáo là một timeline trên CSV để dễ dàng phân tích trong Excel, Timeline Explorer, Elastic Stack, Timesketch, v.v...
+
+![](images/Tools/Logs/Hayabusa/image-14-38-06.png)
+
+Những chức năng chính của Hayabusa:
+
+  * Săn lùng mối đe doạ trên quy mô doanh nghiệp trên nhiều nền tảng: Windows, Linux, MacOS,...
+  * Tạo timeline dựa trên Windows Event Logs, hỗ trợ chuyển đổi Sigma rules thành Hayabusa rules.
+  * Đánh giá, phân tích các kỹ thuật tấn công với MITRE ATT&CK Framework.
+  * Phân tích trên Timeline Explorer, Elastic Stack, Excel,...
+
+<details open>
+  <summary>Hướng dẫn sử dụng Hayabusa</summary>
+
+Tải xuống phiên bản mới nhất của Hayabusa tại [đây](https://github.com/Yamato-Security/hayabusa/releases).
+
+Mở cửa sổ CMD/Powershell hoặc Windows Terminal, sau đó chạy tập tin thực thi.
+
+Các option chính của Hayabusa:
+
+```powershell
+csv-timeline: Lưu timeline ở định dạng CSV.
+json-timeline: Lưu timeline ở định dạng JSON/JSONL.
+logon-summary: Xuất ra báo cáo tổng hợp về các lần logon trên hệ thống.
+metrics: Xuất ra các chỉ số và tỉ lệ các sự kiện dựa trên Event ID.
+pivot-keywords-list: Xuất ra các từ khoá nghi vấn cần điều tra
+update-rules: Cập nhật tập luật từ Github.
+level-tuning: Chỉnh sửa mức độ cảnh báo.
+list-profiles: Hiển thị các output profiles có sẵn.
+set-default-profile: Chỉnh sửa profile mặc định.
+```
+
+```powershell
+Usage:
+  hayabusa.exe help <COMMAND>
+  hayabusa.exe <COMMAND> [OPTIONS]
+
+Commands:
+  csv-timeline         Save the timeline in CSV format
+  json-timeline        Save the timeline in JSON/JSONL format
+  logon-summary        Print a summary of successful and failed logons
+  metrics              Print event ID metrics
+  pivot-keywords-list  Create a list of pivot keywords
+  update-rules         Update to the latest rules in the hayabusa-rules github repository
+  level-tuning         Tune alert levels (default: ./rules/config/level_tuning.txt)
+  set-default-profile  Set default output profile
+  list-contributors    Print the list of contributors
+  list-profiles        List the output profiles
+  help                 Print this message or the help of the given subcommand(s)
+
+Options:
+      --no-color  Disable color output
+  -q, --quiet     Quiet mode: do not display the launch banner
+```
+
+Khởi động phần mềm:
+
+![](images/Tools/Logs/Hayabusa/image-14-50-34.png)
+
+Tổng kết sau khi chạy công cụ:
+
+![](images/Tools/Logs/Hayabusa/image-14-51-01.png)
+
+Báo cáo HTML được xuất ra:
+
+![](images/Tools/Logs/Hayabusa/image-14-51-16.png)
+
+![](images/Tools/Logs/Hayabusa/image-14-51-31.png)
+
+![](images/Tools/Logs/Hayabusa/image-14-51-36.png)
+
+Phân tích với các công cụ:
+
+![](images/Tools/Logs/Hayabusa/image-14-51-50.png)
+
+![](images/Tools/Logs/Hayabusa/image-14-51-55.png)
+
+![](images/Tools/Logs/Hayabusa/image-14-52-03.png)
+
+
+</details>
+</details>
+
+
+<details close>
+  <summary>APT-Hunter</summary>
+
+APT-Hunter là công cụ Threat Hunting dựa trên Event Log của windows được tạo với mindset của purple team để cung cấp khả năng phát hiện các tấn công APT ẩn trong rất nhiều windows event logs để giảm thời gian phát hiện hoạt động đáng ngờ.
+
+Công cụ hoạt động mà không cần phải có giải pháp phức tạp để phân tích cú pháp và phát hiện các cuộc tấn công trong nhật ký sự kiện của windows như giải pháp SIEM và trình thu thập logs.
+
+![](images/Tools/Logs/APT-Hunter/image-04-52-23.png)
+
+Những tính năng chính của APT-Hunter:
+
+  * Phát hiện các hoạt động đáng ngờ nào mà ta không biết trước khi nó trở thành một sự cố lớn.
+  * Phát hiện tấn công nhanh hơn, điều này sẽ làm giảm thời gian phản hồi để nhanh chóng ngăn chặn và loại bỏ các cuộc tấn công.
+  * Báo cáo tương thích với timesketch để thực hiện phân tích dòng thời gian.
+  * Điều tra nhiều máy chủ nhanh hơn trong khoảng thời gian ngắn.
+  * Giúp ích cho điều tra viên trong những trường hợp không có nhiều thời gian để phân tích chuyên sâu.
+  * Biến hàng triệu sự kiện thành hàng trăm sự kiện với mức độ nghiêm trọng có thể sử dụng làm bộ lọc.
+
+<details open>
+  <summary>Hướng dẫn sử dụng APT-Hunter</summary>
+
+Điều đầu tiên cần làm trước khi sử dụng công cụ là thu thập Event Logs:
+
+```powershell
+# Để thu thập với định dạng EVTX, sử dụng script sau:
+windows-log-collector-full-v3-EVTX.ps1 
+# Để thu thập với định dạng CSV, sử dụng script sau: 
+windows-log-collector-full-v3-CSV.ps1
+```
+
+Cài đặt các thư viện python cần thiết:
+```powershell
+python3 -m pip install -r Requirements.txt
+```
+
+```powershell
+python3 APT-Hunter.py -h
+usage: APT-Hunter.py [-h] [-p PATH] [-o OUT] [-t {csv,evtx}]
+                     [--security SECURITY] [--system SYSTEM]
+                     [--scheduledtask SCHEDULEDTASK] [--defender DEFENDER]
+                     [--powershell POWERSHELL] [--powershellop POWERSHELLOP]
+                     [--terminal TERMINAL] [--winrm WINRM] [--sysmon SYSMON]
+ 
+optional arguments:
+  -h, --help            show this help message and exit
+  -p PATH, --path PATH  path to folder containing windows event logs generated by the APT-Hunter-Log-Collector.ps1
+  -o OUT, --out OUT     output file name
+  -t {csv,evtx}, --type {csv,evtx}
+                        csv ( logs from get-eventlog or windows event log GUI
+                        or logs from Get-WinEvent ) , evtx ( EVTX extension
+                        windows event log )
+  --security SECURITY   Path to Security Logs
+  --system SYSTEM       Path to System Logs
+  --scheduledtask SCHEDULEDTASK
+                        Path to Scheduled Tasks Logs
+  --defender DEFENDER   Path to Defender Logs
+  --powershell POWERSHELL
+                        Path to Powershell Logs
+  --powershellop POWERSHELLOP
+                        Path to Powershell Operational Logs
+  --terminal TERMINAL   Path to TerminalServices LocalSessionManager Logs
+  --winrm WINRM         Path to Winrm Logs
+  --sysmon SYSMON       Path to Sysmon Logs
+```
+`-p`: địa chỉ trỏ đến thư mục chứa các Event Logs
+
+`-o`: Tên của dự án
+
+`-t`: Loại của log (ví dụ CSV hoặc EVTX)
+
+Ví dụ:
+
+```powershell
+python3 APT-Hunter.py  -t evtx  -p /opt/wineventlogs/  -o Project1
+ 
+python3 APT-Hunter.py  -t csv  -p /opt/wineventlogs/  -o Project1
+ 
+python3 APT-Hunter.py  -t evtx  --security evtx/security.evtx -o Project2
+```
+
+</details>
+</details>
+
+
+<details close>
+  <summary>LogonTracer</summary>
+
+LogonTracer là một công cụ để điều tra các lần đăng nhập bằng cách trực quan hóa và phân tích nhật ký sự kiện Windows Active Directory. Công cụ này liên kết tên máy chủ (hoặc địa chỉ IP) và tên tài khoản được tìm thấy trong các sự kiện liên quan đến đăng nhập và hiển thị dưới dạng biểu đồ. Bằng cách này, có thể biết nỗ lực đăng nhập tài khoản nào xảy ra và máy chủ nào được sử dụng.
+
+Những sự kiện mà LogonTracer hỗ trợ:
+
+  * 4624: Đăng nhập thành công
+  * 4625: Đăng nhập thất bại
+  * 4768: Kerberos Authentication (TGT Request)
+  * 4769: Kerberos Service Ticket (ST Request)
+  * 4776: Xác thực NTLM
+  * 4672: Đăng nhập với quyền đặc biệt
+
+<details open>
+  <summary>Hướng dẫn sử dụng LogonTracer</summary>
+
+Sử dụng câu lệnh sau để khởi động LogonTracer:
+
+```bash
+$ python3 logontracer.py -r -o [PORT] -u [USERNAME] -p [PASSWORD] -s [IP Address]
+```
+
+```bash
+-r: Khởi chạy máy chủ web
+-o: Cổng dịch vụ máy chủ web hoạt động (ví dụ: 8080)
+-u: Tên người dùng (Mặc định là “neo4j”)
+-p: Mật khẩu
+-s: Địa chỉ IP của máy chủ web (ví dụ: localhost)
+```
+
+Truy cập http://[[Địa chỉ của LogonTracer]]:8080, sử dụng tài khoản từ câu lệnh phía trên:
+
+![](images/Tools/Logs/LogonTracer/image-17-04-10.png)
+
+Upload evtx:
+
+![](images/Tools/Logs/LogonTracer/image-17-04-55.png)
+
+Sử dụng thanh điều hướng để tìm tên tài khoản, địa chỉ IP, event ID,...
+
+![](images/Tools/Logs/LogonTracer/image-17-05-14.png)
+
+Lọc thời gian:
+
+![](images/Tools/Logs/LogonTracer/image-17-06-06.png)
+
+</details>
+</details>
+
+
+<details close>
+  <summary>Zircolite</summary>
+
+Zircolite là công cụ viết bằng Python3, cho phép sử dụng SIGMA rules trên Windows Event Logs (định dạng EVTX và JSONL), Auditd và Sysmon với Linux.
+
+Những chức năng chính của Zircolite:
+
+  * Zircolite có thể được sử dụng trực tiếp trên endpoint được điều tra hoặc trong môi trường phân tích chuyên sâu / môi trường giả lập.
+  * Nhanh và xử lý được lượng lớn dữ liệu cùng lúc
+  * Sử dụng Sigma backend (SQLite)
+  * Xuất kết quả sang nhiều định dạng khác nhau dựa trên các templates: JSON, CSV, JSONL, Splunk, Elastic, Zinc, Timesketch...
+
+<details open>
+  <summary>Hướng dẫn sử dụng Zircolite</summary>
+
+Tải xuống công cụ tại [đây](https://github.com/wagga40/Zircolite), sau đó cài đặt các library với câu lệnh: `pip3 install -r requirements.txt`
+
+Phân tích EVTX với bộ rule Windows Sysmon:
+
+```powershell
+# python3 zircolite.py --evtx <EVTX FOLDER or EVTX FILE> --ruleset <SIGMA RULESET> [--ruleset <OTHER RULESET>]
+python3 zircolite.py --evtx sysmon.evtx --ruleset rules/rules_windows_sysmon.json
+```
+
+Phân tích Auditd / Sysmon cho Linux / JSONL hoặc NDJSON logs :
+
+``` powershell
+python3 zircolite.py --events auditd.log --ruleset rules/rules_linux.json --auditd
+python3 zircolite.py --events sysmon.log --ruleset rules/rules_linux.json --sysmon4linux
+python3 zircolite.py --events <JSON_FOLDER or JSON_FILE> --ruleset rules/rules_windows_sysmon.json --jsononly
+```
+
+Sử dụng miniGUI với option `--package`:
+
+![](images/Tools/Logs/Zircolite/image-15-05-59.png)
+
+Timeline các sự kiện đã được phát hiện:
+
+![](images/Tools/Logs/Zircolite/image-15-09-09.png)
+
+Ma trận MITRE ATT&CK:
+
+![](images/Tools/Logs/Zircolite/image-15-09-32.png)
+
+</details>
+</details>
 
 <details close>
   <summary>AppCompatCacheParser</summary>
@@ -13,7 +301,7 @@ AppCompatCacheParser là công cụ phân tích AppCompatCache (ShimCache). Hỗ
 
 ![](images/Tools/Logs/AppCompatCacheParser/image-04-45-19.png)
 
-<details close>
+<details open>
   <summary>Hướng dẫn sử dụng AppCompatCacheParser</summary>
 
 Tải xuống công cụ tại [đây](https://ericzimmerman.github.io/#!index.md).
@@ -22,7 +310,7 @@ Mở cửa sổ CMD với quyền Administrator.
 
 Chạy AppCompatCacheParser với cửa sổ dòng lệnh CMD vừa mở:
 
-```
+```powershell
 AppCompatCache Parser version 1.4.4.0
 
 Author: Eric Zimmerman (saericzimmerman@gmail.com)
@@ -49,7 +337,7 @@ Examples: AppCompatCacheParser.exe --csv c:\temp -t -c 2
 
 Để bắt đầu phân tích, ta sẽ chạy câu lệnh sau:
 
-```
+```powershell
 AppCompatCacheParser.exe -f C:\temp\muldwych\Content\C\Windows\System32\config\SYSTEM –csv c:\temp –dt yyyy-MM-ddTHH:mm:ss
 ```
 
@@ -72,6 +360,704 @@ Chúng ta có thể sử dụng Timeline Explorer hoặc Excel để mở tập 
 </details>
 </details>
 
+<details close>
+  <summary>Chainsaw</summary>
+
+Chainsaw là công cụ hỗ trợ phân tích và phát hiện dấu hiệu tấn công hệ thống thông qua các đặc trưng từ Windows, ví udj như Event Logs và MFT.  Chainsaw cung cấp một phương pháp tìm kiếm nhanh chóng thông qua từ khóa và xác định mối đe doạ dựa trên Sigma rules.
+
+![](images/Tools/Logs/Chainsaw/image-15-24-11.png)
+
+Những chức năng chính của Chainsaw:
+
+  * Săn tìm mối đe doạ dựa trên Sigma rules và các rule tuỳ chỉnh từ Chaisaw
+  * Tìm kiếm và trích xuất các dấu vết bằng khớp chuỗi và biểu thức chính quy (regex).
+  * Được viết bằng Rust, dựa trên thư viện [EVTX parser](https://github.com/omerbenamram/evtx)
+  * Xuất kết quả với nhiều định dạng khác nhau: ASCII table, định dạng CSV và định dạng JSON
+
+<details open>
+  <summary>Hướng dẫn sử dụng Chainsaw</summary>
+
+Tải xuống Chainsaw từ mục [releases](https://github.com/countercept/chainsaw/releases)
+
+```powershell
+  USAGE:
+      chainsaw search [FLAGS] [OPTIONS] <pattern> [--] [path]...
+
+  FLAGS:
+      -h, --help            Prints help information
+      -i, --ignore-case     Ignore the case when searching patterns
+          --json            Print the output in json format
+          --load-unknown    Allow chainsaw to try and load files it cannot identify
+          --local           Output the timestamp using the local machine's timestamp
+      -q                    Supress informational output
+          --skip-errors     Continue to search when an error is encountered
+      -V, --version         Prints version information
+
+  OPTIONS:
+          --extension <extension>...    Only search through files with the provided extension
+          --from <from>                 The timestamp to search from. Drops any documents older than the value provided
+      -o, --output <output>             The path to output results to
+      -e, --regex <pattern>...          A string or regular expression pattern to search for
+      -t, --tau <tau>...                Tau expressions to search with. e.g. 'Event.System.EventID: =4104'
+          --timestamp <timestamp>       The field that contains the timestamp
+          --timezone <timezone>         Output the timestamp using the timezone provided
+          --to <to>                     The timestamp to search up to. Drops any documents newer than the value provided
+
+  ARGS:
+      <pattern>    A string or regular expression pattern to search for. Not used when -e or -t is specified
+      <path>...    The paths containing event logs to load and hunt through
+```
+
+Tìm kiếm tất cả chuỗi "mimikatz" không phân biệt hoa thường:
+
+```bash
+./chainsaw search mimikatz -i evtx_attack_samples/
+```
+
+Tìm kiếm tất cả sự kiện đăng nhập với regex, xuất dưới dạng JSON:
+
+```bash
+./chainsaw search -e "DC[0-9].insecurebank.local" evtx_attack_samples --json
+```
+
+Tìm kiếm tất cả các tập tin evtx bằng Sigma rules để phát hiện tấn công:
+
+```powershell
+  $ ./chainsaw hunt -r rules/ evtx_attack_samples -s sigma/rules --mapping mappings/sigma-event-logs-all.yml --level critical
+
+   ██████╗██╗  ██╗ █████╗ ██╗███╗   ██╗███████╗ █████╗ ██╗    ██╗
+  ██╔════╝██║  ██║██╔══██╗██║████╗  ██║██╔════╝██╔══██╗██║    ██║
+  ██║     ███████║███████║██║██╔██╗ ██║███████╗███████║██║ █╗ ██║
+  ██║     ██╔══██║██╔══██║██║██║╚██╗██║╚════██║██╔══██║██║███╗██║
+  ╚██████╗██║  ██║██║  ██║██║██║ ╚████║███████║██║  ██║╚███╔███╔╝
+   ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝ ╚══╝╚══╝
+      By Countercept (@FranticTyping, @AlexKornitzer)
+
+  [+] Loading detection rules from: ../../rules/, /tmp/sigma/rules
+  [+] Loaded 129 detection rules (198 not loaded)
+  [+] Loading event logs from: ../../evtx_attack_samples (extensions: .evtx)
+  [+] Loaded 268 EVTX files (37.5 MB)
+  [+] Hunting: [========================================] 268/268
+
+  [+] Group: Antivirus
+  ┌─────────────────────┬────────────────────┬──────────┬───────────┬─────────────┬────────────────────────────────┬──────────────────────────────────┬────────────────────┐
+  │      timestamp      │     detections     │ Event ID │ Record ID │  Computer   │          Threat Name           │           Threat Path            │        User        │
+  ├─────────────────────┼────────────────────┼──────────┼───────────┼─────────────┼────────────────────────────────┼──────────────────────────────────┼────────────────────┤
+  │ 2019-07-18 20:40:00 │ ‣ Windows Defender │ 1116     │ 37        │ MSEDGEWIN10 │ Trojan:PowerShell/Powersploit. │ file:_C:\AtomicRedTeam\atomic-   │ MSEDGEWIN10\IEUser │
+  │                     │                    │          │           │             │ M                              │ red-team-master\atomics\T1056\   │                    │
+  │                     │                    │          │           │             │                                │ Get-Keystrokes.ps1               │                    │
+  ├─────────────────────┼────────────────────┼──────────┼───────────┼─────────────┼────────────────────────────────┼──────────────────────────────────┼────────────────────┤
+  │ 2019-07-18 20:53:31 │ ‣ Windows Defender │ 1117     │ 106       │ MSEDGEWIN10 │ Trojan:XML/Exeselrun.gen!A     │ file:_C:\AtomicRedTeam\atomic-   │ MSEDGEWIN10\IEUser │
+  │                     │                    │          │           │             │                                │ red-team-master\atomics\T1086\   │                    │
+  │                     │                    │          │           │             │                                │ payloads\test.xsl                │                    │
+  └─────────────────────┴────────────────────┴──────────┴───────────┴─────────────┴────────────────────────────────┴──────────────────────────────────┴────────────────────┘
+
+  [+] Group: Log Tampering
+  ┌─────────────────────┬───────────────────────────────┬──────────┬───────────┬────────────────────────────────┬───────────────┐
+  │      timestamp      │          detections           │ Event ID │ Record ID │            Computer            │     User      │
+  ├─────────────────────┼───────────────────────────────┼──────────┼───────────┼────────────────────────────────┼───────────────┤
+  │ 2019-01-20 07:00:50 │ ‣ Security Audit Logs Cleared │ 1102     │ 32853     │ WIN-77LTAPHIQ1R.example.corp   │ Administrator │
+  └─────────────────────┴───────────────────────────────┴──────────┴───────────┴────────────────────────────────┴───────────────┘
+
+  [+] Group: Sigma
+  ┌─────────────────────┬────────────────────────────────┬───────┬────────────────────────────────┬──────────┬───────────┬──────────────────────────┬──────────────────────────────────┐
+  │      timestamp      │           detections           │ count │     Event.System.Provider      │ Event ID │ Record ID │         Computer         │            Event Data            │
+  ├─────────────────────┼────────────────────────────────┼───────┼────────────────────────────────┼──────────┼───────────┼──────────────────────────┼──────────────────────────────────┤
+  │ 2019-04-29 20:59:14 │ ‣ Malicious Named Pipe         │ 1     │ Microsoft-Windows-Sysmon       │ 18       │ 8046      │ IEWIN7                   │ ---                              │
+  │                     │                                │       │                                │          │           │                          │ Image: System                    │
+  │                     │                                │       │                                │          │           │                          │ PipeName: "\\46a676ab7f179e511   │
+  │                     │                                │       │                                │          │           │                          │ e30dd2dc41bd388"                 │
+  │                     │                                │       │                                │          │           │                          │ ProcessGuid: 365ABB72-D9C4-5CC   │
+  │                     │                                │       │                                │          │           │                          │ 7-0000-0010EA030000              │
+  │                     │                                │       │                                │          │           │                          │ ProcessId: 4                     │
+  │                     │                                │       │                                │          │           │                          │ RuleName: ""                     │
+  │                     │                                │       │                                │          │           │                          │ UtcTime: "2019-04-29 20:59:14.   │
+  │                     │                                │       │                                │          │           │                          │ 430"                             │
+  ├─────────────────────┼────────────────────────────────┼───────┼────────────────────────────────┼──────────┼───────────┼──────────────────────────┼──────────────────────────────────┤
+  │ 2019-04-30 20:26:51 │ ‣ CobaltStrike Service         │ 1     │ Microsoft-Windows-Sysmon       │ 13       │ 9806      │ IEWIN7                   │ ---                              │
+  │                     │ Installations in Registry      │       │                                │          │           │                          │ Details: "%%COMSPEC%% /b /c st   │
+  │                     │                                │       │                                │          │           │                          │ art /b /min powershell.exe -no   │
+  │                     │                                │       │                                │          │           │                          │ p -w hidden -noni -c \"if([Int   │
+  │                     │                                │       │                                │          │           │                          │ Ptr]::Size -eq 4){$b='powershe   │
+  │                     │                                │       │                                │          │           │                          │ ll.exe'}else{$b=$env:windir+'\   │
+  │                     │                                │       │                                │          │           │                          │ \syswow64\\WindowsPowerShell\\   │
+  │                     │                                │       │                                │          │           │                          │ v1.0\\powershell.exe'};$s=New-   │
+  │                     │                                │       │                                │          │           │                          │ Object System.Diagnostics.Proc   │
+  │                     │                                │       │                                │          │           │                          │ essStartInfo;$s.FileName=$b;$s   │
+  │                     │                                │       │                                │          │           │                          │ .Arguments='-noni -nop -w hidd   │
+  │                     │                                │       │                                │          │           │                          │ en -c &([scriptblock]::create(   │
+  │                     │                                │       │                                │          │           │                          │ (New-Object IO.StreamReader(Ne   │
+  │                     │                                │       │                                │          │           │                          │ w-Object IO.Compression.GzipSt   │
+  │                     │                                │       │                                │          │           │                          │ ream((New-Object IO.MemoryStre   │
+  │                     │                                │       │                                │          │           │                          │ am(,[Convert]::FromBase64Strin   │
+  │                     │                                │       │                                │          │           │                          │ g(''H4sIAIuvyFwCA7VW+2/aSBD+OZ   │
+  │                     │                                │       │                                │          │           │                          │ H6P1...                          │
+  │                     │                                │       │                                │          │           │                          │ (use --full to show all content) │
+  │                     │                                │       │                                │          │           │                          │ EventType: SetValue              │
+  │                     │                                │       │                                │          │           │                          │ Image: "C:\\Windows\\system32\   │
+  │                     │                                │       │                                │          │           │                          │ \services.exe"                   │
+  │                     │                                │       │                                │          │           │                          │ ProcessGuid: 365ABB72-2586-5CC   │
+  │                     │                                │       │                                │          │           │                          │ 9-0000-0010DC530000              │
+  │                     │                                │       │                                │          │           │                          │ ProcessId: 460                   │
+  │                     │                                │       │                                │          │           │                          │ RuleName: ""                     │
+  │                     │                                │       │                                │          │           │                          │ TargetObject: "HKLM\\System\\C   │
+  │                     │                                │       │                                │          │           │                          │ urrentControlSet\\services\\he   │
+  │                     │                                │       │                                │          │           │                          │ llo\\ImagePath"                  │
+  │                     │                                │       │                                │          │           │                          │ UtcTime: "2019-04-30 20:26:51.   │
+  │                     │                                │       │                                │          │           │                          │ 934"                             │
+  ├─────────────────────┼────────────────────────────────┼───────┼────────────────────────────────┼──────────┼───────────┼──────────────────────────┼──────────────────────────────────┤
+  │ 2019-05-12 12:52:43 │ ‣ Meterpreter or Cobalt        │ 1     │ Service Control Manager        │ 7045     │ 10446     │ IEWIN7                   │ ---                              │
+  │                     │ Strike Getsystem Service       │       │                                │          │           │                          │ AccountName: LocalSystem         │
+  │                     │ Installation                   │       │                                │          │           │                          │ ImagePath: "%COMSPEC% /c ping    │
+  │                     │                                │       │                                │          │           │                          │ -n 1 127.0.0.1 >nul && echo 'W   │
+  │                     │                                │       │                                │          │           │                          │ inPwnage' > \\\\.\\pipe\\WinPw   │
+  │                     │                                │       │                                │          │           │                          │ nagePipe"                        │
+  │                     │                                │       │                                │          │           │                          │ ServiceName: WinPwnage           │
+  │                     │                                │       │                                │          │           │                          │ ServiceType: user mode service   │
+  │                     │                                │       │                                │          │           │                          │ StartType: demand start          │
+  ├─────────────────────┼────────────────────────────────┼───────┼────────────────────────────────┼──────────┼───────────┼──────────────────────────┼──────────────────────────────────┤
+  │ 2019-06-21 07:35:37 │ ‣ Dumpert Process Dumper       │ 1     │ Microsoft-Windows-Sysmon       │ 11       │ 238375    │ alice.insecurebank.local │ ---                              │
+  │                     │                                │       │                                │          │           │                          │ CreationUtcTime: "2019-06-21 0   │
+  │                     │                                │       │                                │          │           │                          │ 6:53:03.227"                     │
+  │                     │                                │       │                                │          │           │                          │ Image: "C:\\Users\\administrat   │
+  │                     │                                │       │                                │          │           │                          │ or\\Desktop\\x64\\Outflank-Dum   │
+  │                     │                                │       │                                │          │           │                          │ pert.exe"                        │
+  │                     │                                │       │                                │          │           │                          │ ProcessGuid: ECAD0485-88C9-5D0   │
+  │                     │                                │       │                                │          │           │                          │ C-0000-0010348C1D00              │
+  │                     │                                │       │                                │          │           │                          │ ProcessId: 3572                  │
+  │                     │                                │       │                                │          │           │                          │ RuleName: ""                     │
+  │                     │                                │       │                                │          │           │                          │ TargetFilename: "C:\\Windows\\   │
+  │                     │                                │       │                                │          │           │                          │ Temp\\dumpert.dmp"               │
+  │                     │                                │       │                                │          │           │                          │ UtcTime: "2019-06-21 07:35:37.   │
+  │                     │                                │       │                                │          │           │                          │ 324"                             │
+  └─────────────────────┴────────────────────────────────┴───────┴────────────────────────────────┴──────────┴───────────┴──────────────────────────┴──────────────────────────────────┘
+```
+
+</details>
+</details>
+
+<details close>
+  <summary>Event Log Observer</summary>
+
+Event Log Observer là công cụ giúp nhanh chóng tìm và phân tích các cảnh báo bảo mật, sự cố và các sự kiện khác trong hệ điều hành Microsoft Windows. Với Event Log Observer, ta có thể trích xuất dữ liệu cần thiết bằng cú pháp truy vấn SQLite và nâng cao hiệu quả phân tích Event Logs.
+
+Những chức năng chính của Event Log Observer:
+
+  * Điều hướng dễ dàng và trực quan hóa dữ liệu
+  * Sử dụng SQL để đọc event logs
+  * Sử dụng cho nhiều loại log khác nhau
+  * Hỗ trợ tìm kiếm thông tin nhanh chóng
+
+<details open>
+  <summary>Hướng dẫn sử dụng Event Log Observer</summary>
+
+Tải xuóng công cụ: [Event Log Observer](https://lizard-labs.com/event_log_observer.aspx)
+
+Giao diện Dashboard của Event Log Observer:
+
+![](images/Tools/Logs/Event-Log-Observer/image-15-57-42.png)
+
+Tìm kiếm thông tin từ Event Log:
+
+![](images/Tools/Logs/Event-Log-Observer/image-15-58-18.png)
+
+</details>
+</details>
+
+<details close>
+  <summary> Log Parser Lizard</summary>
+
+Công cụ truy vấn dữ liệu và phân tích Event log cho phép dễ dàng trích xuất thông tin có giá trị bằng sức mạnh của các lệnh truy vấn SQL. Với Log Parser Lizard, ta có thể dễ dàng phân tích các system hoặc application logs khác nhau, sau đó thực hiện các truy vấn SQL đối với chúng.
+
+Những chức năng chính của  Log Parser Lizard:
+
+  * Sử dụng truy vấn SQL để đọc log
+  * Web API Server
+  * Lọc dữ liệu và xử lý khối lượng log lớn
+  * Xuất ra nhiều định dạng: XLS, XLSX, PDF, RTF, TXT, MHT, CSV, HTML,...
+
+<details open>
+  <summary>Hướng dẫn sử dụng  Log Parser Lizard</summary>
+
+Sử dụng câu lệnh SQL để xử lý dữ liệu mà không cần lưu vào database:
+
+![](images/Tools/Logs/Log-Parser-Lizard/animation.gif)
+
+```SQL
+SELECT DISTINCT src-ip FROM firewall.log WHERE action='DROP'
+
+SELECT TOP 100 * FROM c:\webserver.log WHERE sc-status <> 200
+
+SELECT cs-uri-stem FROM c:\InetPub\Logs\ex*.log
+GROUP BY cs-uri-stem HAVING COUNT(*) > 50
+
+SELECT to_lowercase(extract_extension(cs-uri-stem)) AS PageType, SUM(sc-bytes)
+FROM ex131118.log, ex131119.log GROUP BY PageType 
+```
+
+</details>
+</details>
+
+</details>
+
+<details close>
+  <summary class="h6">Công cụ săn tìm mối đe doạ</summary>
+  
+  <details close>
+    <summary>THOR Lite</summary>
+  
+  THOR Lite là một IOC và YARA scanner đa nền tảng, nhanh và linh hoạt. THOR Lite là phiên bản rút gọn và miễn phí của THOR.
+  
+  THOR Lite bao gồm module quét tập tin hệ thống cũng như các tiến trình và các chương trình "autorun" trên nhiều nền tảng.
+  
+  Những tính năng chính của THOR Lite:
+  
+    * Scanner miễn phí cho Windows, Linux and macOS
+    * Bộ luật mã nguồn mở được biên dịch và mã hoá
+    * Công cụ cập nhật để tải xuống phiên bản mới nhất
+    * Quét với luật và IOC tự viết
+    * Nhiều loại kết quả scan: tập tin text, SYSLOG (udp/tcp/tcp+tls), tập tin JSON, JSON thông qua Syslog
+    * Hạn chế sử dụng CPU, không gây nghẽn hệ thống
+  
+  ![](images/Tools/Threat-hunt/THOR-Lite/image-10-27-10.png)
+  
+  <details open>
+    <summary>Hướng dẫn sử dụng THOR Lite</summary>
+  
+    * https://www.nextron-systems.com/thor-lite/
+    * https://www.nextron-systems.com/download-thor-lite/
+    * Đăng ký với email để tải xuống THOR Lite và license.
+    * Giải nén thư mục, di chuyển nó tới vị trí cần thiết.
+    * Di chuyển license vào thư mục thor10lite-win-pack.
+    * Khởi động THOR bằng chương trình thor64-lite.exe và thor-lite.exe
+  
+  ![](images/Tools/Threat-hunt/THOR-Lite/image-10-26-56.png)
+  
+  </details>
+  </details>
+  
+  <details close>
+    <summary>Fastfinder</summary>
+  
+  FastFinder là công cụ được tạo ra để tìm kiếm mối đe dọa (threat hunting), forensics trực tiếp trên nền tảng Windows và Linux. Nó tập trung vào liệt kê endpoint và tìm tập tin đáng ngờ dựa trên các tiêu chí khác nhau.
+  
+  ![](images/Tools/Threat-hunt/Fastfinder/Image-4-22-46.png)
+  
+  Những chức năng chính của Fastfinder:
+  
+    * file path / name
+    * md5 / sha1 / sha256 checksum
+    * Chuỗi đơn giản
+    * Điều kiện phức tạp dựa trên YARA
+  
+  <details open>
+    <summary>Hướng dẫn sử dụng Fastfinder</summary>
+  
+  Tải file thực thi của công cụ tại [đây](https://github.com/codeyourweb/fastfinder/releases), sau đó chạy chương trình qua CLI bằng quyền user hoặc admin
+  
+  ```powershell
+    ___       __  ___  ___         __   ___  __
+   |__   /\  /__`  |  |__  | |\ | |  \ |__  |__)
+   |    /~~\ .__/  |  |    | | \| |__/ |___ |  \
+  
+    2021-2022 | Jean-Pierre GARNIER | @codeyourweb
+    https://github.com/codeyourweb/fastfinder  
+  
+  usage: fastfinder [-h|--help] [-c|--configuration "<value>"] [-b|--build
+                    "<value>"] [-o|--output "<value>"] [-n|--no-window]
+                    [-u|--no-userinterface] [-v|--verbosity <integer>]
+                    [-t|--triage]
+  
+                    Incident Response - Fast suspicious file finder
+  
+  Arguments:
+  
+    -h  --help              Print help information
+    -c  --configuration     Fastfind configuration file. Default:
+    -b  --build             Output a standalone package with configuration and
+                            rules in a single binary
+    -o  --output            Save fastfinder logs in the specified file
+    -n  --no-window         Hide fastfinder window
+    -u  --no-userinterface  Hide advanced user interface
+    -v  --verbosity         File log verbosity
+                                   | 4: Only alert
+                                   | 3: Alert and errors
+                                   | 2: Alerts,errors and I/O operations
+                                   | 1: Full verbosity)
+                                  . Default: 3
+    -t  --triage            Triage mode (infinite run - scan every new file in
+                            the input path directories). Default: false
+  ```
+  
+  </details>
+  </details>
+  
+  <details close>
+    <summary>Fenrir</summary>
+  
+  Fenrir là một bash script với vai trò là IOC Scanner đơn giản. Nó cho phép quét các hệ thống Linux/Unix/OSX để tìm các Indicators of Compromise (IOC).
+  
+  ![](images/Tools/Threat-hunt/Fenrir/Image-4-26-46.png)
+  
+  Những tính năng chính của Fenrir:
+  
+    * Bash Script
+    * Không cần cài đặt agent hoặc phần mềm
+    * Sử dụng công cụ phổ biến để trích xuất các nội dung thuộc tính (ví dụ md5sum, grep, stat ở nhiều chế độ khác nhau)
+    * Có thể chạy trên mọi Linux / Unix / OS X với Bash
+    * Sử dụng ít tài nguyên
+    * Loại trừ thông minh (kích cỡ file, extension, các thư mục loại trừ) tăng tốc quá trình quét
+  
+  <details open>
+    <summary>Hướng dẫn sử dụng Fenrir</summary>
+  
+  ```bash
+  ./fenrir.sh "ĐỊA CHỈ THƯ MỤC"
+  ```
+  
+  Tất cả các cài đặt có thể được định điều chỉnh trong header của script.
+  
+  ![](images/Tools/Threat-hunt/Fenrir/Image-4-33-51.png)
+  
+  </details>
+  </details>
+  
+  <details close>
+    <summary>Loki</summary>
+    
+  Fenrir là một IOC Scanner đơn giản dựa trên 4 nguyên tắc: tên tập tin, yara rule, kiểm tra hash, kiểm tra kết nối đến C2 Server.
+  
+  ![](images/Tools/Threat-hunt/Loki/image-09-43-04.png)
+  
+  Những tính năng khác của Loki:
+    * Kiểm tra tính nguyên vẹn của hệ thống (thông qua --reginfs)
+    * Kiểm tra tiến trình bất thường (dựa trên [Sysforensics](http://goo.gl/P99QZQ))
+    * Giải nén và quét SWF
+    * Kiểm tra SAM dump
+  
+  <details open>
+    <summary>Hướng dẫn sử dụng Loki</summary>
+  
+    * Tải xuống phiên bản mới nhất của LOKI tại [releases](https://github.com/Neo23x0/Loki/releases)
+    * Giải nén bộ công cụ
+    * Chạy loki-upgrader.exe trên hệ thống có kết nối internet để cập nhật các đặc trưng mới nhất 
+    * Di chuyển bộ công cụ tới hệ thống mục tiêu cần quét: USB, ổ cứng di động, network share, copy thư mục tới máy mục tiêu,...
+    * Mở cửa số "cmd.exe" với quyền Administrator và chạy LOKI từ đó (Ta có thể chạy LOKI mà không cần quyền Administrator nhưng một số kiểm tra sẽ bị tắt và một số mục tiêu quét sẽ không thể truy cập được)
+  
+  ```powershell
+  usage: loki.py [-h] [-p path] [-s kilobyte] [-l log-file] [-r remote-loghost]
+                 [-t remote-syslog-port] [-a alert-level] [-w warning-level]
+                 [-n notice-level] [--allhds] [--alldrives] [--printall]
+                 [--allreasons] [--noprocscan] [--nofilescan] [--vulnchecks]
+                 [--nolevcheck] [--scriptanalysis] [--rootkit] [--noindicator]
+                 [--dontwait] [--intense] [--csv] [--onlyrelevant] [--nolog]
+                 [--update] [--debug] [--maxworkingset MAXWORKINGSET]
+                 [--syslogtcp] [--logfolder log-folder] [--nopesieve]
+                 [--pesieveshellc] [--nolisten]
+                 [--excludeprocess EXCLUDEPROCESS] [--force]
+  
+  Loki - Simple IOC Scanner
+  
+  optional arguments:
+    -h, --help            show this help message and exit
+    -p path               Path to scan
+    -s kilobyte           Maximum file size to check in KB (default 5000 KB)
+    -l log-file           Log file
+    -r remote-loghost     Remote syslog system
+    -t remote-syslog-port
+                          Remote syslog port
+    -a alert-level        Alert score
+    -w warning-level      Warning score
+    -n notice-level       Notice score
+    --allhds              Scan all local hard drives (Windows only)
+    --alldrives           Scan all drives (including network drives and
+                          removable media)
+    --printall            Print all files that are scanned
+    --allreasons          Print all reasons that caused the score
+    --noprocscan          Skip the process scan
+    --nofilescan          Skip the file scan
+    --vulnchecks          Run the vulnerability checks
+    --nolevcheck          Skip the Levenshtein distance check
+    --scriptanalysis      Statistical analysis for scripts to detect obfuscated
+                          code (beta)
+    --rootkit             Skip the rootkit check
+    --noindicator         Do not show a progress indicator
+    --dontwait            Do not wait on exit
+    --intense             Intense scan mode (also scan unknown file types and
+                          all extensions)
+    --csv                 Write CSV log format to STDOUT (machine processing)
+    --onlyrelevant        Only print warnings or alerts
+    --nolog               Don't write a local log file
+    --update              Update the signatures from the "signature-base" sub
+                          repository
+    --debug               Debug output
+    --maxworkingset MAXWORKINGSET
+                          Maximum working set size of processes to scan (in MB,
+                          default 100 MB)
+    --syslogtcp           Use TCP instead of UDP for syslog logging
+    --logfolder log-folder
+                          Folder to use for logging when log file is not
+                          specified
+    --nopesieve           Do not perform pe-sieve scans
+    --pesieveshellc       Perform pe-sieve shellcode scan
+    --nolisten            Dot not show listening connections
+    --excludeprocess EXCLUDEPROCESS
+                          Specify an executable name to exclude from scans, can
+                          be used multiple times
+    --force               Force the scan on a certain folder (even if excluded
+                          with hard exclude in LOKI's code
+  ```
+  
+  </details>
+  </details>
+  
+  <details close>
+    <summary>recon</summary>
+  
+  recon là công cụ index metadata đa chức năng tập trung vào loại nội dung.
+  
+  Chúng ta có thể dùng recon như:
+    * `find` với khả năng sử dụng các query phức tạp của SQL
+    * Công cụ điều tra số: Tìm kiếm các tập tin khớp với điều kiện từ đơn giản đến phức tạp trên máy mục tiêu
+    * Công cụ phát hiện và thu thập những phần mềm hoặc nội dung độc hại
+  
+  `$ DATABASE_URL=sqlite::memory: recon <..args..>`
+  
+  <details open>
+    <summary>Hướng dẫn sử dụng recon</summary>
+  
+  Tạo một tập tin cấu hình chứa cá thông tin cần tìm kiếm:
+  
+  ```yaml
+  # ...
+    computed_fields:
+      byte_type: true
+      is_binary: true
+      file_magic: true
+      # crc32: true
+      sha256: true
+      sha512: true
+      simhash: true
+  ```
+  
+  Chỉ tìm tập tin binary:
+  
+  ```powershell
+  recon -c config.yaml -q 'select path from files where is_binary = 1'
+  ```
+  
+  Tạo danh sách chứa các thông tin của tập tin
+  
+  ```powershell
+  recon -c config.yaml -q 'select path,sha256,sha512 from files'
+  ```
+  
+  
+  Xuất mọi thứ
+  
+  ```powershell
+  recon -c config.yaml -q 'select * from files' --csv
+  ```
+  
+  </details>
+  </details>
+  
+  </details>  
+
+<details close>
+<summary class="h6">Công cụ điều tra thiết bị di động</summary>
+
+<details close>
+  <summary>MobSF</summary>
+
+Mobile Security Framework (MobSF) là một công cụ phân tích phần mềm độc hại trên các hệ điều hành di động (IOS, Android, Windows) có khả năng thực hiện phân tích tĩnh và động.
+
+![](images/Tools/Mobile/MobSF/logo.png)
+
+Các tính năng chính của MobSF:
+  * Phân tích tĩnh - Android
+  * Phân tích tĩnh - Android dưới dạng Source Tree
+  * Phân tích tĩnh - iOS
+  * Phân tích động - Android APK
+  * Kiểm tra Web API
+
+<details open>
+  <summary>Hướng dẫn sử dụng MobSF</summary>
+
+Để cài đặt công cụ:
+```powershell
+git clone https://github.com/MobSF/Mobile-Security-Framework-MobSF.git
+cd Mobile-Security-Framework-MobSF
+setup.bat
+```
+
+Để chạy công cụ:
+```powershell
+run.bat 127.0.0.1:8000
+```
+
+Phân tích tĩnh - Android
+
+![](images/Tools/Mobile/MobSF/android-static.gif)
+
+Phân tích tĩnh - Android dưới dạng Source Tree
+
+![](images/Tools/Mobile/MobSF/android-source.gif)
+
+Phân tích tĩnh - iOS
+
+![](images/Tools/Mobile/MobSF/ios-static.gif)
+
+Phân tích động - Android APK
+
+![](images/Tools/Mobile/MobSF/android-dynamic.gif)
+
+Kiểm tra Web API
+
+![](images/Tools/Mobile/MobSF/web-api.gif)
+
+</details>
+</details>
+
+<details close>
+  <summary>Andriller</summary>
+
+Andriller là một bộ công cụ điều tra dành cho điện thoại. Công cụ này có thể thực hiện lấy dữ liệu trên hệ điều hành Android mà không ảnh hưởng đến thiết bị. Nó có thể xuất báo cáo dưới định dạng HTML và Excel.
+
+Các tính năng chính của Andriller:
+  * Khai thác và giải mã dữ liệu.
+  * Trích xuất dữ liệu của thiết bị chưa root bằng Android Backup (Phiên bản Android 4.x).
+  * Trích xuất dữ liệu với quyền root: root adb deamon, chế độ khôi phục CWM hoặc SU (Superuser/SuperSU).
+  * Phân tích cú pháp và giải mã dữ liệu cho: Thư mục, tập tin Tarball (từ bản sao lưu nanddroid) và Sao lưu Android (tệp backup.ab).
+  * Giải mã cơ sở dữ liệu của ứng dụng Android. 
+  * Giải mã cơ sở dữ liệu WhatsApp được mã hóa (.crypt thành .crypt12, phải có *key* phù hợp).
+  * Bẻ khóa màn hình cho Pattern, mã PIN, Mật khẩu.
+  * Giải nén các tập tin sao lưu Android.
+  * Chụp màn hình hiển thị của thiết bị.
+
+<details open>
+  <summary>Hướng dẫn sử dụng Andriller</summary>
+
+Yêu cầu của công cụ:
+
+```
+Python 3.6-3.10 (64-bit)
+adb
+python3-tk
+```
+
+[Ubuntu/Debian] Cài đặt từ terminal: `sudo apt-get install android-tools-adb python3-tk`
+
+[Mac] Cài đặt từ Homebrew: `brew install android-platform-tools`
+
+[Windows]: Đã bao gồm trong bộ công cụ.
+
+Cài đặt:
+
+Tạo một môi trường ảo bằng python3:
+
+```powershell
+python3 -m venv env
+```
+
+Kích hoạt môi trường ảo:
+
+Linux: `source env/bin/activate`
+Windows: `.\env\Scripts\activate`
+
+Cài đặt/Cập nhật Andriller với PIP:
+
+```powershell
+pip install andriller -U
+```
+
+Khởi động công cụ:
+
+```powershell
+python -m andriller
+```
+
+</details>
+</details>
+
+<details close>
+  <summary>ALEAPP</summary>
+
+ALEAPP là công cụ hỗ trợ phân tích Android Logs Events và Protobuf. Công cụ có thể phân tích ổ cứng logic, trích xuất tar và zip cũng như xuất báo cáo ở định dạng html và csv.
+
+![](images/Tools/Mobile/ALEAPP/aleapp.png)
+
+Các tính năng chính của ALEAPP:
+  * Hỗ trợ phân tích các sự kiện và tài khoản trong Wellbeing Android database
+  * Hỗ trợ phân tích sự kiện UsageStats dưới dạng XML và protobuf.
+
+<details open>
+  <summary>Hướng dẫn sử dụng ALEAPP</summary>
+
+Yêu cầu hệ thống:
+
+```
+Python 3.7.4 hoặc cao hơn
+pip install six
+pip install PySimpleGUI
+```
+
+Thông tin tài khoản được trích xuất từ protobuf:
+
+![](images/Tools/Mobile/ALEAPP/14-30-44.png)
+
+Báo cáo sự kiện Wellbeing Android:
+
+![](images/Tools/Mobile/ALEAPP/14-30-52.png)
+
+Báo cáo CSV:
+
+![](images/Tools/Mobile/ALEAPP/14-31-05.png)
+
+</details>
+</details>
+
+<details close>
+  <summary>iLEAPP</summary>
+
+iLEAPP là công cụ phân tích Logs, Events và Plists. Hỗ trợ iOS/iPadOS 11, 12, 13 và 14. công cụ có thể phân tích trực tiếp từ tệp .tar/.zip đã nén hoặc thư mục đã giải nén hoặc thư mục sao lưu iTunes/Finder.
+
+Các tính năng chính của iLEAPP:
+  * Logs cài đặt của thiết bị.
+  * Thông báo của iOS 12 và 13.
+  * Thông tin build (phiên bản iOS,...).
+  * Thông tin dịch vụ di động (IMEI, số điện thoại,...).
+  * Danh sách biểu tượng.
+  * Tên người dùng và máy tính mà thiết bị iOS đã kết nối.
+
+<details open>
+  <summary>Hướng dẫn sử dụng iLEAPP</summary>
+
+Cài đặt môi trường: `py -m pip install -r requirements.txt`
+
+Với linux, ta cần cài đặt `tkinter`: `sudo apt-get install python3-tk`
+
+Chạy công cụ với Command line interface (CLI):
+
+```bash
+$ python ileapp.py -t <zip | tar | fs | gz> -i <path_to_extraction> -o <path_for_report_output>
+```
+
+Chạy công cụ với Graphical User Interface (GUI):
+
+```bash
+$ python ileappGUI.py 
+```
+
+Mở hướng dẫn:
+
+```bash
+$ python ileapp.py --help
+```
+
+</details>
+</details>
+
 </details>
 
 <details close>
@@ -80,7 +1066,7 @@ Chúng ta có thể sử dụng Timeline Explorer hoặc Excel để mở tập 
 <details close>
   <summary>AccessData FTK Imager</summary>
 
-FTK Imager là ứng dụng được phát triển bởi công ty AccessData; Đây là một trong những công ty cung cấp những công cụ phục vụ công tác Computer Forensics tốt nhất hiện này.
+FTK Imager là ứng dụng được phát triển bởi công ty AccessData. Đây là một trong những công ty cung cấp những công cụ phục vụ công tác Computer Forensics tốt nhất hiện này.
 
 FTK Imager được gắn liền với sự phát triển của FTK (Forensic Toolkits) cũng được phát triển bởi AccessData. Hiểu đơn giản, FTK Imager có nhiệm vụ tạo tệp tin ảnh để phục vụ cho FTK phân tích được hiệu quả và nhanh chóng (Hiện nay FTK Imager đã bổ sung nhiều định dạng tệp tin phổ biến để tệp tin ảnh có thể được sử dụng trên nhiều ứng dụng Forensic khác).
 
@@ -88,7 +1074,7 @@ FTK Imager có nhiệm vụ chính là tạo tệp tin ảnh, hay hiểu là t�
 
 ![](images/Tools/Disk/FTK-Imager/image-11-19-54.png)
 
-<details close>
+<details open>
   <summary>Hướng dẫn sử dụng AccessData FTK Imager</summary>
 
 Chọn File – Add Evidence Item để lựa chọn nguồn tạo tệp tin ảnh:
@@ -147,7 +1133,7 @@ Trong hầu hết các cuộc tấn công mạng, chủ sở hữu hợp pháp c
 
 Để giải quyết vấn đề này, ông Vitaly Kamluk, Giám đốc Nhóm Nghiên cứu và Phân tích Toàn cầu của Kaspersky Lab ở Châu Á Thái Bình Dương (APAC) đã tạo ra một công cụ kĩ thuật số nguồn mở có thể thu thập từ xa các tài liệu pháp y quan trọng, thu được hình ảnh đĩa toàn bộ thông qua mạng hoặc lưu trữ đính kèm cục bộ, hoặc đơn giản là hỗ trợ từ xa trong việc xử lí sự cố phần mềm độc hại. Dữ liệu bằng chứng có thể được xem xét và phân tích từ xa hoặc cục bộ trong khi lưu trữ dữ liệu nguồn vẫn còn nguyên vẹn.
 
-<details close>
+<details open>
   <summary>Hướng dẫn sử dụng Bitscout</summary>
 
 1. Xây dựng tập tin ISO:
@@ -186,7 +1172,7 @@ Những tính năng chính của FEX Imager:
   * Chia tập tin ảnh thành các đoạn tùy chỉnh không giới hạn kích thước.
   * Có thể điều chỉnh sector size để thu thập với 512, 2048 hoặc 4096 sector size.
 
-<details close>
+<details open>
   <summary>Hướng dẫn sử dụng FEX Imager</summary>
 
 Chọn thiết bị nguồn:
@@ -218,10 +1204,11 @@ Những tính năng chính của Guymager:
   * Tạo tập tin dd, EWF (E01) và AFF, hỗ trợ sao chép đĩa
   * Miễn phí, mã nguồn mở hoàn toàn
 
-<details close>
+<details open>
   <summary>Hướng dẫn sử dụng Guymager</summary>
 
 ![](images/Tools/Disk/Guymager/image-02-48-12.png) 
+
 
   * Các thiết bị lưu trữ đã kết nối được liệt kê ở phần trên. Các thiết bị mới có thể được kết nối bất cứ lúc nào - nhấn nút Rescan để hiển thị.
   * Các thiết bị được đánh dấu bằng màu đỏ nhạt là các đĩa cứng cục bộ. Không thể tạo ảnh từ các ổ đĩa này để ngăn chặn việc chọn nhầm ổ đĩa. Đĩa cứng cục bộ được nhận dạng bằng số sê-ri có thể được cấu hình.
@@ -252,16 +1239,51 @@ Một số câu lệnh đáng chú ý của Volatility :
   * ldrmodules: liệt kê những mô-đun trong EPROCESS.
   * HollowFind: là 1 plugin của Volatility framework dùng để phát hiện các vùng nhớ đáng ngờ
 
-<details close>
+<details open>
   <summary>Hướng dẫn sử dụng Volatility</summary>
 
 Để xử lý một tập tin RAM dump, ta phải phân tích xem nó là của OS nào bằng câu lệnh:
 `volatility -f <tập_tin_ram_dump.raw> imageinfo`
+
 ![](images/Tools/Memory/Volatility/Image-11-07-1.png)
+
 Sau khi đã biết được profile của tập tin dump RAM này, ta sẽ liệt kê chi tiết về một tiến trình – mà cụ thể ở đây là notepad – kèm với kết hợp câu lệnh grep để lọc ra process muốn tìm.
+
 ![](images/Tools/Memory/Volatility/Image-11-08-34.png)
+
 Sau khi tìm được kết quả như ý muốn, ta ghi nhớ lại số PID của tiến trình notepad trong tập tin dump RAM này. Sau đó, ta sẽ dump riêng process này ra để xem nội dung.
+
 ![](images/Tools/Memory/Volatility/Image-11-08-56.png)
+
+</details>
+</details>
+
+<details close>
+  <summary>VolUtility</summary>
+
+VolUtility là Web interface của Volatility Memory Forensics Framework
+
+![](images/Tools/Memory/VolUtility/Image-2-24-6.png)
+
+Những tính năng chính của VolUtility:
+  * Chạy các plugin và lưu trữ kết quả trong cơ sở dữ liệu mongo. 
+  * Trích xuất các tệp từ plugin (hỗ trợ dump-dir) và lưu trữ trong cơ sở dữ liệu.
+  * Tìm kiếm trên tất cả các plugin và nội dung tệp bằng tìm kiếm strings và yara rules. 
+  * Cho phép làm việc trên nhiều memory dump trong một cơ sở dữ liệu.
+
+<details open>
+  <summary>Hướng dẫn sử dụng VolUtility</summary>
+
+cd tới VolUtility folder, sau đó chạy câu lệnh sau:
+
+```powershell
+./manage.py runserver 0.0.0.0:8000
+```
+Theo mặc định, 0.0.0.0 cho phép website có thể được truy cập từ bất kỳ thiết bị/giao diện mạng nào. Ta có thể thay đổi điều này bằng cách đặt 0.0.0.0 thành một địa chỉ cụ thể hoặc thành 127.0.0.1 chỉ để truy cập local. Cổng 8000 cũng có thể được thay đổi để phù hợp với nhu cầu của người dùng. 
+Sau khi bắt đầu, hãy truy cập trình duyệt tới địa chỉ `IP:Port`.
+
+![](images/Tools/Memory/VolUtility/Image-2-42-20.png)
+
 </details>
 </details>
 
@@ -281,13 +1303,13 @@ Những tính năng chính của Invtero.net:
   * DLR Scripting (Python)
   * Linux cơ bản (Chủ yếu trên: BSD), HyperV, Windows,...
 
-<details close>
+<details open>
   <summary>Hướng dẫn sử dụng Invtero.net</summary>
 
 [Tải xuống công cụ tại đây](https://github.com/ShaneK2/inVtero.net/blob/master/quickdumps/publish.zip)
 
 Đăng ký msdia140.dll bằng câu lệnh 
-```
+```batch
 cmd /c regsvr32 msdia140.dll
 ```
 Sau đó chạy trực tiếp chương trình từ CLI, không cần cài đặt / cấu hình.
@@ -299,7 +1321,9 @@ Sau đó chạy trực tiếp chương trình từ CLI, không cần cài đặt
   <summary>KeeFarce</summary>
 
 KeeFarce cho phép trích xuất thông tin cơ sở dữ liệu mật khẩu KeePass 2.x từ bộ nhớ. KeeFarce sử dụng kỹ thuật DLL injection để thực thi mã độc trong khi tiến trình KeePass đang chạy.
+
 ![](images/Tools/Memory/KeeFarce/Image-9-52-30.png)
+
 KeeFarce có thể thu thập thông tin dạng rõ(cleartext) và lưu dưới dạng CSV ở %AppData%: 
   * Usernames
   * Passwords
@@ -307,7 +1331,7 @@ KeeFarce có thể thu thập thông tin dạng rõ(cleartext) và lưu dưới 
   * Url
 
 
-<details close>
+<details open>
   <summary>Hướng dẫn sử dụng KeeFarce</summary>
 
 Cần lựa chọn bản build KeeFarce thích hợp tùy thuộc vào kiến ​​trúc của mục tiêu (32 bit hoặc 64 bit). Để chạy công cụ, các tệp sau cần nằm trong cùng một thư mục:
@@ -332,7 +1356,7 @@ Những tính năng chính của MemProcFS:
 
   * Giám sát mọi gói tin trao đổi ra/vào máy chủ, trong đó cho phép phát hiện ảnh, các file dữ liệu và tài khoản đăng nhập.
 
-<details close>
+<details open>
   <summary>Hướng dẫn sử dụng MemProcFS</summary>
 
   * Mount memory dump dưới dạng ổ đĩa ảo M:
@@ -375,7 +1399,7 @@ Rekall hỗ trợ điều tra các bộ nhớ 32 bit và 64 bit sau:
   * Linux Kernels 2.6.24 tới hiện tại.
   * OSX 10.7-10.12.x.
 
-<details close>
+<details open>
   <summary>Hướng dẫn sử dụng Rekall</summary>
 
 Rekall có sẵn dưới dạng python package có thể cài đặt thông qua pip package manager. Để cài đặt công cụ, trước tiên hãy tạo một virtal env, chuyển sang nó và sau đó cài đặt rekall:
@@ -387,35 +1411,6 @@ $ source /tmp/MyEnv/bin/activate
 $ pip install --upgrade setuptools pip wheel
 $ pip install rekall-agent rekall
 ```
-</details>
-</details>
-
-<details close>
-  <summary>VolUtility</summary>
-
-VolUtility là Web interface của Volatility Memory Forensics Framework
-
-![](images/Tools/Memory/VolUtility/Image-2-24-6.png)
-
-Những tính năng chính của VolUtility:
-  * Chạy các plugin và lưu trữ kết quả trong cơ sở dữ liệu mongo. 
-  * Trích xuất các tệp từ plugin (hỗ trợ dump-dir) và lưu trữ trong cơ sở dữ liệu.
-  * Tìm kiếm trên tất cả các plugin và nội dung tệp bằng tìm kiếm strings và yara rules. 
-  * Cho phép làm việc trên nhiều memory dump trong một cơ sở dữ liệu.
-
-<details close>
-  <summary>Hướng dẫn sử dụng VolUtility</summary>
-
-cd tới VolUtility folder, sau đó chạy câu lệnh sau:
-
-```
-./manage.py runserver 0.0.0.0:8000
-```
-Theo mặc định, 0.0.0.0 cho phép website có thể được truy cập từ bất kỳ thiết bị/giao diện mạng nào. Ta có thể thay đổi điều này bằng cách đặt 0.0.0.0 thành một địa chỉ cụ thể hoặc thành 127.0.0.1 chỉ để truy cập local. Cổng 8000 cũng có thể được thay đổi để phù hợp với nhu cầu của người dùng. 
-Sau khi bắt đầu, hãy truy cập trình duyệt tới địa chỉ `IP:Port`.
-
-![](images/Tools/Memory/VolUtility/Image-2-42-20.png)
-
 </details>
 </details>
 
@@ -449,7 +1444,7 @@ Các tính năng nổi bật của phần mềm bắt gói tin Wireshark:
   * Coloring rules cho phép thiết lập màu sắc cho các packet giúp phân tích nhanh và hiệu quả hơn.
   * Output có thể export sang XML, PostScript®, CSV, hoặc plain text.
 
-<details close>
+<details open>
   <summary>Hướng dẫn sử dụng Wireshark</summary>
 
 Sau khi download và cài đặt, ta có thể khởi động nó bằng cách double-click vào tên của Network interface trong danh sách phía dưới “Capture” để bắt đầu bắt gói tin trên card mạng đó. Đường biểu diễn phía sau tên Interface thể hiện lưu lượng mạng đang sử dụng.
@@ -494,7 +1489,7 @@ Những tính năng chính của Kismet:
   * Giám sát Bluetooth, BTLE
   * Nhiệt kế không dây, đồng hồ đo điện, Zigbee, v.v.
 
-<details close>
+<details open>
   <summary>Hướng dẫn sử dụng Kismet</summary>
 
 ![Giao diện Kismet​](images/Tools/Network/Kismet/dashboard.png)
@@ -586,7 +1581,7 @@ Những tính năng chính của NetworkMiner:
   * Dữ liệu hiển thị trực quan
   * Dung lượng nhẹ
 
-<details close>
+<details open>
   <summary>Hướng dẫn sử dụng NetworkMiner</summary>
 
 ![Thông tin tại tab Host trong giao diện NetworkMiner​](images/Tools/Network/NetworkMiner/info.png)
@@ -599,358 +1594,5 @@ Tab Anomalies giúp phát hiện các hiện tượng khả nghi và các sự c
 
 </details>
 </details>
-
-</details>
-
-<details close>
-<summary class="h6">Công cụ săn tìm mối đe doạ</summary>
-
-<details close>
-  <summary>THOR Lite</summary>
-
-THOR Lite là một IOC và YARA scanner đa nền tảng, nhanh và linh hoạt. THOR Lite là phiên bản rút gọn và miễn phí của THOR.
-
-THOR Lite bao gồm module quét tập tin hệ thống cũng như các tiến trình và các chương trình "autorun" trên nhiều nền tảng.
-
-Những tính năng chính của THOR Lite:
-
-  * Scanner miễn phí cho Windows, Linux and macOS
-  * Bộ luật mã nguồn mở được biên dịch và mã hoá
-  * Công cụ cập nhật để tải xuống phiên bản mới nhất
-  * Quét với luật và IOC tự viết
-  * Nhiều loại kết quả scan: tập tin text, SYSLOG (udp/tcp/tcp+tls), tập tin JSON, JSON thông qua Syslog
-  * Hạn chế sử dụng CPU, không gây nghẽn hệ thống
-
-![](images/Tools/Threat-hunt/THOR-Lite/image-10-27-10.png)
-
-<details close>
-  <summary>Hướng dẫn sử dụng THOR Lite</summary>
-
-  * https://www.nextron-systems.com/thor-lite/
-  * https://www.nextron-systems.com/download-thor-lite/
-  * Đăng ký với email để tải xuống THOR Lite và license.
-  * Giải nén thư mục, di chuyển nó tới vị trí cần thiết.
-  * Di chuyển license vào thư mục thor10lite-win-pack.
-  * Khởi động THOR bằng chương trình thor64-lite.exe và thor-lite.exe
-
-![](images/Tools/Threat-hunt/THOR-Lite/image-10-26-56.png)
-
-</details>
-</details>
-
-<details close>
-  <summary>Fastfinder</summary>
-
-FastFinder là công cụ được tạo ra để tìm kiếm mối đe dọa (threat hunting), forensics trực tiếp trên nền tảng Windows và Linux. Nó tập trung vào liệt kê endpoint và tìm tập tin đáng ngờ dựa trên các tiêu chí khác nhau
-
-![](images/Tools/Threat-hunt/Fastfinder/Image-4-22-46.png)
-
-Những chức năng chính của Fastfinder:
-
-  * file path / name
-  * md5 / sha1 / sha256 checksum
-  * Chuỗi đơn giản
-  * Điều kiện phức tạp dựa trên YARA
-
-<details close>
-  <summary>Hướng dẫn sử dụng Fastfinder</summary>
-
-Tải file thực thi của công cụ tại [đây](https://github.com/codeyourweb/fastfinder/releases), sau đó chạy chương trình qua CLI bằng quyền user hoặc admin
-
-```
-  ___       __  ___  ___         __   ___  __
- |__   /\  /__`  |  |__  | |\ | |  \ |__  |__)
- |    /~~\ .__/  |  |    | | \| |__/ |___ |  \
-
-  2021-2022 | Jean-Pierre GARNIER | @codeyourweb
-  https://github.com/codeyourweb/fastfinder  
-
-usage: fastfinder [-h|--help] [-c|--configuration "<value>"] [-b|--build
-                  "<value>"] [-o|--output "<value>"] [-n|--no-window]
-                  [-u|--no-userinterface] [-v|--verbosity <integer>]
-                  [-t|--triage]
-
-                  Incident Response - Fast suspicious file finder
-
-Arguments:
-
-  -h  --help              Print help information
-  -c  --configuration     Fastfind configuration file. Default:
-  -b  --build             Output a standalone package with configuration and
-                          rules in a single binary
-  -o  --output            Save fastfinder logs in the specified file
-  -n  --no-window         Hide fastfinder window
-  -u  --no-userinterface  Hide advanced user interface
-  -v  --verbosity         File log verbosity
-                                 | 4: Only alert
-                                 | 3: Alert and errors
-                                 | 2: Alerts,errors and I/O operations
-                                 | 1: Full verbosity)
-                                . Default: 3
-  -t  --triage            Triage mode (infinite run - scan every new file in
-                          the input path directories). Default: false
-```
-
-</details>
-</details>
-
-<details close>
-  <summary>Fenrir</summary>
-
-Fenrir là một bash script với vai trò là IOC Scanner đơn giản. Nó cho phép quét các hệ thống Linux/Unix/OSX để tìm các Indicators of Compromise (IOC).
-
-![](images/Tools/Threat-hunt/Fenrir/Image-4-26-46.png)
-
-Những tính năng chính của Fenrir:
-
-  * Bash Script
-  * Không cần cài đặt agent hoặc phần mềm
-  * Sử dụng công cụ phổ biến để trích xuất các nội dung thuộc tính (ví dụ md5sum, grep, stat ở nhiều chế độ khác nhau)
-  * Có thể chạy trên mọi Linux / Unix / OS X với Bash
-  * Sử dụng ít tài nguyên
-  * Loại trừ thông minh (kích cỡ file, extension, các thư mục loại trừ) tăng tốc quá trình quét
-
-<details close>
-  <summary>Hướng dẫn sử dụng Fenrir</summary>
-
-```
-./fenrir.sh "ĐỊA CHỈ THƯ MỤC"
-```
-
-Tất cả các cài đặt có thể được định điều chỉnh trong header của script.
-
-![](images/Tools/Threat-hunt/Fenrir/Image-4-33-51.png)
-
-</details>
-</details>
-
-<details close>
-  <summary>Loki</summary>
-  
-Fenrir là một IOC Scanner đơn giản dựa trên 4 nguyên tắc: tên tập tin, yara rule, kiểm tra hash, kiểm tra kết nối đến C2 Server.
-
-![](images/Tools/Threat-hunt/Loki/image-09-43-04.png)
-
-Những tính năng khác của Loki:
-  * Kiểm tra tính nguyên vẹn của hệ thống (thông qua --reginfs)
-  * Kiểm tra tiến trình bất thường (dựa trên [Sysforensics](http://goo.gl/P99QZQ))
-  * Giải nén và quét SWF
-  * Kiểm tra SAM dump
-
-<details close>
-  <summary>Hướng dẫn sử dụng Loki</summary>
-
-  * Tải xuống phiên bản mới nhất của LOKI tại [releases](https://github.com/Neo23x0/Loki/releases)
-  * Giải nén bộ công cụ
-  * Chạy loki-upgrader.exe trên hệ thống có kết nối internet để cập nhật các đặc trưng mới nhất 
-  * Di chuyển bộ công cụ tới hệ thống mục tiêu cần quét: USB, ổ cứng di động, network share, copy thư mục tới máy mục tiêu,...
-  * Mở cửa số "cmd.exe" với quyền Administrator và chạy LOKI từ đó (Ta có thể chạy LOKI mà không cần quyền Administrator nhưng một số kiểm tra sẽ bị tắt và một số mục tiêu quét sẽ không thể truy cập được)
-
-```
-usage: loki.py [-h] [-p path] [-s kilobyte] [-l log-file] [-r remote-loghost]
-               [-t remote-syslog-port] [-a alert-level] [-w warning-level]
-               [-n notice-level] [--allhds] [--alldrives] [--printall]
-               [--allreasons] [--noprocscan] [--nofilescan] [--vulnchecks]
-               [--nolevcheck] [--scriptanalysis] [--rootkit] [--noindicator]
-               [--dontwait] [--intense] [--csv] [--onlyrelevant] [--nolog]
-               [--update] [--debug] [--maxworkingset MAXWORKINGSET]
-               [--syslogtcp] [--logfolder log-folder] [--nopesieve]
-               [--pesieveshellc] [--nolisten]
-               [--excludeprocess EXCLUDEPROCESS] [--force]
-
-Loki - Simple IOC Scanner
-
-optional arguments:
-  -h, --help            show this help message and exit
-  -p path               Path to scan
-  -s kilobyte           Maximum file size to check in KB (default 5000 KB)
-  -l log-file           Log file
-  -r remote-loghost     Remote syslog system
-  -t remote-syslog-port
-                        Remote syslog port
-  -a alert-level        Alert score
-  -w warning-level      Warning score
-  -n notice-level       Notice score
-  --allhds              Scan all local hard drives (Windows only)
-  --alldrives           Scan all drives (including network drives and
-                        removable media)
-  --printall            Print all files that are scanned
-  --allreasons          Print all reasons that caused the score
-  --noprocscan          Skip the process scan
-  --nofilescan          Skip the file scan
-  --vulnchecks          Run the vulnerability checks
-  --nolevcheck          Skip the Levenshtein distance check
-  --scriptanalysis      Statistical analysis for scripts to detect obfuscated
-                        code (beta)
-  --rootkit             Skip the rootkit check
-  --noindicator         Do not show a progress indicator
-  --dontwait            Do not wait on exit
-  --intense             Intense scan mode (also scan unknown file types and
-                        all extensions)
-  --csv                 Write CSV log format to STDOUT (machine processing)
-  --onlyrelevant        Only print warnings or alerts
-  --nolog               Don't write a local log file
-  --update              Update the signatures from the "signature-base" sub
-                        repository
-  --debug               Debug output
-  --maxworkingset MAXWORKINGSET
-                        Maximum working set size of processes to scan (in MB,
-                        default 100 MB)
-  --syslogtcp           Use TCP instead of UDP for syslog logging
-  --logfolder log-folder
-                        Folder to use for logging when log file is not
-                        specified
-  --nopesieve           Do not perform pe-sieve scans
-  --pesieveshellc       Perform pe-sieve shellcode scan
-  --nolisten            Dot not show listening connections
-  --excludeprocess EXCLUDEPROCESS
-                        Specify an executable name to exclude from scans, can
-                        be used multiple times
-  --force               Force the scan on a certain folder (even if excluded
-                        with hard exclude in LOKI's code
-```
-
-</details>
-</details>
-
-<details close>
-  <summary>recon</summary>
-
-recon là công cụ index metadata đa chức năng tập trung vào loại nội dung.
-
-Chúng ta có thể dùng recon như:
-  * `find` với khả năng sử dụng các query phức tạp của SQL
-  * Công cụ điều tra số: Tìm kiếm các tập tin khớp với điều kiện từ đơn giản đến phức tạp trên máy mục tiêu
-  * Công cụ phát hiện và thu thập những phần mềm hoặc nội dung độc hại
-
-`$ DATABASE_URL=sqlite::memory: recon <..args..>`
-
-<details close>
-  <summary>Hướng dẫn sử dụng recon</summary>
-
-Tạo một tập tin cấu hình chứa cá thông tin cần tìm kiếm:
-
-```yaml
-# ...
-  computed_fields:
-    byte_type: true
-    is_binary: true
-    file_magic: true
-    # crc32: true
-    sha256: true
-    sha512: true
-    simhash: true
-```
-
-Chỉ tìm tập tin binary:
-
-```
-recon -c config.yaml -q 'select path from files where is_binary = 1'
-```
-
-Tạo danh sách chứa các thông tin của tập tin
-
-```
-recon -c config.yaml -q 'select path,sha256,sha512 from files'
-```
-
-
-Xuất mọi thứ
-
-```
-recon -c config.yaml -q 'select * from files' --csv
-```
-
-</details>
-</details>
-
-<details close>
-  <summary>APT-Hunter</summary>
-
-APT-Hunter là công cụ Threat Hunting dựa trên Event Log của windows được tạo với mindset của purple team để cung cấp khả năng phát hiện các tấn công APT ẩn trong rất nhiều windows event logs để giảm thời gian phát hiện hoạt động đáng ngờ.
-
-Công cụ hoạt động mà không cần phải có giải pháp phức tạp để phân tích cú pháp và phát hiện các cuộc tấn công trong nhật ký sự kiện của windows như giải pháp SIEM và trình thu thập logs.
-
-![](images/Tools/Logs/APT-Hunter/image-04-52-23.png)
-
-Những tính năng chính của APT-Hunter:
-
-  * Phát hiện các hoạt động đáng ngờ nào mà ta không biết trước khi nó trở thành một sự cố lớn.
-  * Phát hiện tấn công nhanh hơn, điều này sẽ làm giảm thời gian phản hồi để nhanh chóng ngăn chặn và loại bỏ các cuộc tấn công.
-  * Đầu ra được cấu hình để tương thích với timesketch để thực hiện phân tích dòng thời gian.
-  * Điều tra nhiều máy chủ nhanh hơn trong khoảng thời gian ngắn.
-  * Giúp ích cho điều tra viên trong những trường hợp không có nhiều thời gian để phân tích chuyên sâu.
-  * Biến hàng triệu sự kiện thành hàng trăm sự kiện với mức độ nghiêm trọng có thể sử dụng làm bộ lọc.
-
-<details close>
-  <summary>Hướng dẫn sử dụng APT-Hunter</summary>
-
-Điều đầu tiên cần làm trước khi sử dụng công cụ là thu thập Event Logs:
-
-```
-# Để thu thập với định dạng EVTX, sử dụng script sau:
-windows-log-collector-full-v3-EVTX.ps1 
-# Để thu thập với định dạng CSV, sử dụng script sau: 
-windows-log-collector-full-v3-CSV.ps1
-```
-
-Cài đặt các thư viện python cần thiết:
-```
-python3 -m pip install -r Requirements.txt
-```
-
-```
-python3 APT-Hunter.py -h
-usage: APT-Hunter.py [-h] [-p PATH] [-o OUT] [-t {csv,evtx}]
-                     [--security SECURITY] [--system SYSTEM]
-                     [--scheduledtask SCHEDULEDTASK] [--defender DEFENDER]
-                     [--powershell POWERSHELL] [--powershellop POWERSHELLOP]
-                     [--terminal TERMINAL] [--winrm WINRM] [--sysmon SYSMON]
- 
-optional arguments:
-  -h, --help            show this help message and exit
-  -p PATH, --path PATH  path to folder containing windows event logs generated by the APT-Hunter-Log-Collector.ps1
-  -o OUT, --out OUT     output file name
-  -t {csv,evtx}, --type {csv,evtx}
-                        csv ( logs from get-eventlog or windows event log GUI
-                        or logs from Get-WinEvent ) , evtx ( EVTX extension
-                        windows event log )
-  --security SECURITY   Path to Security Logs
-  --system SYSTEM       Path to System Logs
-  --scheduledtask SCHEDULEDTASK
-                        Path to Scheduled Tasks Logs
-  --defender DEFENDER   Path to Defender Logs
-  --powershell POWERSHELL
-                        Path to Powershell Logs
-  --powershellop POWERSHELLOP
-                        Path to Powershell Operational Logs
-  --terminal TERMINAL   Path to TerminalServices LocalSessionManager Logs
-  --winrm WINRM         Path to Winrm Logs
-  --sysmon SYSMON       Path to Sysmon Logs
-```
-`-p`: địa chỉ trỏ đến thư mục chứa các Event Logs
-
-`-o`: Tên của dự án
-
-`-t`: Loại của log (ví dụ CSV hoặc EVTX)
-
-Ví dụ:
-
-```
-#python3 APT-Hunter.py  -t evtx  -p /opt/wineventlogs/  -o Project1
- 
-#python3 APT-Hunter.py  -t csv  -p /opt/wineventlogs/  -o Project1
- 
-#python3 APT-Hunter.py  -t evtx  --security evtx/security.evtx -o Project2
-```
-
-</details>
-</details>
-
-
-</details>
-
-<details close>
-<summary class="h6">Công cụ điều tra thiết bị di động</summary>
 
 </details>
