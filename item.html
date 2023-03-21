@@ -218,7 +218,7 @@
       const elms = document.querySelectorAll('p')
       for (const elm of elms) if (elm.firstChild && elm.firstChild.tagName && elm.firstChild === elm.lastChild && elm.firstChild.tagName.toUpperCase() === 'IMG') elm.style.textAlign = 'center'
     }
-    fetch('/' + page + '.md?_=' + Math.random()).then(r => r.text()).then(t => {
+    fetch('./' + page + '.md?_=' + Math.random()).then(r => r.text()).then(t => {
       markdownInit([t])
     }).catch(e => { console.error(e) }).then(() => {
       Prism.highlightAll()
