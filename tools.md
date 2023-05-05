@@ -1471,6 +1471,63 @@ Ngoài cách bắt gói tin và sử dụng giao diện như trên, bạn cũng 
 </details>
 
 <details close>
+  <summary>Brim</summary>
+
+Brim hay còn được biết đến với tên ZUI là ứng dụng mã nguồn mở có thể được sủ dụng để phân tích lưu lượng mạng có cấu trúc.
+
+![image](https://user-images.githubusercontent.com/55577865/236436926-67081cb8-9e6b-495b-92d2-7925be260358.png)
+
+<details open>
+  <summary>Hướng dẫn sử dụng Brim</summary>
+
+Hướng dẫn sử dụng
+
+- Cài đặt Brim Security trên Ubuntu/Debian Desktop
+
+```bash
+wget https://github.com/brimdata/zui/releases/download/v1.0.1/zui_1.0.1_amd64.deb
+apt install ./zui_1.0.1_amd64.deb -y
+```
+
+- Cài đặt Brim trên trên CentOS/Rocky Linux/RHEL: Tương tự, tải xuống các tệp nhị phân RPM từ trang tải xuống;
+
+```bash
+yum local install https://github.com/brimdata/zui/releases/download/v1.0.1/zui-1.0.1.x86_64.rpm
+```
+
+Cài đặt Brim trên  Windows: Tải file cài đặt từ link và thực hiện cài đặt:
+
+```
+https://github.com/brimdata/zui/releases/download/v1.0.1/Zui-Setup-1.0.1.exe
+```
+
+Giao diện khởi chạy của Brim:
+
+![image](https://user-images.githubusercontent.com/55577865/236437202-c483960a-c909-4c7c-8d57-4b4eb25fb1ca.png)
+
+Phân tích lưu lượng mạng với BRIM/ZUI
+
+Nhập tệp PCAP vào Brim để phân tích bằng cách kéo tệp vào Brim hoặc chỉ cần nhập bằng cách tải tệp lên trong khung “IMPORT FILES”
+
+![image](https://user-images.githubusercontent.com/55577865/236437250-55da4223-947b-4934-9674-c4361e44eaa1.png)
+
+Sau khi tải lên, Brim ngay lập tức bắt đầu xử lý tệp lưu lượng truy cập mạng bằng các công cụ ZEEK inbuild;
+
+![image](https://user-images.githubusercontent.com/55577865/236437271-b0b31ea5-1758-49e3-a5cc-e943a2999f9d.png)
+
+Kết quả sau xử lí 
+ 
+![image](https://user-images.githubusercontent.com/55577865/236437296-15218925-e8fc-480d-84cf-9024cacf1dc6.png)
+
+Sau xử lí Brim đưa ra các trường thông tin như dns , stats , conn , freak , capture_loss v.v. Và alert là những nhật ký được tạo bằng quy tắc công cụ Suricata của Brim.
+Brim cũng cho phép hỗ trợ truy vấn log dựa trên các query:
+ 
+![image](https://user-images.githubusercontent.com/55577865/236437313-720611a6-93dd-40a3-95e7-405efa400d00.png)
+
+</details>
+</details>
+  
+<details close>
   <summary>Kismet</summary>
 
 Kismet là công cụ dò tìm, nghe lén và phát hiện người dùng bất hợp pháp xâm nhập vào hệ thống mạng không dây. 
