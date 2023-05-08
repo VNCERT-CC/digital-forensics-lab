@@ -361,6 +361,28 @@ Chúng ta có thể sử dụng Timeline Explorer hoặc Excel để mở tập 
 </details>
 
 <details close>
+  <summary>CyberChef</summary>
+
+CyberChef là một ứng dụng web nguồn mở, miễn phí được thiết kế để thực hiện các kỹ thuật thao tác dữ liệu phổ biến theo cách có cấu trúc, có hệ thống và có thể lặp lại. Điều này bao gồm các hoạt động như giải mã đơn giản, tính toán hàm băm, trích xuất nội dung, phân tích cú pháp định dạng,…CyberChef có thể triển khai trên local hoặc trực tuyến.
+
+<details open>
+  <summary>Hướng dẫn sử dụng CyberChef</summary>
+
+- Cài đặt Git
+- Cài đặt Node.js phiên bản 18 và npm phiên bản 8
+- git clone https://github.com/gchq/CyberChef.git
+- cd CyberChef
+- npm install
+
+
+Hoặc người dùng có thể sử dụng trực tuyến bằng cách truy cập: https://gchq.github.io/CyberChef/
+
+![image](https://user-images.githubusercontent.com/55577865/236771910-35a6998b-03b8-4683-a1dd-ed91038798af.png)
+
+</details>
+</details>
+  
+<details close>
   <summary>Chainsaw</summary>
 
 Chainsaw là công cụ hỗ trợ phân tích và phát hiện dấu hiệu tấn công hệ thống thông qua các đặc trưng từ Windows, ví udj như Event Logs và MFT.  Chainsaw cung cấp một phương pháp tìm kiếm nhanh chóng thông qua từ khóa và xác định mối đe doạ dựa trên Sigma rules.
@@ -598,6 +620,48 @@ FROM ex131118.log, ex131119.log GROUP BY PageType
 </details>
 </details>
 
+<details close>
+  <summary>System Monitor</summary>
+
+System Monitor là một công cụ giám sát mức host thuộc bộ SysInternals được Microsoft cung cấp cho các quản trị viên và nhà phát triển. Sau khi cài đặt, System Monitor sẽ mặc định khởi chạy mỗi khi hệ thống khởi động nhằm đảm bảo ghi nhận đầy đủ các sự kiện. 
+Những thông tin được System Monitor thu thập bao gồm việc tiến trình được khởi tạo/ngừng hoạt động, truy cập đến các vùng nhớ, hành vi kết nối mạng,… Các log được System Monitor ghi lại có thể truy cập thông qua Event Viewer tại mục Applications and Services Logs/Microsoft/Windows/Sysmon/Operational.
+
+![image](https://user-images.githubusercontent.com/55577865/236774393-e631d22f-601b-4239-aab8-47ac040a7504.png)
+
+Các tính năng nổi bật mà System Monitor cung cấp:
+
+- Ghi lại thông tin các tiến trình bao gồm Command line của tiến trình hiện tại và tiến trình cha.
+- Tính toán giá trị hash (MD5, SHA1, SHA256) của tiến trình và các driver/DLL kèm theo.
+- Ghi nhận các hành vi truy cập vào các ổ đĩa và vùng nhớ.
+- Thu thập các thông tin về kết nối mạng bao gồm IP, tiến trình sử dụng mạng, port number, hostname,…
+- Phát hiện các thay đổi ở phần timestamp của các file, cho biết thời gian thực sự của file được khởi tạo.
+- Cho phép tuỳ chỉnh hoạt động theo các file config của người dùng.
+
+<details open>
+  <summary>Hướng dẫn sử dụng System Monitor</summary>
+
+
+Cài đặt:
+
+Sau khi tải bản nén từ trang chủ của SysInternals (https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon) và giải nén, ta cần sử dụng Command line với quyền Administrator nhằm thực hiện cài đặt. 
+
+![image](https://user-images.githubusercontent.com/55577865/236774426-4fb09819-3ecd-4dfc-8e7e-3bee84b110ad.png)
+
+Sau khi cài đặt, System Monitor sẽ khởi chạy mà không cần reboot hệ thống. Các event được System Monitor ghi nhận sẽ tích hợp vào Windows Event Viewer tại mục Applications and Services Logs/Microsoft/Windows/Sysmon/Operational. 
+
+![image](https://user-images.githubusercontent.com/55577865/236774473-8ed843d3-6c5e-4c21-9459-8b6a80b85be1.png)
+ 
+Phạm vi giám sát mặc định của System Monitor sẽ không đáp ứng yêu cầu trong một số trường hợp. Khi đó, người dùng có thể áp dụng các config khác lên System Monitor nhằm mở rộng phạm vi giám sát lên hệ thống.
+ 
+![image](https://user-images.githubusercontent.com/55577865/236774503-666a52db-25fe-40f6-a802-ccce17c17a3b.png)
+
+Người dùng có thể quay lại mục Sysmon log nhằm kiểm tra lượng event đã được cập nhật như yêu cầu hay chưa.
+
+![image](https://user-images.githubusercontent.com/55577865/236774524-3d2a4729-4a62-4167-bcb7-a2ef06fac08f.png)
+
+</details>
+</details>  
+  
 </details>
 
 <details close>
@@ -635,6 +699,92 @@ FROM ex131118.log, ex131119.log GROUP BY PageType
   
   </details>
   </details>
+  
+  <details close>
+  <summary>Autoruns</summary>
+
+Autoruns là một công cụ được phát triển bởi Microsoft Sysinternals cho phép xem, quản lý chương trình khởi động cùng Windows.
+Autoruns là dạng phần mềm loại portable nên người sử dụng không cần cài đặt mà có thể chạy và sử dụng ngay lập tức.
+Autoruns hiện có hai phiên bản với chức năng tương đương: Autoruns GUI và Autoruns command-line. Autoruns hoạt động với Windows XP trở lên.
+
+![image](https://user-images.githubusercontent.com/55577865/236775459-fef416c7-2d0f-49c5-a700-d6ca685487cf.png)
+
+Giao diện Autoruns GUI.
+
+![image](https://user-images.githubusercontent.com/55577865/236775476-d69b9f7c-74f5-4f2a-adfb-d2c6d7f8d7f7.png)
+
+Giao diện Autoruns command-line.
+
+<details open>
+  <summary>Hướng dẫn sử dụng Autoruns</summary>
+
+Các tính năng nổi bật mà Autoruns cung cấp:
+
+- Hiển thị danh sách tất cả các chương trình tự động chạy khi khởi động Windows theo dạng các mục như Logon, Explorer, Internet Explorer, Appinit DLLs, Image Hijacks, Winlogon, Windows Service, Winsock Providers, Boot Execute,....
+
+![image](https://user-images.githubusercontent.com/55577865/236775490-a05e4278-8129-4d14-be22-80cd54089e68.png)
+
+- Tìm kiếm trực tiếp trong registry và các tập tin khởi động của Windows để tìm kiếm các chương trình tự động chạy và cung cấp cho người dùng một danh sách chi tiết của chúng.
+
+![image](https://user-images.githubusercontent.com/55577865/236775514-736c4c99-4bf1-4643-bc08-12d17a3aabfe.png)
+
+- Mục Options mang tới 1 số lựa chọn lọc, chẳng hạn như chỉ hiển thị các chương trình non-Windows, cũng như truy cập vào hộp thoại scan. Từ đây người dùng có thể kích hoạt chế độ xác minh chữ kí hay thực hiện kiểm tra với Virus Total.
+
+![image](https://user-images.githubusercontent.com/55577865/236775537-12134557-9d48-432a-9370-c4ca578d5522.png)
+
+![image](https://user-images.githubusercontent.com/55577865/236775553-0f6eae7d-3857-42a2-ae4a-4a988bedcd2b.png)
+
+-Người sử dụng có thể click chuột phải vào một chương trình rồi chọn Propeties trong menu hiện ra để xem thêm thông tin về chương trình. Để vô hiệu hóa 1 chương trình trong danh sách, chỉ cần bỏ chọn nó trong ô đánh dấu. Nếu muốn xóa chúng khỏi danh sách, người sử dụng có thể chọn Delete trong hộp thoại hiện ra khi dùng chuột phải.
+
+![image](https://user-images.githubusercontent.com/55577865/236775581-41a91208-ec2c-4765-9ca7-3ccbff519570.png)
+
+Autoruns cung cấp các cách tiện lợi và an toàn để quản lý các chương trình tự động chạy trên Windows, giúp người dùng tối ưu hóa hiệu suất hệ thống và bảo vệ máy tính khỏi các chương trình độc hại.
+
+</details>
+</details>
+
+<details close>
+  <summary>Process Monitor </summary>
+
+Process Monitor là một tiện ích hỗ trợ giám sát tiến trình thuộc bộ công cụ SysInternals được Microsoft phân phối miễn phí. Process Monitor được sử dụng nhằm giám sát các tiến trình đang hoạt động, khoá registry và luồng lưu lượng mạng gửi/nhận từ hệ thống.
+Ngoài ra, Process Monitor còn cho phép người dùng lưu lại các event dưới dạng PML (Process Monitor Log), từ đó cho phép điều tra viên lưu trữ, bảo quản nhằm phục vụ cho các khâu phân tích chuyên sâu.
+
+![image](https://user-images.githubusercontent.com/55577865/236777250-ebcc10cd-7f29-4d74-97c3-4344cbc0aab4.png)
+
+Các tính năng nổi bật mà Process Monitor cung cấp:
+
+- Giám sát tiến trình hệ thống theo thời gian thực.
+- Tương thích với các hệ điều hành phổ biến như Windows và Linux.
+- Khả năng ghi nhận event mạnh mẽ, lên đến ~10 triệu event mỗi bản ghi log.
+- Hỗ trợ thu thập Boot log.
+- Cung cấp đầy đủ các tính năng như xem Process Tree, kiểm tra các module được tiến trình sử dụng hay kiểm tra stack của các tiến trình.
+- Cung cấp các bộ lọc theo thời gian thực mà không làm mất dữ liệu.
+
+<details open>
+  <summary>Hướng dẫn sử dụng Process Monitor </summary>
+
+Sau khi tải bản nén từ trang chủ của SysInternals (https://learn.microsoft.com/en-us/sysinternals/downloads/procmon), người dùng có thể chọn file thực thi Process Monitor phù hợp với hệ thống của mình để khởi chạy.
+
+![image](https://user-images.githubusercontent.com/55577865/236777300-f93a5cdb-f51c-4ee3-a0f7-6e9d70e75acc.png)
+ 
+Người dùng có thể tuỳ chọn các cột dữ liệu được hiện thị bằng cách bấm chuột phải vào cột bất kì, chọn Select Columns nhằm thêm bớt các thông tin cần thiết.
+ 
+![image](https://user-images.githubusercontent.com/55577865/236777329-909714ed-8a5e-49ba-8d97-0837e3b023a7.png)
+ 
+Để xem các tiến trình dưới dạng cây, người dùng có thể sử dụng tổ hợp phím Ctrl + T. Các thông tin như Command line, thời gian bắt đầu/kết thúc, đường dẫn,… sẽ được hiển thị tương ứng.
+
+![image](https://user-images.githubusercontent.com/55577865/236777346-f35ebd85-2ff6-44e4-a87b-26ce74552a60.png)
+
+Nhằm quản lý quá trình ghi log về các tiến trình, người dùng có thể sử dụng tổ hợp phím Ctrl + E nhằm bật/tắt quá trình ghi chép. Mặc định khi khởi động, Process Monitor sẽ kích hoạt chế độ ghi. Tham số ở góc dưới cùng bên trái sẽ cho biết số bản ghi đã được ghi lại.
+
+![image](https://user-images.githubusercontent.com/55577865/236777370-838d33df-8935-45a2-b533-61f201b289ae.png)
+ 
+Khi thu thập đủ thông tin, người dùng bấm tổ hợp phím Ctrl + S nhằm lưu lại file log trên. Các định dạng phổ biến cho file log từ Process Monitor là .pml, .csv và .xml.
+
+![image](https://user-images.githubusercontent.com/55577865/236777399-5aa90519-6bb3-4348-bd02-e8d7628533fb.png)
+
+</details>
+</details>  
   
   <details close>
     <summary>Fastfinder</summary>
@@ -1523,6 +1673,76 @@ Sau xử lí Brim đưa ra các trường thông tin như dns , stats , conn , f
 Brim cũng cho phép hỗ trợ truy vấn log dựa trên các query:
  
 ![image](https://user-images.githubusercontent.com/55577865/236437313-720611a6-93dd-40a3-95e7-405efa400d00.png)
+
+</details>
+</details>
+  
+<details close>
+  <summary>GoAccess</summary>
+
+GoAccess là trình phân tích nhật ký web, có thể quan sát theo thời gian thực và trình xem tương tác mã nguồn mở chạy trong terminal trong các hệ thống..
+Cung cấp số liệu thống kê HTTP nhanh chóng và có giá trị cho các quản trị viên hệ thống yêu cầu báo cáo máy chủ trực quan một cách nhanh chóng.
+
+![image](https://user-images.githubusercontent.com/55577865/236773602-e14f5ca9-1804-48ef-a869-b29fe214eb7e.png)
+
+![image](https://user-images.githubusercontent.com/55577865/236773621-db7f7a25-d4fc-4de7-9a5b-7d40eb1ca4e1.png)
+
+<details open>
+  <summary>Hướng dẫn sử dụng GoAccess</summary>
+
+Cài đặt:
+
+```
+$ wget https://tar.goaccess.io/goaccess-1.7.2.tar.gz
+$ tar -xzvf goaccess-1.7.2.tar.gz
+$ cd goaccess-1.7.2/
+$ ./configure --enable-utf8 --enable-geoip=mmdb
+$ make
+# make install
+```
+
+Để xuất ra thiết bị đầu cuối và tạo báo cáo tương tác:
+
+`goaccess access.log`
+
+Để tạo báo cáo HTML:
+
+`# goaccess access.log -a > report.html`
+
+Để tạo báo cáo JSON:
+
+`# goaccess access.log -a -d -o json > report.json`
+
+Để tạo tệp CSV:
+
+`# goaccess access.log --no-csv-summary -o csv > report.csv`
+
+Try vấn lọc dữ liệu dựa trên thời gian:
+
+```
+# sed -n '/05\/Dec\/2010/,$ p' access.log | goaccess -a -
+# sed -n '/'$(date '+%d\/%b\/%Y' -d '1 week ago')'/,$ p' access.log | goaccess -a -
+# sed -n '/5\/Nov\/2010/,/5\/Dec\/2010/ p' access.log | goaccess -a -
+# goaccess access.log --keep-last=5
+```
+
+Để phân tích các trang cụ thể, ví dụ: lượt xem trang, html, htm, phpv.v. trong một yêu cầu:
+
+`# awk '$7~/\.html|\.htm|\.php/' access.log | goaccess -`
+
+Phân tích mã trạng thái cụ thể, ví dụ: 500 (Lỗi Máy chủ Nội bộ):
+
+`# awk '$9~/500/' access.log | goaccess -`
+
+Hoặc nhiều mã trạng thái, ví dụ: tất cả 3xx và 5xx:
+
+`# tail -f -n +0 access.log | awk '$9~/3[0-9]{2}|5[0-9]{2}/' | goaccess -o out.html -`
+
+Và để có cái nhìn tổng quan ước tính về số lượng bot (trình thu thập thông tin) đang tấn công máy chủ:
+
+`# tail -F -n +0 access.log | grep -i --line-buffered 'bot' | goaccess -`
+
+Khi sử dụng, lưu ý cần cấu hình đúng các định dạng format theo logs cần đọc.
 
 </details>
 </details>
