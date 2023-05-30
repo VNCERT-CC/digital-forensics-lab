@@ -63,3 +63,8 @@ a:hover {
 .md-footer, .md-footer-meta {
   background-color: #0a0909 !important;
 }
+
+.md-search {
+  /* No search for vietnamese :( */
+  display: none !important;
+}
