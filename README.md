@@ -16,6 +16,6 @@ Mọi góp ý, đóng góp về sản phẩm, vui lòng tạo một [Issue](http
 rem Serve để thực hiện thay đổi trên localhost
 serve.cmd
 
-rem Build ra các tệp tĩnh tại build/
+rem Build ra các tệp tĩnh tại dist/
 build.cmd
 ```
