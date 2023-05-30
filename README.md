@@ -13,6 +13,9 @@ Mọi góp ý, đóng góp về sản phẩm, vui lòng tạo một [Issue](http
 
 # Build & serve
 ```
+rem Fetch deps
+python -m pip install -r requirements.txt
+
 rem Serve để thực hiện thay đổi trên localhost
 serve.cmd
 
