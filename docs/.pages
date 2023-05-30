@@ -1,0 +1,8 @@
+Title: Trang chủ
+nav:
+  - "Giới thiệu": README.md
+  - "Sổ tay ứng cứu sự cố": playbooks
+  - "Bộ công cụ hỗ trợ phân tích": tools
+  - "Hệ thống hỗ trợ phân tích": platform
+  - "Tình huống giả định": scenarios
+  - "Tài nguyên tham khảo": resources.md

@@ -1,0 +1,83 @@
+site_name: Digital Forensics Lab
+
+# site_url: https://vncert-cc.github.io/dflab-documents/
+
+theme:
+  logo: /logo-dflab.png
+  favicon: /favicon.png
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.indexes
+    - navigation.sections
+    - navigation.instant
+    - navigation.tracking
+    - navigation.top
+    - navigation.top
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotation
+    - content.code.copy
+  language: vi
+  palette:
+    primary: custom
+    scheme: slate
+    # accent: blue
+
+plugins:
+  - search
+  - social
+  - git-revision-date-localized:
+      type: datetime
+  - awesome-pages
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          rendering:
+            show_source: false
+
+extra:
+  homepage: https://df.irlab.vn/
+  social:
+    - icon: fontawesome/solid/house
+      link: "https://vncert.vn/"
+    - icon: fontawesome/brands/github-alt
+      link: https://github.com/VNCERT-CC
+
+extra_css:
+  - stylesheets/extra.css
+
+repo_name: "Git: VNCERT-CC"
+repo_url: "https://github.com/VNCERT-CC/digital-forensics-lab"
+
+markdown_extensions:
+  - toc:
+        permalink: "#"
+  - codehilite
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - admonition
+  - pymdownx.critic
+  - pymdownx.arithmatex:
+      generic: true
+  - footnotes
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.mark
+  - attr_list
+  - pymdownx.tasklist:
+        custom_checkbox: true
+  - pymdownx.tabbed:
+        alternate_style: true 
+  - pymdownx.emoji:
+        emoji_index: !!python/name:materialx.emoji.twemoji
+        emoji_generator: !!python/name:materialx.emoji.to_svg
+
+copyright: |
+  &copy; 2023 <a href="https://vncert.vn/"  target="_blank" rel="noopener">VNCERT/CC</a>

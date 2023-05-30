@@ -1,0 +1,4 @@
+nav:
+    - "Sổ tay ứng cứu sự cố": index.md
+    - "Sự cố giả mạo (Phishing)": phishing
+    - "Sự cố mã độc (Malware)": malware

@@ -1,0 +1,65 @@
+:root {
+  --md-primary-fg-color: #00549a !important;
+  --md-default-bg-color: #141111 !important;
+  --md-accent-fg-color: #00549a !important;
+  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+html,
+body {
+  color: #fff !important;
+  /* color: #b50815 !important; */
+  background-color: #0a0909 !important;
+  ;
+}
+
+.md-nav__link--passed {
+  color: #00549a !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.headerlink {
+  color: #f00 !important;
+}
+
+a:hover {
+  color: #f00 !important;
+}
+
+.md-tabs__link {
+  opacity: 1 !important;
+}
+
+.md-nav__link--active {
+  color: #f00 !important;
+}
+
+.md-tabs__link--active {
+  color: #f00 !important;
+  font-weight: bold;
+}
+
+.md-nav__item--active .md-nav__link {
+  background: none !important;
+  box-shadow: none !important;
+}
+
+.md-nav__title[for="__toc"] {
+  color: #f00 !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+.md-header,
+.md-tabs {
+  background: #000 !important;
+}
+
+.md-footer, .md-footer-meta {
+  background-color: #0a0909 !important;
+}

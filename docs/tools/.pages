@@ -1,0 +1,9 @@
+nav:
+    - "Bộ công cụ hỗ trợ phân tích": index.md
+    - "Công cụ do VNCERT phát triển": vncert
+    - "Công cụ điều tra nhật ký sự kiện": log
+    - "Công cụ săn tìm mối đe doạ": hunt
+    - "Công cụ điều tra phương tiện lưu trữ": disk
+    - "Công cụ điều tra thiết bị di động": mobile
+    - "Công cụ điều tra dữ liệu bộ nhớ": memory
+    - "Công cụ điều tra mạng": network
