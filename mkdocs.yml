@@ -3,8 +3,8 @@ site_name: Digital Forensics Lab
 # site_url: https://vncert-cc.github.io/dflab-documents/
 
 theme:
-  logo: /logo-dflab.png
-  favicon: /favicon.png
+  logo: ./logo-dflab.png
+  favicon: ./favicon.png
   name: material
   features:
     - navigation.tabs
