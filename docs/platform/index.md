@@ -8,9 +8,9 @@ Ngoài ra, chúng tôi cung cấp sẵn các công cụ online sử dụng để
 
 Một số công cụ online được cung cấp như:
 
-- Công cụ phân tích và tra cứu nhật ký
-- Công cụ phân tích hành vi mã độc
-- Công cụ phân tích nhật ký theo thời gian
-- Công cụ hỗ trợ ứng cứu sự cố tập trung
+- [Công cụ phân tích và tra cứu nhật ký](https://irlab.vn/tools/log-analysis)
+- [Công cụ phân tích hành vi mã độc](https://irlab.vn/tools/malware-analysis)
+- [Công cụ phân tích nhật ký theo thời gian](https://irlab.vn/tools/timeline)
+- [Công cụ hỗ trợ ứng cứu sự cố tập trung](https://irlab.vn/tools/vhunt)
 
 Vui lòng liên hệ để truy cập và sử dụng các công cụ này.
