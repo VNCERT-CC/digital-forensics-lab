@@ -50,3 +50,7 @@ x-forwarded-for.
 2. [Tình huống 2: Tấn công mã hóa máy ảo](./challenge2/index.md)
 
 3. [Tình huống 3: Tấn công vào máy chủ web](./challenge3/index.md)
+
+4. [Tình huống 4: Tấn công chiếm quyền trong môi trường domain](./challenge4/index.md)
+
+5. [Tình huống 5: ](./challenge5/index.md)
