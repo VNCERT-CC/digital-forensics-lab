@@ -1,10 +1,10 @@
-site_name: Digital Forensics Lab
+site_name: Digital Forensics Lab | Cục An toàn thông tin  | VNCERT/CC
 
 # site_url: https://vncert-cc.github.io/dflab-documents/
 
 theme:
   logo: ./logo-dflab.png
-  favicon: ./favicon.png
+  favicon: ./favicon.ico
   name: material
   features:
     - navigation.tabs
@@ -41,6 +41,7 @@ plugins:
             show_source: false
 
 extra:
+  generator: false
   homepage: https://df.irlab.vn/
   social:
     - icon: fontawesome/solid/house
@@ -80,4 +81,4 @@ markdown_extensions:
         emoji_generator: !!python/name:materialx.emoji.to_svg
 
 copyright: |
-  &copy; 2023 <a href="https://vncert.vn/"  target="_blank" rel="noopener">VNCERT/CC</a>
+  &copy; 2023 <a href="https://vncert.vn/"  target="_blank" rel="noopener">Cục An toàn thông tin (VNCERT/CC)</a>
