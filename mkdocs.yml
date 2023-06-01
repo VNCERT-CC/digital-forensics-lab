@@ -1,10 +1,10 @@
-site_name: Digital Forensics Lab | Cục An toàn thông tin  | VNCERT/CC
+site_name: Digital Forensics Lab - Cục An toàn thông tin (VNCERT/CC)
 
 # site_url: https://vncert-cc.github.io/dflab-documents/
 
 theme:
   logo: ./logo-dflab.png
-  favicon: ./favicon.ico
+  favicon: ./logo.svg
   name: material
   features:
     - navigation.tabs
