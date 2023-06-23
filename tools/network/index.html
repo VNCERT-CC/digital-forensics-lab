@@ -1,0 +1,1612 @@
+
+<!doctype html>
+<html lang="vi" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../memory/">
+      
+      
+        <link rel="next" href="../../platform/">
+      
+      <link rel="icon" href="../../logo.svg">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
+    
+    
+      
+        <title>Công cụ điều tra mạng - Digital Forensics Lab - Cục An toàn thông tin (VNCERT/CC)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.85bb2934.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a6bdf11c.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Công cụ điều tra mạng - Digital Forensics Lab - Cục An toàn thông tin (VNCERT/CC)" >
+      
+        <meta  property="og:description"  content="None" >
+      
+        <meta  property="og:image"  content="./assets/images/social/tools/network/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="None" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Công cụ điều tra mạng - Digital Forensics Lab - Cục An toàn thông tin (VNCERT/CC)" >
+      
+        <meta  name="twitter:description"  content="None" >
+      
+        <meta  name="twitter:image"  content="./assets/images/social/tools/network/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cong-cu-ieu-tra-mang" class="md-skip">
+          Bỏ qua
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Đầu trang">
+    <a href="https://df.irlab.vn/" title="Digital Forensics Lab - Cục An toàn thông tin (VNCERT/CC)" class="md-header__button md-logo" aria-label="Digital Forensics Lab - Cục An toàn thông tin (VNCERT/CC)" data-md-component="logo">
+      
+  <img src="../../logo-dflab.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Digital Forensics Lab - Cục An toàn thông tin (VNCERT/CC)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Công cụ điều tra mạng
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Tìm kiếm" placeholder="Tìm kiếm" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Tìm kiếm">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Xoá" aria-label="Xoá" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/VNCERT-CC/digital-forensics-lab" title="Xem mã nguồn" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Git: VNCERT-CC
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Giới thiệu
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../playbooks/" class="md-tabs__link">
+        Sổ tay ứng cứu sự cố
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        Bộ công cụ hỗ trợ phân tích
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../platform/" class="md-tabs__link">
+        Hệ thống hỗ trợ phân tích
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../scenarios/" class="md-tabs__link">
+        Tình huống giả định
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../resources/" class="md-tabs__link">
+      Tài nguyên tham khảo
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Thanh điều hướng" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://df.irlab.vn/" title="Digital Forensics Lab - Cục An toàn thông tin (VNCERT/CC)" class="md-nav__button md-logo" aria-label="Digital Forensics Lab - Cục An toàn thông tin (VNCERT/CC)" data-md-component="logo">
+      
+  <img src="../../logo-dflab.png" alt="logo">
+
+    </a>
+    Digital Forensics Lab - Cục An toàn thông tin (VNCERT/CC)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/VNCERT-CC/digital-forensics-lab" title="Xem mã nguồn" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Git: VNCERT-CC
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Giới thiệu
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../playbooks/">Sổ tay ứng cứu sự cố</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Sổ tay ứng cứu sự cố
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../playbooks/phishing/">Sự cố giả mạo (Phishing)</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Sự cố giả mạo (Phishing)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../playbooks/malware/">Sự cố mã độc (Malware)</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Sự cố mã độc (Malware)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Bộ công cụ hỗ trợ phân tích</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Bộ công cụ hỗ trợ phân tích
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../vncert/">Công cụ do VNCERT phát triển</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Công cụ do VNCERT phát triển
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../log/">Công cụ điều tra nhật ký sự kiện</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Công cụ điều tra nhật ký sự kiện
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../hunt/">Công cụ săn tìm mối đe doạ</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Công cụ săn tìm mối đe doạ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../disk/">Công cụ điều tra phương tiện lưu trữ</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          Công cụ điều tra phương tiện lưu trữ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../mobile/">Công cụ điều tra thiết bị di động</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Công cụ điều tra thiết bị di động
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../memory/">Công cụ điều tra dữ liệu bộ nhớ</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          Công cụ điều tra dữ liệu bộ nhớ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" checked>
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index md-nav__link--active">
+          <a href="./">Công cụ điều tra mạng</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3_8">
+          <span class="md-nav__icon md-icon"></span>
+          Công cụ điều tra mạng
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../platform/">Hệ thống hỗ trợ phân tích</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Hệ thống hỗ trợ phân tích
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../scenarios/">Tình huống giả định</a>
+          
+            <label for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Tình huống giả định
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../scenarios/challenge1/">Tình huống 1</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tình huống 1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../scenarios/challenge2/">Tình huống 2</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tình huống 2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../scenarios/challenge3/">Tình huống 3</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          Tình huống 3
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../scenarios/challenge4/">Tình huống 4</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_5">
+          <span class="md-nav__icon md-icon"></span>
+          Tình huống 4
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../scenarios/challenge5/">Tình huống 5</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_6">
+          <span class="md-nav__icon md-icon"></span>
+          Tình huống 5
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_7" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../scenarios/challenge6/">Tình huống 6</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_7">
+          <span class="md-nav__icon md-icon"></span>
+          Tình huống 6
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        Tài nguyên tham khảo
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Mục lục">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Mục lục
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#wireshark" class="md-nav__link">
+    Wireshark
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#brim" class="md-nav__link">
+    Brim
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kismet" class="md-nav__link">
+    Kismet
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#networkminer" class="md-nav__link">
+    NetworkMiner
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="cong-cu-ieu-tra-mang">Công cụ điều tra mạng<a class="headerlink" href="#cong-cu-ieu-tra-mang" title="Permanent link">#</a></h1>
+<h2 id="wireshark">Wireshark<a class="headerlink" href="#wireshark" title="Permanent link">#</a></h2>
+<p>Wireshark là một ứng dụng dùng để bắt (capture), phân tích và xác định các vấn đề liên quan đến network như: rớt gói tin, kết nối chậm, hoặc các truy cập bất thường. Phần mềm này cho phép quản trị viên hiểu sâu hơn các Network Packets đang chạy trên hệ thống, qua đó dễ dàng xác định các nguyên nhân chính xác gây ra lỗi.</p>
+<p>Sử dụng WireShark có thể capture các packet trong thời gian thực (realtime), lưu trữ chúng lại và phân tích chúng offline. Ngoài ra, nó cũng bao gồm các filter, color coding và nhiều tính năng khác, cho phép người dùng tìm hiểu sâu hơn về lưu lượng mạng cũng như inspect (kiểm tra) các packets.</p>
+<p>Ứng dụng được viết bằng ngôn ngữ C và hệ điều hành Cross-platform, ngoài ra hiện này gồm có các bản phân phối Linux, Windows, OS X, FreeBSD, NetBSD và OpenBSD. Đây là một phần mềm mã nguồn mở, được cấp phép GPL, và do đó miễn phí sử dụng, tự do chia sẻ và sửa đổi.</p>
+<p><img alt="Logo" src="wireshark/logo.png" /></p>
+<p>Các tính năng nổi bật của phần mềm bắt gói tin Wireshark:</p>
+<ul>
+<li>Hỗ trợ phân tích sâu hàng trăm giao thức và liên tục được cập nhật.</li>
+<li>Live capture và phân tích offline.</li>
+<li>Hoạt động đa nền tảng: Windows, Linux, MacOS, Solaris, FreeBSD, OpenBSD…</li>
+<li>Các gói tin đã capture có thể xem bằng giao diện hoặc sử dụng command line (tshark).</li>
+<li>Display filter mạnh mẽ.</li>
+<li>Hỗ trợ phân tích VoIP chuyên sâu.</li>
+<li>Hỗ trợ read/write nhiều định dạng: tcpdump (libpcap), Pcap NG, Catapult DCT2000, Cisco Secure IDS iplog, Microsoft Network Monitor, Network General Sniffer® (compressed and uncompressed), Sniffer® Pro, and NetXray®, Network Instruments Observer, NetScreen snoop, Novell LANalyzer, RADCOM WAN/LAN Analyzer, Shomiti/Finisar Surveyor, Tektronix K12xx, Visual Networks Visual UpTime, WildPackets EtherPeek/TokenPeek/AiroPeek …</li>
+<li>File capture được nén bằng gzip có thể được giải nén “on the fly”.</li>
+<li>Capture dữ liệu từ Ethernet, IEEE 802.11, PPP/HDLC, ATM, Bluetooth, USB, Token Ring, Frame Relay, FDDI …</li>
+<li>Hỗ trợ decryption của nhiều giao thức như: IPsec, ISAKMP, Kerberos, SNMPv3, SSL/TLS, WEP, and WPA/WPA2.</li>
+<li>Coloring rules cho phép thiết lập màu sắc cho các packet giúp phân tích nhanh và hiệu quả hơn.</li>
+<li>Output có thể export sang XML, PostScript®, CSV, hoặc plain text.</li>
+</ul>
+<details class="note">
+<summary>Hướng dẫn sử dụng Wireshark</summary>
+<p>Sau khi download và cài đặt, ta có thể khởi động nó bằng cách double-click vào tên của Network interface trong danh sách phía dưới “Capture” để bắt đầu bắt gói tin trên card mạng đó. Đường biểu diễn phía sau tên Interface thể hiện lưu lượng mạng đang sử dụng.</p>
+<blockquote>
+<p>Ví dụ: Nếu muốn bắt gói tin trong mạng wifi, hãy double click vào “Wi-Fi” (hoặc “Wireless Interface”). Ngoài ra, chúng ta cũng có thể thiết lập các biểu thứ ở phần “…using this filter” để lọc và capture những packet chỉ định khi thỏa mãn yêu cầu.</p>
+</blockquote>
+<p><img alt="Bắt gói tin mạng wifi" src="wireshark/capture.png" /></p>
+<p>Sau đó, các packet sẽ bắt đầu hiển thị theo thời gian thực. Wireshark sẽ capture từng packet được gửi đến hoặc đi từ hệ thống của ta.</p>
+<p>Click vào nút “Stop” màu đỏ (ở góc trên bên trái của cửa sổ – hoặc chọn “Capture &gt; Stop”) nếu muốn dừng việc capture lại.</p>
+<p><img alt="Dừng bắt gói tin" src="wireshark/stop.png" /></p>
+<p>Ngoài cách bắt gói tin và sử dụng giao diện như trên, bạn cũng có thể dùng cách bắt gói tin bằng cách sử dụng command line được đề cập ở phần nâng cao phía dưới bài viết.</p>
+<p>Để mở gói tin bằng Wireshark, chọn “File &gt; Open” và tìm đến đường dẫn của file cần mở.</p>
+<p><img alt="Mở gói tin" src="wireshark/open.png" /></p>
+<p>Để lưu gói tin đã capture, click vào “File &gt; Save”, sau đó chọn dường dẫn để lưu trữ, đặt tên cho file capture và định dạng sẽ lưu.</p>
+</details>
+<h2 id="brim">Brim<a class="headerlink" href="#brim" title="Permanent link">#</a></h2>
+<blockquote>
+<p>Được đóng góp bởi: <a href="https://www.bkav.com.vn/">Công ty Cổ phần BKAV</a></p>
+</blockquote>
+<p>Brim hay còn được biết đến với tên ZUI là ứng dụng mã nguồn mở có thể được sủ dụng để phân tích lưu lượng mạng có cấu trúc.</p>
+<p><img alt="image" src="https://user-images.githubusercontent.com/55577865/236436926-67081cb8-9e6b-495b-92d2-7925be260358.png" /></p>
+<details class="note">
+<summary>Hướng dẫn sử dụng Brim</summary>
+<ul>
+<li>Cài đặt Brim Security trên Ubuntu/Debian Desktop</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>wget<span class="w"> </span>https://github.com/brimdata/zui/releases/download/v1.0.1/zui_1.0.1_amd64.deb
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>apt<span class="w"> </span>install<span class="w"> </span>./zui_1.0.1_amd64.deb<span class="w"> </span>-y
+</code></pre></div>
+<ul>
+<li>Cài đặt Brim trên trên CentOS/Rocky Linux/RHEL: Tương tự, tải xuống các tệp nhị phân RPM từ trang tải xuống;</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>yum<span class="w"> </span><span class="nb">local</span><span class="w"> </span>install<span class="w"> </span>https://github.com/brimdata/zui/releases/download/v1.0.1/zui-1.0.1.x86_64.rpm
+</code></pre></div>
+<p>Cài đặt Brim trên  Windows: Tải file cài đặt từ link và thực hiện cài đặt:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>https://github.com/brimdata/zui/releases/download/v1.0.1/Zui-Setup-1.0.1.exe
+</code></pre></div>
+<p>Giao diện khởi chạy của Brim:</p>
+<p><img alt="image" src="https://user-images.githubusercontent.com/55577865/236437202-c483960a-c909-4c7c-8d57-4b4eb25fb1ca.png" /></p>
+<p>Phân tích lưu lượng mạng với BRIM/ZUI</p>
+<p>Nhập tệp PCAP vào Brim để phân tích bằng cách kéo tệp vào Brim hoặc chỉ cần nhập bằng cách tải tệp lên trong khung “IMPORT FILES”</p>
+<p><img alt="image" src="https://user-images.githubusercontent.com/55577865/236437250-55da4223-947b-4934-9674-c4361e44eaa1.png" /></p>
+<p>Sau khi tải lên, Brim ngay lập tức bắt đầu xử lý tệp lưu lượng truy cập mạng bằng các công cụ ZEEK inbuild;</p>
+<p><img alt="image" src="https://user-images.githubusercontent.com/55577865/236437271-b0b31ea5-1758-49e3-a5cc-e943a2999f9d.png" /></p>
+<p>Kết quả sau xử lí </p>
+<p><img alt="image" src="https://user-images.githubusercontent.com/55577865/236437296-15218925-e8fc-480d-84cf-9024cacf1dc6.png" /></p>
+<p>Sau xử lí Brim đưa ra các trường thông tin như dns , stats , conn , freak , capture_loss v.v. Và alert là những nhật ký được tạo bằng quy tắc công cụ Suricata của Brim.
+Brim cũng cho phép hỗ trợ truy vấn log dựa trên các query:</p>
+<p><img alt="image" src="https://user-images.githubusercontent.com/55577865/236437313-720611a6-93dd-40a3-95e7-405efa400d00.png" /></p>
+</details>
+<h2 id="kismet">Kismet<a class="headerlink" href="#kismet" title="Permanent link">#</a></h2>
+<p>Kismet là công cụ dò tìm, nghe lén và phát hiện người dùng bất hợp pháp xâm nhập vào hệ thống mạng không dây. </p>
+<p>Kismet chủ yếu tập trung vào việc thu thập, đối chiếu và phân loại dữ liệu không dây. Logs do Kismet tạo có thể được đưa vào các công cụ khác (pcap, handshakes và các dữ liệu khác) như hashcat, aircrack, v.v.</p>
+<p>Kismet có thể hoạt động cả headless như một hệ thống giám sát và Wireless IDS (WIDS) độc lập hoặc với giao diện trên web UI.</p>
+<p>Kismet có thể chạy trên nhiều loại phần cứng, từ thiết bị rất nhỏ đến máy chủ lớn, tùy thuộc vào lượng lưu lượng truy cập dự định giám sát.</p>
+<p><img alt="Logo" src="kismet/logo.png" /></p>
+<p>Những tính năng chính của Kismet:</p>
+<ul>
+<li>Nghe lén gói tin, WIDS, wardriver và giám sát gói tin cho mạng Wi-Fi</li>
+<li>Giám sát Bluetooth, BTLE</li>
+<li>Nhiệt kế không dây, đồng hồ đo điện, Zigbee, v.v.</li>
+</ul>
+<details class="note">
+<summary>Hướng dẫn sử dụng Kismet</summary>
+<p><img alt="Giao diện Kismet​" src="kismet/dashboard.png" /></p>
+<p>Cách đơn giản nhất để khởi động Kismet là mở terminal và chỉ cần chạy câu lệnh:</p>
+<p><code>kismet</code></p>
+<p>Câu lệnh này sẽ chạy Kismet với cấu hình mặc định. Kismet sẽ hiển thị thông tin về quá trình khởi động và các lỗi nếu có.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>dragorn@boron<span class="w"> </span>~<span class="w"> </span>%<span class="w"> </span>kismet<span class="w"> </span>-n<span class="w"> </span>--no-ncurses
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>INFO:<span class="w"> </span>Including<span class="w"> </span>sub-config<span class="w"> </span>file:<span class="w"> </span>/usr/local/etc/kismet_httpd.conf
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>INFO:<span class="w"> </span>Including<span class="w"> </span>sub-config<span class="w"> </span>file:<span class="w"> </span>/usr/local/etc/kismet_memory.conf
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>INFO:<span class="w"> </span>Including<span class="w"> </span>sub-config<span class="w"> </span>file:<span class="w"> </span>/usr/local/etc/kismet_alerts.conf
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>INFO:<span class="w"> </span>Including<span class="w"> </span>sub-config<span class="w"> </span>file:<span class="w"> </span>/usr/local/etc/kismet_80211.conf
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>INFO:<span class="w"> </span>Including<span class="w"> </span>sub-config<span class="w"> </span>file:<span class="w"> </span>/usr/local/etc/kismet_logging.conf
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>INFO:<span class="w"> </span>Including<span class="w"> </span>sub-config<span class="w"> </span>file:<span class="w"> </span>/usr/local/etc/kismet_filter.conf
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>INFO:<span class="w"> </span>Including<span class="w"> </span>sub-config<span class="w"> </span>file:<span class="w"> </span>/usr/local/etc/kismet_uav.conf
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>INFO:<span class="w"> </span>Loading<span class="w"> </span>config<span class="w"> </span>override<span class="w"> </span>file<span class="w"> </span><span class="s1">&#39;/usr/local/etc/kismet_package.conf&#39;</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>INFO:<span class="w"> </span>Optional<span class="w"> </span>sub-config<span class="w"> </span>file<span class="w"> </span>not<span class="w"> </span>present:<span class="w"> </span>/usr/local/etc/kismet_package.conf
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>INFO:<span class="w"> </span>Loading<span class="w"> </span>config<span class="w"> </span>override<span class="w"> </span>file<span class="w"> </span><span class="s1">&#39;/usr/local/etc/kismet_site.conf&#39;</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>INFO:<span class="w"> </span>Optional<span class="w"> </span>sub-config<span class="w"> </span>file<span class="w"> </span>not<span class="w"> </span>present:<span class="w"> </span>/usr/local/etc/kismet_site.conf
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>INFO:<span class="w"> </span>Setting<span class="w"> </span>server<span class="w"> </span>UUID<span class="w"> </span>DBC402AE-9B3E-11EC-88C2-4B49534D4554
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>INFO:<span class="w"> </span>Starting<span class="w"> </span>Beast<span class="w"> </span>webserver<span class="w"> </span>on<span class="w"> </span><span class="m">0</span>.0.0.0:2501
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>INFO:<span class="w"> </span>Opened<span class="w"> </span>OUI<span class="w"> </span>file<span class="w"> </span><span class="s1">&#39;/usr/local/share/kismet/kismet_manuf.txt.gz</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="s1">INFO: Indexing manufacturer db</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="s1">INFO: Completed indexing manufacturer db, 31466 lines 630 indexes</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="s1">INFO: Saving devices to the Kismet database log every 30 seconds.</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="s1">INFO: Using default rates of 10/min, 1/sec for alert &#39;</span>DEVICEFOUND<span class="s1">&#39;</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="s1">INFO: Using default rates of 10/min, 1/sec for alert &#39;</span>DEVICELOST<span class="s1">&#39;</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="s1">INFO: Registering support for DLT_PPI packet header decoding</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="s1">INFO: Registering support for DLT_RADIOTAP packet header decoding</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="s1">INFO: Registering support for DLT_BTLE_RADIO packet header decoding</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="s1">INFO: Using default rates of 10/min, 1/sec for alert &#39;</span>BADFIXLENIE<span class="s1">&#39;</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="s1">INFO: PHY80211 will only process AP signal levels from beacons</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="s1">INFO: Allowing Kismet clients to view WEP keys</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="s1">INFO: Keeping EAPOL packets in memory for easy download and WIDS functionality; this can use more RAM.</span>
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="s1">INFO: Registered PHY handler &#39;</span>IEEE802.11<span class="s1">&#39; as ID 0</span>
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="s1">INFO: Registered PHY handler &#39;</span>RTL433<span class="s1">&#39; as ID 1</span>
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="s1">INFO: Registered PHY handler &#39;</span>Z-Wave<span class="s1">&#39; as ID 2</span>
+<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="s1">INFO: Registered PHY handler &#39;</span>Bluetooth<span class="s1">&#39; as ID 3</span>
+<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="s1">INFO: Registered PHY handler &#39;</span>UAV<span class="s1">&#39; as ID 4</span>
+<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="s1">INFO: Registered PHY handler &#39;</span>NrfMousejack<span class="s1">&#39; as ID 5</span>
+<a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a><span class="s1">INFO: Using default rates of 10/min, 1/sec for alert &#39;</span>BLEEDINGTOOTH<span class="s1">&#39;</span>
+<a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a><span class="s1">INFO: Registered PHY handler &#39;</span>BTLE<span class="s1">&#39; as ID 6</span>
+<a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a><span class="s1">INFO: Registered PHY handler &#39;</span>METER<span class="s1">&#39; as ID 7</span>
+<a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a><span class="s1">INFO: Indexing ADSB ICAO db</span>
+<a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a><span class="s1">INFO: Completed indexing ADSB ICAO db, 322278 lines 6446 indexes</span>
+<a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a><span class="s1">INFO: Registered PHY handler &#39;</span>ADSB<span class="s1">&#39; as ID 8</span>
+<a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a><span class="s1">INFO: Registered PHY handler &#39;</span><span class="m">802</span>.15.4<span class="s1">&#39; as ID 9</span>
+<a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a><span class="s1">INFO: Registered PHY handler &#39;</span>RADIATION<span class="err">&#39;</span><span class="w"> </span>as<span class="w"> </span>ID<span class="w"> </span><span class="m">10</span>
+<a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a>INFO:<span class="w"> </span>Serving<span class="w"> </span>static<span class="w"> </span>file<span class="w"> </span>content<span class="w"> </span>from<span class="w"> </span>/usr/local/share/kismet/httpd/
+<a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a>INFO:<span class="w"> </span>Enabling<span class="w"> </span>channel<span class="w"> </span>hopping<span class="w"> </span>by<span class="w"> </span>default<span class="w"> </span>on<span class="w"> </span>sources<span class="w"> </span>which<span class="w"> </span>support<span class="w"> </span>channel<span class="w"> </span>control.
+<a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a>INFO:<span class="w"> </span>Setting<span class="w"> </span>default<span class="w"> </span>channel<span class="w"> </span>hop<span class="w"> </span>rate<span class="w"> </span>to<span class="w"> </span><span class="m">5</span>/sec
+<a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a>INFO:<span class="w"> </span>Enabling<span class="w"> </span>channel<span class="w"> </span>list<span class="w"> </span>splitting<span class="w"> </span>on<span class="w"> </span>sources<span class="w"> </span>which<span class="w"> </span>share<span class="w"> </span>the<span class="w"> </span>same<span class="w"> </span>list<span class="w"> </span>of<span class="w"> </span>channels
+<a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a>INFO:<span class="w"> </span>Enabling<span class="w"> </span>channel<span class="w"> </span>list<span class="w"> </span>shuffling<span class="w"> </span>to<span class="w"> </span>optimize<span class="w"> </span>overlaps
+<a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a>INFO:<span class="w"> </span>Sources<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>re-opened<span class="w"> </span><span class="k">if</span><span class="w"> </span>they<span class="w"> </span>encounter<span class="w"> </span>an<span class="w"> </span>error
+<a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a>INFO:<span class="w"> </span>Saving<span class="w"> </span>datasources<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>Kismet<span class="w"> </span>database<span class="w"> </span>log<span class="w"> </span>every<span class="w"> </span><span class="m">30</span><span class="w"> </span>seconds.
+<a id="__codelineno-3-49" name="__codelineno-3-49" href="#__codelineno-3-49"></a>INFO:<span class="w"> </span>Launching<span class="w"> </span>remote<span class="w"> </span>capture<span class="w"> </span>server<span class="w"> </span>on<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span><span class="m">3501</span>
+<a id="__codelineno-3-50" name="__codelineno-3-50" href="#__codelineno-3-50"></a>INFO:<span class="w"> </span>No<span class="w"> </span>data<span class="w"> </span>sources<span class="w"> </span>defined<span class="p">;</span><span class="w"> </span>Kismet<span class="w"> </span>will<span class="w"> </span>not<span class="w"> </span>capture<span class="w"> </span>anything<span class="w"> </span><span class="k">until</span><span class="w"> </span>a<span class="w"> </span><span class="nb">source</span><span class="w"> </span>is<span class="w"> </span>added.
+<a id="__codelineno-3-51" name="__codelineno-3-51" href="#__codelineno-3-51"></a>ALERT:<span class="w"> </span>LOGDISABLED<span class="w"> </span>Logging<span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>disabled<span class="w"> </span>via<span class="w"> </span>the<span class="w"> </span>Kismet<span class="w"> </span>config<span class="w"> </span>files<span class="w"> </span>or<span class="w"> </span>the<span class="w"> </span><span class="nb">command</span><span class="w"> </span>line.<span class="w">  </span>Pcap,<span class="w"> </span>database,<span class="w"> </span>and<span class="w"> </span>related<span class="w"> </span>logs<span class="w"> </span>will<span class="w"> </span>not<span class="w"> </span>be<span class="w"> </span>saved.
+<a id="__codelineno-3-52" name="__codelineno-3-52" href="#__codelineno-3-52"></a>INFO:<span class="w"> </span>Logging<span class="w"> </span>disabled,<span class="w"> </span>not<span class="w"> </span>enabling<span class="w"> </span>any<span class="w"> </span>log<span class="w"> </span>drivers.
+<a id="__codelineno-3-53" name="__codelineno-3-53" href="#__codelineno-3-53"></a>INFO:<span class="w"> </span>GPS<span class="w"> </span>track<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>logged<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>Kismet<span class="w"> </span>logfile
+<a id="__codelineno-3-54" name="__codelineno-3-54" href="#__codelineno-3-54"></a>INFO:<span class="w"> </span>Starting<span class="w"> </span>Kismet<span class="w"> </span>web<span class="w"> </span>server...
+<a id="__codelineno-3-55" name="__codelineno-3-55" href="#__codelineno-3-55"></a>INFO:<span class="w"> </span>HTTP<span class="w"> </span>server<span class="w"> </span>listening<span class="w"> </span>on<span class="w"> </span><span class="m">0</span>.0.0.0:2501
+<a id="__codelineno-3-56" name="__codelineno-3-56" href="#__codelineno-3-56"></a>INFO:<span class="w"> </span>Could<span class="w"> </span>not<span class="w"> </span>open<span class="w"> </span>system<span class="w"> </span>plugin<span class="w"> </span>directory<span class="w"> </span><span class="o">(</span>/usr/local/lib/kismet/<span class="o">)</span>,<span class="w"> </span>skipping:<span class="w"> </span>No<span class="w"> </span>such<span class="w"> </span>file<span class="w"> </span>or<span class="w"> </span>directory
+<a id="__codelineno-3-57" name="__codelineno-3-57" href="#__codelineno-3-57"></a>INFO:<span class="w"> </span>Did<span class="w"> </span>not<span class="w"> </span>find<span class="w"> </span>a<span class="w"> </span>user<span class="w"> </span>plugin<span class="w"> </span>directory<span class="w"> </span><span class="o">(</span>/home/user/plugins/<span class="o">)</span>,<span class="w"> </span>skipping:<span class="w"> </span>No<span class="w"> </span>such<span class="w"> </span>file<span class="w"> </span>or<span class="w"> </span>directory
+</code></pre></div>
+</details>
+<h2 id="networkminer">NetworkMiner<a class="headerlink" href="#networkminer" title="Permanent link">#</a></h2>
+<p>NetworkMiner là công cụ giám sát mạng, mã nguồn mở dành cho hệ điều hành Window. Công cụ này cũng được hỗ trợ để cài đặt trên Linux, Mac OS X và FreeBSD. </p>
+<p>Có hai phiên bản miễn phí và trả phí, trong đó, phiên bản trả phí có tính năng cho phép tìm kiếm trực tuyến thông tin về địa chỉ IP mà máy chủ (cài networkminer) đang có kết nối tới.</p>
+<p>Đối với hệ thống ICS/SCADA, nếu sử dụng các công cụ dò quét mạng để discover các thông tin về thì rất dễ tạo ra một cuộc tấn công DoS, làm ngưng trệ hoạt động của hệ thống đó. </p>
+<p>NetworkMiner thu thập thông tin mà không cần tạo ra lưu lượng dò quét mà thực hiện kỹ thuật “passive network sniffing” và “packet capturing”. Sau đó dựa trên các thông tin thu thập được, NetworkMiner sẽ phân tích để có được các thông tin về hệ thống ICS/SCADA.</p>
+<p><img alt="Logo" src="networkminer/logo.png" /></p>
+<p>Những tính năng chính của NetworkMiner:</p>
+<ul>
+<li>Giám sát mọi gói tin trao đổi ra/vào máy chủ, trong đó cho phép phát hiện ảnh, các file dữ liệu và tài khoản đăng nhập.</li>
+<li>Dữ liệu hiển thị trực quan</li>
+<li>Dung lượng nhẹ</li>
+</ul>
+<details class="note">
+<summary>Hướng dẫn sử dụng NetworkMiner</summary>
+<p><img alt="Thông tin tại tab Host trong giao diện NetworkMiner​" src="networkminer/info.png" /></p>
+<p>Tại tab Credentials của NetworkMiner có thể thu thập thông tin người dùng gồm tài khoản đăng nhập và mật khẩu, kể cả thông tin người dùng sử dụng cho các dịch vụ trực tuyến phổ biến như Gmail hay Facebook. </p>
+<p>Tab Keyword cho phép tìm kiếm bằng các từ khóa. Các báo cáo cũng có thể được chuyển sang các tập tin HTML, TXT, Javascript,...</p>
+<p>Tab Anomalies giúp phát hiện các hiện tượng khả nghi và các sự cố có thể xảy ra đối với hệ thống mạng, giúp admin phòng tránh và xử lý kịp thời.</p>
+</details>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Cập nhật lần cuối:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">June 23, 2023 10:11:09</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Trở lại mục lục
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2023 <a href="https://vncert.vn/"  target="_blank" rel="noopener">Cục An toàn thông tin (VNCERT/CC)</a>
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://vncert.vn/" target="_blank" rel="noopener" title="vncert.vn" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40h-16c-1.1 0-2.2 0-3.3-.1-1.4.1-2.8.1-4.2.1H392c-22.1 0-40-17.9-40-40v-88c0-17.7-14.3-32-32-32h-64c-17.7 0-32 14.3-32 32v88c0 22.1-17.9 40-40 40h-55.9c-1.5 0-3-.1-4.5-.2-1.2.1-2.4.2-3.6.2h-16c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9.1-2.8v-69.6H32c-18 0-32-14-32-32.1 0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7l255.4 224.5c8 7 12 15 11 24z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/VNCERT-CC" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.sections", "navigation.instant", "navigation.tracking", "navigation.top", "navigation.top", "toc.follow", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u0110\u00e3 sao ch\u00e9p", "clipboard.copy": "Sao ch\u00e9p v\u00e0o b\u1ed9 nh\u1edb t\u1ea1m", "search.result.more.one": "1 t\u1eeb kh\u00e1c trong trang", "search.result.more.other": "# t\u1eeb kh\u00e1c trong trang", "search.result.none": "Kh\u00f4ng t\u00ecm th\u1ea5y t\u00e0i li\u1ec7u li\u00ean quan", "search.result.one": "1 t\u00e0i li\u1ec7u li\u00ean quan", "search.result.other": "# t\u00e0i li\u1ec7u li\u00ean quan", "search.result.placeholder": "Nh\u1eadp \u0111\u1ec3 b\u1eaft \u0111\u1ea7u t\u00ecm ki\u1ebfm", "search.result.term.missing": "Kh\u00f4ng", "select.version": "Ch\u1ecdn phi\u00ean b\u1ea3n"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>
+      
+    
+  </body>
+</html>

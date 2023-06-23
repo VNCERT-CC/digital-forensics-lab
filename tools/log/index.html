@@ -1,0 +1,2006 @@
+
+<!doctype html>
+<html lang="vi" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../vncert/">
+      
+      
+        <link rel="next" href="../hunt/">
+      
+      <link rel="icon" href="../../logo.svg">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
+    
+    
+      
+        <title>Công cụ điều tra nhật ký sự kiện - Digital Forensics Lab - Cục An toàn thông tin (VNCERT/CC)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.85bb2934.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a6bdf11c.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Công cụ điều tra nhật ký sự kiện - Digital Forensics Lab - Cục An toàn thông tin (VNCERT/CC)" >
+      
+        <meta  property="og:description"  content="None" >
+      
+        <meta  property="og:image"  content="./assets/images/social/tools/log/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="None" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Công cụ điều tra nhật ký sự kiện - Digital Forensics Lab - Cục An toàn thông tin (VNCERT/CC)" >
+      
+        <meta  name="twitter:description"  content="None" >
+      
+        <meta  name="twitter:image"  content="./assets/images/social/tools/log/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cong-cu-ieu-tra-nhat-ky-su-kien" class="md-skip">
+          Bỏ qua
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Đầu trang">
+    <a href="https://df.irlab.vn/" title="Digital Forensics Lab - Cục An toàn thông tin (VNCERT/CC)" class="md-header__button md-logo" aria-label="Digital Forensics Lab - Cục An toàn thông tin (VNCERT/CC)" data-md-component="logo">
+      
+  <img src="../../logo-dflab.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Digital Forensics Lab - Cục An toàn thông tin (VNCERT/CC)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Công cụ điều tra nhật ký sự kiện
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Tìm kiếm" placeholder="Tìm kiếm" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Tìm kiếm">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Xoá" aria-label="Xoá" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/VNCERT-CC/digital-forensics-lab" title="Xem mã nguồn" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Git: VNCERT-CC
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Giới thiệu
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../playbooks/" class="md-tabs__link">
+        Sổ tay ứng cứu sự cố
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        Bộ công cụ hỗ trợ phân tích
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../platform/" class="md-tabs__link">
+        Hệ thống hỗ trợ phân tích
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../scenarios/" class="md-tabs__link">
+        Tình huống giả định
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../resources/" class="md-tabs__link">
+      Tài nguyên tham khảo
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Thanh điều hướng" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://df.irlab.vn/" title="Digital Forensics Lab - Cục An toàn thông tin (VNCERT/CC)" class="md-nav__button md-logo" aria-label="Digital Forensics Lab - Cục An toàn thông tin (VNCERT/CC)" data-md-component="logo">
+      
+  <img src="../../logo-dflab.png" alt="logo">
+
+    </a>
+    Digital Forensics Lab - Cục An toàn thông tin (VNCERT/CC)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/VNCERT-CC/digital-forensics-lab" title="Xem mã nguồn" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Git: VNCERT-CC
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Giới thiệu
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../playbooks/">Sổ tay ứng cứu sự cố</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Sổ tay ứng cứu sự cố
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../playbooks/phishing/">Sự cố giả mạo (Phishing)</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Sự cố giả mạo (Phishing)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../playbooks/malware/">Sự cố mã độc (Malware)</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Sự cố mã độc (Malware)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Bộ công cụ hỗ trợ phân tích</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Bộ công cụ hỗ trợ phân tích
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../vncert/">Công cụ do VNCERT phát triển</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Công cụ do VNCERT phát triển
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index md-nav__link--active">
+          <a href="./">Công cụ điều tra nhật ký sự kiện</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Công cụ điều tra nhật ký sự kiện
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../hunt/">Công cụ săn tìm mối đe doạ</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Công cụ săn tìm mối đe doạ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../disk/">Công cụ điều tra phương tiện lưu trữ</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          Công cụ điều tra phương tiện lưu trữ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../mobile/">Công cụ điều tra thiết bị di động</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Công cụ điều tra thiết bị di động
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../memory/">Công cụ điều tra dữ liệu bộ nhớ</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          Công cụ điều tra dữ liệu bộ nhớ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../network/">Công cụ điều tra mạng</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_8">
+          <span class="md-nav__icon md-icon"></span>
+          Công cụ điều tra mạng
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../platform/">Hệ thống hỗ trợ phân tích</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Hệ thống hỗ trợ phân tích
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../scenarios/">Tình huống giả định</a>
+          
+            <label for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Tình huống giả định
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../scenarios/challenge1/">Tình huống 1</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tình huống 1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../scenarios/challenge2/">Tình huống 2</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tình huống 2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../scenarios/challenge3/">Tình huống 3</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          Tình huống 3
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../scenarios/challenge4/">Tình huống 4</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_5">
+          <span class="md-nav__icon md-icon"></span>
+          Tình huống 4
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../scenarios/challenge5/">Tình huống 5</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_6">
+          <span class="md-nav__icon md-icon"></span>
+          Tình huống 5
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_7" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../scenarios/challenge6/">Tình huống 6</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_7">
+          <span class="md-nav__icon md-icon"></span>
+          Tình huống 6
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        Tài nguyên tham khảo
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Mục lục">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Mục lục
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hayabusa" class="md-nav__link">
+    Hayabusa
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apt-hunter" class="md-nav__link">
+    APT-Hunter
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logontracer" class="md-nav__link">
+    LogonTracer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zircolite" class="md-nav__link">
+    Zircolite
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appcompatcacheparser" class="md-nav__link">
+    AppCompatCacheParser
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cyberchef" class="md-nav__link">
+    CyberChef
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chainsaw" class="md-nav__link">
+    Chainsaw
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#event-log-observer" class="md-nav__link">
+    Event Log Observer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log-parser-lizard" class="md-nav__link">
+    Log Parser Lizard
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-monitor" class="md-nav__link">
+    System Monitor
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goaccess" class="md-nav__link">
+    GoAccess
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="cong-cu-ieu-tra-nhat-ky-su-kien">Công cụ điều tra nhật ký sự kiện<a class="headerlink" href="#cong-cu-ieu-tra-nhat-ky-su-kien" title="Permanent link">#</a></h1>
+<h2 id="hayabusa">Hayabusa<a class="headerlink" href="#hayabusa" title="Permanent link">#</a></h2>
+<p>Hayabusa là một công cụ xử lý nhanh Windows Event Log, tạo timeline và tìm kiếm mối đe dọa do Yamato Security ở Nhật Bản phát triển. Nó được viết bằng Rust và hỗ trợ xử lý đa luồng. Hayabusa có thể chạy trên các hệ thống đang hoạt động để phân tích trực tiếp, bằng cách thu thập Event Logs từ một hoặc nhiều hệ thống để phân tích ngoại tuyến hoặc bằng cách chạy công cụ Hayabusa với Velociraptor để tìm kiếm mối đe dọa và ứng phó sự cố trên quy mô lớn. Báo cáo là một timeline trên CSV để dễ dàng phân tích trong Excel, Timeline Explorer, Elastic Stack, Timesketch, v.v...</p>
+<p><img alt="" src="hayabusa/image-14-38-06.png" /></p>
+<p>Những chức năng chính của Hayabusa:</p>
+<ul>
+<li>Săn lùng mối đe doạ trên quy mô doanh nghiệp trên nhiều nền tảng: Windows, Linux, MacOS,...</li>
+<li>Tạo timeline dựa trên Windows Event Logs, hỗ trợ chuyển đổi Sigma rules thành Hayabusa rules.</li>
+<li>Đánh giá, phân tích các kỹ thuật tấn công với MITRE ATT&amp;CK Framework.</li>
+<li>Phân tích trên Timeline Explorer, Elastic Stack, Excel,...</li>
+</ul>
+<details class="note">
+<summary>Hướng dẫn sử dụng Hayabusa</summary>
+<p>Tải xuống phiên bản mới nhất của Hayabusa tại <a href="https://github.com/Yamato-Security/hayabusa/releases">đây</a>.</p>
+<p>Mở cửa sổ CMD/Powershell hoặc Windows Terminal, sau đó chạy tập tin thực thi.</p>
+<p>Các option chính của Hayabusa:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">csv-timeline</span><span class="p">:</span> <span class="n">Lưu</span> <span class="n">timeline</span> <span class="n">ở</span> <span class="n">định</span> <span class="n">dạng</span> <span class="n">CSV</span><span class="p">.</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">json-timeline</span><span class="p">:</span> <span class="n">Lưu</span> <span class="n">timeline</span> <span class="n">ở</span> <span class="n">định</span> <span class="n">dạng</span> <span class="n">JSON</span><span class="p">/</span><span class="n">JSONL</span><span class="p">.</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">logon-summary</span><span class="p">:</span> <span class="n">Xuất</span> <span class="n">ra</span> <span class="n">báo</span> <span class="n">cáo</span> <span class="n">tổng</span> <span class="n">hợp</span> <span class="n">về</span> <span class="n">các</span> <span class="n">lần</span> <span class="n">logon</span> <span class="n">trên</span> <span class="n">hệ</span> <span class="n">thống</span><span class="p">.</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">metrics</span><span class="p">:</span> <span class="n">Xuất</span> <span class="n">ra</span> <span class="n">các</span> <span class="n">chỉ</span> <span class="n">số</span> <span class="n">và</span> <span class="n">tỉ</span> <span class="n">lệ</span> <span class="n">các</span> <span class="n">sự</span> <span class="n">kiện</span> <span class="n">dựa</span> <span class="n">trên</span> <span class="n">Event</span> <span class="n">ID</span><span class="p">.</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">pivot-keywords-list</span><span class="p">:</span> <span class="n">Xuất</span> <span class="n">ra</span> <span class="n">các</span> <span class="n">từ</span> <span class="n">khoá</span> <span class="n">nghi</span> <span class="n">vấn</span> <span class="n">cần</span> <span class="n">điều</span> <span class="n">tra</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nb">update-rules</span><span class="p">:</span> <span class="n">Cập</span> <span class="n">nhật</span> <span class="n">tập</span> <span class="n">luật</span> <span class="n">từ</span> <span class="n">Github</span><span class="p">.</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">level-tuning</span><span class="p">:</span> <span class="n">Chỉnh</span> <span class="n">sửa</span> <span class="n">mức</span> <span class="n">độ</span> <span class="n">cảnh</span> <span class="n">báo</span><span class="p">.</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">list-profiles</span><span class="p">:</span> <span class="n">Hiển</span> <span class="n">thị</span> <span class="n">các</span> <span class="n">output</span> <span class="n">profiles</span> <span class="n">có</span> <span class="n">sẵn</span><span class="p">.</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nb">set-default</span><span class="n">-profile</span><span class="p">:</span> <span class="n">Chỉnh</span> <span class="n">sửa</span> <span class="n">profile</span> <span class="n">mặc</span> <span class="n">định</span><span class="p">.</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">Usage</span><span class="p">:</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">hayabusa</span><span class="p">.</span><span class="n">exe</span> <span class="n">help</span> <span class="p">&lt;</span><span class="n">COMMAND</span><span class="p">&gt;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">hayabusa</span><span class="p">.</span><span class="n">exe</span> <span class="p">&lt;</span><span class="n">COMMAND</span><span class="p">&gt;</span> <span class="no">[OPTIONS]</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">Commands</span><span class="p">:</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">csv-timeline</span>         <span class="n">Save</span> <span class="n">the</span> <span class="n">timeline</span> <span class="k">in</span> <span class="n">CSV</span> <span class="n">format</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">json-timeline</span>        <span class="n">Save</span> <span class="n">the</span> <span class="n">timeline</span> <span class="k">in</span> <span class="n">JSON</span><span class="p">/</span><span class="n">JSONL</span> <span class="n">format</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">logon-summary</span>        <span class="n">Print</span> <span class="n">a</span> <span class="n">summary</span> <span class="n">of</span> <span class="n">successful</span> <span class="n">and</span> <span class="n">failed</span> <span class="n">logons</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">metrics</span>              <span class="n">Print</span> <span class="n">event</span> <span class="n">ID</span> <span class="n">metrics</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="n">pivot-keywords-list</span>  <span class="n">Create</span> <span class="n">a</span> <span class="n">list</span> <span class="n">of</span> <span class="n">pivot</span> <span class="n">keywords</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="nb">update-rules</span>         <span class="n">Update</span> <span class="n">to</span> <span class="n">the</span> <span class="n">latest</span> <span class="n">rules</span> <span class="k">in</span> <span class="n">the</span> <span class="n">hayabusa-rules</span> <span class="n">github</span> <span class="n">repository</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="n">level-tuning</span>         <span class="n">Tune</span> <span class="n">alert</span> <span class="n">levels</span> <span class="p">(</span><span class="k">default</span><span class="p">:</span> <span class="p">./</span><span class="n">rules</span><span class="p">/</span><span class="n">config</span><span class="p">/</span><span class="n">level_tuning</span><span class="p">.</span><span class="n">txt</span><span class="p">)</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="nb">set-default</span><span class="n">-profile</span>  <span class="nb">Set </span><span class="k">default</span> <span class="n">output</span> <span class="n">profile</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="n">list-contributors</span>    <span class="n">Print</span> <span class="n">the</span> <span class="n">list</span> <span class="n">of</span> <span class="n">contributors</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="n">list-profiles</span>        <span class="n">List</span> <span class="n">the</span> <span class="n">output</span> <span class="n">profiles</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="n">help</span>                 <span class="n">Print</span> <span class="n">this</span> <span class="n">message</span> <span class="n">or</span> <span class="n">the</span> <span class="n">help</span> <span class="n">of</span> <span class="n">the</span> <span class="n">given</span> <span class="n">subcommand</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="n">Options</span><span class="p">:</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>        <span class="p">-</span><span class="n">-no-color</span>  <span class="n">Disable</span> <span class="n">color</span> <span class="n">output</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="n">-q</span><span class="p">,</span> <span class="p">-</span><span class="n">-quiet</span>     <span class="n">Quiet</span> <span class="n">mode</span><span class="p">:</span> <span class="k">do</span> <span class="n">not</span> <span class="n">display</span> <span class="n">the</span> <span class="n">launch</span> <span class="n">banner</span>
+</code></pre></div>
+<p>Khởi động phần mềm:</p>
+<p><img alt="" src="hayabusa/image-14-50-34.png" /></p>
+<p>Tổng kết sau khi chạy công cụ:</p>
+<p><img alt="" src="hayabusa/image-14-51-01.png" /></p>
+<p>Báo cáo HTML được xuất ra:</p>
+<p><img alt="" src="hayabusa/image-14-51-16.png" /></p>
+<p><img alt="" src="hayabusa/image-14-51-31.png" /></p>
+<p><img alt="" src="hayabusa/image-14-51-36.png" /></p>
+<p>Phân tích với các công cụ:</p>
+<p><img alt="" src="hayabusa/image-14-51-50.png" /></p>
+<p><img alt="" src="hayabusa/image-14-51-55.png" /></p>
+<p><img alt="" src="hayabusa/image-14-52-03.png" /></p>
+</details>
+<h2 id="apt-hunter">APT-Hunter<a class="headerlink" href="#apt-hunter" title="Permanent link">#</a></h2>
+<p>APT-Hunter là công cụ Threat Hunting dựa trên Event Log của windows được tạo với mindset của purple team để cung cấp khả năng phát hiện các tấn công APT ẩn trong rất nhiều windows event logs để giảm thời gian phát hiện hoạt động đáng ngờ.</p>
+<p>Công cụ hoạt động mà không cần phải có giải pháp phức tạp để phân tích cú pháp và phát hiện các cuộc tấn công trong nhật ký sự kiện của windows như giải pháp SIEM và trình thu thập logs.</p>
+<p><img alt="" src="apt-hunter/image-04-52-23.png" /></p>
+<p>Những tính năng chính của APT-Hunter:</p>
+<ul>
+<li>Phát hiện các hoạt động đáng ngờ nào mà ta không biết trước khi nó trở thành một sự cố lớn.</li>
+<li>Phát hiện tấn công nhanh hơn, điều này sẽ làm giảm thời gian phản hồi để nhanh chóng ngăn chặn và loại bỏ các cuộc tấn công.</li>
+<li>Báo cáo tương thích với timesketch để thực hiện phân tích dòng thời gian.</li>
+<li>Điều tra nhiều máy chủ nhanh hơn trong khoảng thời gian ngắn.</li>
+<li>Giúp ích cho điều tra viên trong những trường hợp không có nhiều thời gian để phân tích chuyên sâu.</li>
+<li>Biến hàng triệu sự kiện thành hàng trăm sự kiện với mức độ nghiêm trọng có thể sử dụng làm bộ lọc.</li>
+</ul>
+<details class="note">
+<summary>Hướng dẫn sử dụng APT-Hunter</summary>
+<p>Điều đầu tiên cần làm trước khi sử dụng công cụ là thu thập Event Logs:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c"># Để thu thập với định dạng EVTX, sử dụng script sau:</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">windows-log-collector-full-v3-EVTX</span><span class="p">.</span><span class="n">ps1</span> 
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c"># Để thu thập với định dạng CSV, sử dụng script sau: </span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">windows-log-collector-full-v3-CSV</span><span class="p">.</span><span class="n">ps1</span>
+</code></pre></div>
+<p>Cài đặt các thư viện python cần thiết:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">python3</span> <span class="n">-m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">-r</span> <span class="n">Requirements</span><span class="p">.</span><span class="n">txt</span>
+</code></pre></div></p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">python3</span> <span class="n">APT-Hunter</span><span class="p">.</span><span class="n">py</span> <span class="n">-h</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">usage</span><span class="p">:</span> <span class="n">APT-Hunter</span><span class="p">.</span><span class="n">py</span> <span class="p">[</span><span class="n">-h</span><span class="p">]</span> <span class="p">[</span><span class="n">-p</span> <span class="n">PATH</span><span class="p">]</span> <span class="p">[</span><span class="n">-o</span> <span class="n">OUT</span><span class="p">]</span> <span class="p">[</span><span class="n">-t</span> <span class="p">{</span><span class="n">csv</span><span class="p">,</span><span class="n">evtx</span><span class="p">}]</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>                    <span class="p">[-</span><span class="n">-security</span> <span class="n">SECURITY</span><span class="p">]</span> <span class="p">[-</span><span class="n">-system</span> <span class="n">SYSTEM</span><span class="p">]</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>                    <span class="p">[-</span><span class="n">-scheduledtask</span> <span class="n">SCHEDULEDTASK</span><span class="p">]</span> <span class="p">[-</span><span class="n">-defender</span> <span class="n">DEFENDER</span><span class="p">]</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>                    <span class="p">[-</span><span class="n">-powershell</span> <span class="n">POWERSHELL</span><span class="p">]</span> <span class="p">[-</span><span class="n">-powershellop</span> <span class="n">POWERSHELLOP</span><span class="p">]</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>                    <span class="p">[-</span><span class="n">-terminal</span> <span class="n">TERMINAL</span><span class="p">]</span> <span class="p">[-</span><span class="n">-winrm</span> <span class="n">WINRM</span><span class="p">]</span> <span class="p">[-</span><span class="n">-sysmon</span> <span class="n">SYSMON</span><span class="p">]</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="n">optional</span> <span class="n">arguments</span><span class="p">:</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="n">-h</span><span class="p">,</span> <span class="p">-</span><span class="n">-help</span>            <span class="n">show</span> <span class="n">this</span> <span class="n">help</span> <span class="n">message</span> <span class="n">and</span> <span class="n">exit</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="n">-p</span> <span class="n">PATH</span><span class="p">,</span> <span class="p">-</span><span class="n">-path</span> <span class="n">PATH</span>  <span class="n">path</span> <span class="n">to</span> <span class="n">folder</span> <span class="n">containing</span> <span class="n">windows</span> <span class="n">event</span> <span class="n">logs</span> <span class="n">generated</span> <span class="n">by</span> <span class="n">the</span> <span class="n">APT-Hunter-Log-Collector</span><span class="p">.</span><span class="n">ps1</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="n">-o</span> <span class="n">OUT</span><span class="p">,</span> <span class="p">-</span><span class="n">-out</span> <span class="n">OUT</span>     <span class="n">output</span> <span class="n">file</span> <span class="n">name</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="n">-t</span> <span class="p">{</span><span class="n">csv</span><span class="p">,</span><span class="n">evtx</span><span class="p">},</span> <span class="p">-</span><span class="n">-type</span> <span class="p">{</span><span class="n">csv</span><span class="p">,</span><span class="n">evtx</span><span class="p">}</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>                        <span class="n">csv</span> <span class="p">(</span> <span class="n">logs</span> <span class="n">from</span> <span class="nb">get-eventlog</span> <span class="n">or</span> <span class="n">windows</span> <span class="n">event</span> <span class="n">log</span> <span class="n">GUI</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>                        <span class="n">or</span> <span class="n">logs</span> <span class="n">from</span> <span class="nb">Get-WinEvent</span> <span class="p">)</span> <span class="p">,</span> <span class="n">evtx</span> <span class="p">(</span> <span class="n">EVTX</span> <span class="n">extension</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>                        <span class="n">windows</span> <span class="n">event</span> <span class="n">log</span> <span class="p">)</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="p">-</span><span class="n">-security</span> <span class="n">SECURITY</span>   <span class="n">Path</span> <span class="n">to</span> <span class="n">Security</span> <span class="n">Logs</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="p">-</span><span class="n">-system</span> <span class="n">SYSTEM</span>       <span class="n">Path</span> <span class="n">to</span> <span class="n">System</span> <span class="n">Logs</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="p">-</span><span class="n">-scheduledtask</span> <span class="n">SCHEDULEDTASK</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>                        <span class="n">Path</span> <span class="n">to</span> <span class="n">Scheduled</span> <span class="n">Tasks</span> <span class="n">Logs</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="p">-</span><span class="n">-defender</span> <span class="n">DEFENDER</span>   <span class="n">Path</span> <span class="n">to</span> <span class="n">Defender</span> <span class="n">Logs</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="p">-</span><span class="n">-powershell</span> <span class="n">POWERSHELL</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>                        <span class="n">Path</span> <span class="n">to</span> <span class="n">Powershell</span> <span class="n">Logs</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="p">-</span><span class="n">-powershellop</span> <span class="n">POWERSHELLOP</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>                        <span class="n">Path</span> <span class="n">to</span> <span class="n">Powershell</span> <span class="n">Operational</span> <span class="n">Logs</span>
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="p">-</span><span class="n">-terminal</span> <span class="n">TERMINAL</span>   <span class="n">Path</span> <span class="n">to</span> <span class="n">TerminalServices</span> <span class="n">LocalSessionManager</span> <span class="n">Logs</span>
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="p">-</span><span class="n">-winrm</span> <span class="n">WINRM</span>         <span class="n">Path</span> <span class="n">to</span> <span class="n">Winrm</span> <span class="n">Logs</span>
+<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a><span class="p">-</span><span class="n">-sysmon</span> <span class="n">SYSMON</span>       <span class="n">Path</span> <span class="n">to</span> <span class="n">Sysmon</span> <span class="n">Logs</span>
+</code></pre></div>
+<code>-p</code>: địa chỉ trỏ đến thư mục chứa các Event Logs</p>
+<p><code>-o</code>: Tên của dự án</p>
+<p><code>-t</code>: Loại của log (ví dụ CSV hoặc EVTX)</p>
+<p>Ví dụ:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">python3</span> <span class="n">APT-Hunter</span><span class="p">.</span><span class="n">py</span>  <span class="n">-t</span> <span class="n">evtx</span>  <span class="n">-p</span> <span class="p">/</span><span class="n">opt</span><span class="p">/</span><span class="n">wineventlogs</span><span class="p">/</span>  <span class="n">-o</span> <span class="n">Project1</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">python3</span> <span class="n">APT-Hunter</span><span class="p">.</span><span class="n">py</span>  <span class="n">-t</span> <span class="n">csv</span>  <span class="n">-p</span> <span class="p">/</span><span class="n">opt</span><span class="p">/</span><span class="n">wineventlogs</span><span class="p">/</span>  <span class="n">-o</span> <span class="n">Project1</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="n">python3</span> <span class="n">APT-Hunter</span><span class="p">.</span><span class="n">py</span>  <span class="n">-t</span> <span class="n">evtx</span>  <span class="p">-</span><span class="n">-security</span> <span class="n">evtx</span><span class="p">/</span><span class="n">security</span><span class="p">.</span><span class="n">evtx</span> <span class="n">-o</span> <span class="n">Project2</span>
+</code></pre></div>
+</details>
+<h2 id="logontracer">LogonTracer<a class="headerlink" href="#logontracer" title="Permanent link">#</a></h2>
+<p>LogonTracer là một công cụ để điều tra các lần đăng nhập bằng cách trực quan hóa và phân tích nhật ký sự kiện Windows Active Directory. Công cụ này liên kết tên máy chủ (hoặc địa chỉ IP) và tên tài khoản được tìm thấy trong các sự kiện liên quan đến đăng nhập và hiển thị dưới dạng biểu đồ. Bằng cách này, có thể biết nỗ lực đăng nhập tài khoản nào xảy ra và máy chủ nào được sử dụng.</p>
+<p>Những sự kiện mà LogonTracer hỗ trợ:</p>
+<ul>
+<li>4624: Đăng nhập thành công</li>
+<li>4625: Đăng nhập thất bại</li>
+<li>4768: Kerberos Authentication (TGT Request)</li>
+<li>4769: Kerberos Service Ticket (ST Request)</li>
+<li>4776: Xác thực NTLM</li>
+<li>4672: Đăng nhập với quyền đặc biệt</li>
+</ul>
+<details class="note">
+<summary>Hướng dẫn sử dụng LogonTracer</summary>
+<p>Sử dụng câu lệnh sau để khởi động LogonTracer:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>$<span class="w"> </span>python3<span class="w"> </span>logontracer.py<span class="w"> </span>-r<span class="w"> </span>-o<span class="w"> </span><span class="o">[</span>PORT<span class="o">]</span><span class="w"> </span>-u<span class="w"> </span><span class="o">[</span>USERNAME<span class="o">]</span><span class="w"> </span>-p<span class="w"> </span><span class="o">[</span>PASSWORD<span class="o">]</span><span class="w"> </span>-s<span class="w"> </span><span class="o">[</span>IP<span class="w"> </span>Address<span class="o">]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>-r:<span class="w"> </span>Khởi<span class="w"> </span>chạy<span class="w"> </span>máy<span class="w"> </span>chủ<span class="w"> </span>web
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>-o:<span class="w"> </span>Cổng<span class="w"> </span>dịch<span class="w"> </span>vụ<span class="w"> </span>máy<span class="w"> </span>chủ<span class="w"> </span>web<span class="w"> </span>hoạt<span class="w"> </span>động<span class="w"> </span><span class="o">(</span>ví<span class="w"> </span>dụ:<span class="w"> </span><span class="m">8080</span><span class="o">)</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>-u:<span class="w"> </span>Tên<span class="w"> </span>người<span class="w"> </span>dùng<span class="w"> </span><span class="o">(</span>Mặc<span class="w"> </span>định<span class="w"> </span>là<span class="w"> </span>“neo4j”<span class="o">)</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>-p:<span class="w"> </span>Mật<span class="w"> </span>khẩu
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>-s:<span class="w"> </span>Địa<span class="w"> </span>chỉ<span class="w"> </span>IP<span class="w"> </span>của<span class="w"> </span>máy<span class="w"> </span>chủ<span class="w"> </span>web<span class="w"> </span><span class="o">(</span>ví<span class="w"> </span>dụ:<span class="w"> </span>localhost<span class="o">)</span>
+</code></pre></div>
+<p>Truy cập http://[[Địa chỉ của LogonTracer]]:8080, sử dụng tài khoản từ câu lệnh phía trên:</p>
+<p><img alt="" src="logontracer/image-17-04-10.png" /></p>
+<p>Upload evtx:</p>
+<p><img alt="" src="logontracer/image-17-04-55.png" /></p>
+<p>Sử dụng thanh điều hướng để tìm tên tài khoản, địa chỉ IP, event ID,...</p>
+<p><img alt="" src="logontracer/image-17-05-14.png" /></p>
+<p>Lọc thời gian:</p>
+<p><img alt="" src="logontracer/image-17-06-06.png" /></p>
+</details>
+<h2 id="zircolite">Zircolite<a class="headerlink" href="#zircolite" title="Permanent link">#</a></h2>
+<p>Zircolite là công cụ viết bằng Python3, cho phép sử dụng SIGMA rules trên Windows Event Logs (định dạng EVTX và JSONL), Auditd và Sysmon với Linux.</p>
+<p>Những chức năng chính của Zircolite:</p>
+<ul>
+<li>Zircolite có thể được sử dụng trực tiếp trên endpoint được điều tra hoặc trong môi trường phân tích chuyên sâu / môi trường giả lập.</li>
+<li>Nhanh và xử lý được lượng lớn dữ liệu cùng lúc</li>
+<li>Sử dụng Sigma backend (SQLite)</li>
+<li>Xuất kết quả sang nhiều định dạng khác nhau dựa trên các templates: JSON, CSV, JSONL, Splunk, Elastic, Zinc, Timesketch...</li>
+</ul>
+<details class="note">
+<summary>Hướng dẫn sử dụng Zircolite</summary>
+<p>Tải xuống công cụ tại <a href="https://github.com/wagga40/Zircolite">đây</a>, sau đó cài đặt các library với câu lệnh: <code>pip3 install -r requirements.txt</code></p>
+<p>Phân tích EVTX với bộ rule Windows Sysmon:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c"># python3 zircolite.py --evtx &lt;EVTX FOLDER or EVTX FILE&gt; --ruleset &lt;SIGMA RULESET&gt; [--ruleset &lt;OTHER RULESET&gt;]</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">python3</span> <span class="n">zircolite</span><span class="p">.</span><span class="n">py</span> <span class="p">-</span><span class="n">-evtx</span> <span class="n">sysmon</span><span class="p">.</span><span class="n">evtx</span> <span class="p">-</span><span class="n">-ruleset</span> <span class="n">rules</span><span class="p">/</span><span class="n">rules_windows_sysmon</span><span class="p">.</span><span class="n">json</span>
+</code></pre></div>
+<p>Phân tích Auditd / Sysmon cho Linux / JSONL hoặc NDJSON logs :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">python3</span> <span class="n">zircolite</span><span class="p">.</span><span class="n">py</span> <span class="p">-</span><span class="n">-events</span> <span class="n">auditd</span><span class="p">.</span><span class="n">log</span> <span class="p">-</span><span class="n">-ruleset</span> <span class="n">rules</span><span class="p">/</span><span class="n">rules_linux</span><span class="p">.</span><span class="n">json</span> <span class="p">-</span><span class="n">-auditd</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">python3</span> <span class="n">zircolite</span><span class="p">.</span><span class="n">py</span> <span class="p">-</span><span class="n">-events</span> <span class="n">sysmon</span><span class="p">.</span><span class="n">log</span> <span class="p">-</span><span class="n">-ruleset</span> <span class="n">rules</span><span class="p">/</span><span class="n">rules_linux</span><span class="p">.</span><span class="n">json</span> <span class="p">-</span><span class="n">-sysmon4linux</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">python3</span> <span class="n">zircolite</span><span class="p">.</span><span class="n">py</span> <span class="p">-</span><span class="n">-events</span> <span class="p">&lt;</span><span class="n">JSON_FOLDER</span> <span class="n">or</span> <span class="n">JSON_FILE</span><span class="p">&gt;</span> <span class="p">-</span><span class="n">-ruleset</span> <span class="n">rules</span><span class="p">/</span><span class="n">rules_windows_sysmon</span><span class="p">.</span><span class="n">json</span> <span class="p">-</span><span class="n">-jsononly</span>
+</code></pre></div>
+<p>Sử dụng miniGUI với option <code>--package</code>:</p>
+<p><img alt="" src="zircolite/image-15-05-59.png" /></p>
+<p>Timeline các sự kiện đã được phát hiện:</p>
+<p><img alt="" src="zircolite/image-15-09-09.png" /></p>
+<p>Ma trận MITRE ATT&amp;CK:</p>
+<p><img alt="" src="zircolite/image-15-09-32.png" /></p>
+</details>
+<h2 id="appcompatcacheparser">AppCompatCacheParser<a class="headerlink" href="#appcompatcacheparser" title="Permanent link">#</a></h2>
+<p>AppCompatCacheParser là công cụ phân tích AppCompatCache (ShimCache). Hỗ trợ xử lý các tập tin bị khóa.</p>
+<p><img alt="" src="appcompatcacheparser/image-04-45-19.png" /></p>
+<details class="note">
+<summary>Hướng dẫn sử dụng AppCompatCacheParser</summary>
+<p>Tải xuống công cụ tại <a href="https://ericzimmerman.github.io/#!index.md">đây</a>.</p>
+<p>Mở cửa sổ CMD với quyền Administrator.</p>
+<p>Chạy AppCompatCacheParser với cửa sổ dòng lệnh CMD vừa mở:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">AppCompatCache</span> <span class="n">Parser</span> <span class="n">version</span> <span class="n">1</span><span class="p">.</span><span class="n">4</span><span class="p">.</span><span class="n">4</span><span class="p">.</span><span class="n">0</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">Author</span><span class="p">:</span> <span class="n">Eric</span> <span class="n">Zimmerman</span> <span class="p">(</span><span class="n">saericzimmerman</span><span class="nv">@gmail</span><span class="p">.</span><span class="n">com</span><span class="p">)</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="n">https</span><span class="p">://</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="p">/</span><span class="n">EricZimmerman</span><span class="p">/</span><span class="n">AppCompatCacheParser</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>        <span class="n">c</span>               <span class="n">The</span> <span class="n">ControlSet</span> <span class="n">to</span> <span class="n">parse</span><span class="p">.</span> <span class="k">Default</span> <span class="n">is</span> <span class="n">to</span> <span class="n">extract</span> <span class="n">all</span> <span class="n">control</span> <span class="n">sets</span><span class="p">.</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>        <span class="n">f</span>               <span class="n">Full</span> <span class="n">path</span> <span class="n">to</span> <span class="n">SYSTEM</span> <span class="n">hive</span> <span class="n">to</span> <span class="k">process</span><span class="p">.</span> <span class="k">If</span> <span class="n">this</span> <span class="n">option</span> <span class="n">is</span> <span class="n">not</span> <span class="n">specified</span><span class="p">,</span> <span class="n">the</span> <span class="n">live</span> <span class="n">Registry</span> <span class="n">will</span> <span class="n">be</span> <span class="n">used</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>        <span class="n">t</span>               <span class="n">Sorts</span> <span class="n">last</span> <span class="n">modified</span> <span class="n">timestamps</span> <span class="k">in</span> <span class="n">descending</span> <span class="n">order</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>        <span class="n">csv</span>             <span class="n">Directory</span> <span class="n">to</span> <span class="n">save</span> <span class="n">CSV</span> <span class="n">formatted</span> <span class="n">results</span> <span class="n">to</span><span class="p">.</span> <span class="n">Required</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>        <span class="n">csvf</span>            <span class="n">File</span> <span class="n">name</span> <span class="n">to</span> <span class="n">save</span> <span class="n">CSV</span> <span class="n">formatted</span> <span class="n">results</span> <span class="n">to</span><span class="p">.</span> <span class="n">When</span> <span class="n">present</span><span class="p">,</span> <span class="n">overrides</span> <span class="k">default</span> <span class="n">name</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>        <span class="n">debug</span>           <span class="n">Debug</span> <span class="n">mode</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>        <span class="n">dt</span>              <span class="n">The</span> <span class="n">custom</span> <span class="n">date</span><span class="p">/</span><span class="n">time</span> <span class="n">format</span> <span class="n">to</span> <span class="n">use</span> <span class="n">when</span> <span class="n">displaying</span> <span class="n">timestamps</span><span class="p">.</span> <span class="n">See</span> <span class="n">https</span><span class="p">://</span><span class="n">goo</span><span class="p">.</span><span class="n">gl</span><span class="p">/</span><span class="n">CNVq0k</span> <span class="k">for</span> <span class="n">options</span><span class="p">.</span> <span class="k">Default</span> <span class="n">is</span><span class="p">:</span> <span class="n">yyyy-MM-dd</span> <span class="n">HH</span><span class="p">:</span><span class="n">mm</span><span class="p">:</span><span class="n">ss</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>        <span class="n">nl</span>              <span class="n">When</span> <span class="n">true</span><span class="p">,</span> <span class="n">ignore</span> <span class="n">transaction</span> <span class="n">log</span> <span class="n">files</span> <span class="k">for</span> <span class="n">dirty</span> <span class="n">hives</span><span class="p">.</span> <span class="k">Default</span> <span class="n">is</span> <span class="n">FALSE</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="n">Examples</span><span class="p">:</span> <span class="n">AppCompatCacheParser</span><span class="p">.</span><span class="n">exe</span> <span class="p">-</span><span class="n">-csv</span> <span class="n">c</span><span class="p">:\</span><span class="n">temp</span> <span class="n">-t</span> <span class="n">-c</span> <span class="n">2</span>
+<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>        <span class="n">AppCompatCacheParser</span><span class="p">.</span><span class="n">exe</span> <span class="p">-</span><span class="n">-csv</span> <span class="n">c</span><span class="p">:\</span><span class="n">temp</span> <span class="p">-</span><span class="n">-csvf</span> <span class="n">results</span><span class="p">.</span><span class="n">csv</span>
+<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>
+<a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>        <span class="n">Short</span> <span class="n">options</span> <span class="p">(</span><span class="n">single</span> <span class="n">letter</span><span class="p">)</span> <span class="n">are</span> <span class="n">prefixed</span> <span class="n">with</span> <span class="n">a</span> <span class="n">single</span> <span class="n">dash</span><span class="p">.</span> <span class="n">Long</span> <span class="n">commands</span> <span class="n">are</span> <span class="n">prefixed</span> <span class="n">with</span> <span class="n">two</span> <span class="n">dashes</span>
+</code></pre></div>
+<p><img alt="" src="appcompatcacheparser/image-04-46-42.png" /></p>
+<p>Để bắt đầu phân tích, ta sẽ chạy câu lệnh sau:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">AppCompatCacheParser</span><span class="p">.</span><span class="n">exe</span> <span class="o">-f</span> <span class="n">C</span><span class="p">:\</span><span class="n">temp</span><span class="p">\</span><span class="n">muldwych</span><span class="p">\</span><span class="n">Content</span><span class="p">\</span><span class="n">C</span><span class="p">\</span><span class="n">Windows</span><span class="p">\</span><span class="n">System32</span><span class="p">\</span><span class="n">config</span><span class="p">\</span><span class="n">SYSTEM</span> <span class="err">–</span><span class="n">csv</span> <span class="n">c</span><span class="p">:\</span><span class="n">temp</span> <span class="err">–</span><span class="n">dt</span> <span class="n">yyyy-MM-ddTHH</span><span class="p">:</span><span class="n">mm</span><span class="p">:</span><span class="n">ss</span>
+</code></pre></div>
+<ul>
+<li>Chạy AppCompatCacheParser.exe</li>
+<li>-f yêu cầu chương trình sử dụng tập tin tại đường dẫn sau nó, ở ví dụ là <code>C:\temp\muldwych\Content\C\Windows\System32\config\SYSTEM</code></li>
+<li>–csv yêu cầu công cụ xuất dưới đuôi csv và tại thư mục đã nêu, tức là <code>c:\temp</code></li>
+<li>–dt yêu cầu công cụ sử dụng định dạng ngày/giờ tùy chỉnh khi xử lý thời gian, trong ví dụ là <code>yyyy-MM-ddTHH:mm:ss</code></li>
+</ul>
+<p><img alt="" src="appcompatcacheparser/image-04-50-09.png" /></p>
+<p>Sau đó chúng ta đã có tập tin csv để tiến hành điều tra chuyên sâu hơn:</p>
+<p><img alt="" src="appcompatcacheparser/image-04-50-39.png" /></p>
+<p>Chúng ta có thể sử dụng Timeline Explorer hoặc Excel để mở tập tin trên.</p>
+<p><img alt="" src="appcompatcacheparser/image-04-51-11.png" /></p>
+</details>
+<h2 id="cyberchef">CyberChef<a class="headerlink" href="#cyberchef" title="Permanent link">#</a></h2>
+<blockquote>
+<p>Được đóng góp bởi: <a href="https://www.bkav.com.vn/">Công ty Cổ phần BKAV</a></p>
+</blockquote>
+<p>CyberChef là một ứng dụng web nguồn mở, miễn phí được thiết kế để thực hiện các kỹ thuật thao tác dữ liệu phổ biến theo cách có cấu trúc, có hệ thống và có thể lặp lại. Điều này bao gồm các hoạt động như giải mã đơn giản, tính toán hàm băm, trích xuất nội dung, phân tích cú pháp định dạng,…CyberChef có thể triển khai trên local hoặc trực tuyến.</p>
+<details class="note">
+<summary>Hướng dẫn sử dụng CyberChef</summary>
+<ul>
+<li>Cài đặt Git</li>
+<li>Cài đặt Node.js phiên bản 18 và npm phiên bản 8</li>
+<li>git clone https://github.com/gchq/CyberChef.git</li>
+<li>cd CyberChef</li>
+<li>npm install</li>
+</ul>
+<p>Hoặc người dùng có thể sử dụng trực tuyến bằng cách truy cập: https://gchq.github.io/CyberChef/</p>
+<p><img alt="image" src="https://user-images.githubusercontent.com/55577865/236771910-35a6998b-03b8-4683-a1dd-ed91038798af.png" /></p>
+</details>
+<h2 id="chainsaw">Chainsaw<a class="headerlink" href="#chainsaw" title="Permanent link">#</a></h2>
+<p>Chainsaw là công cụ hỗ trợ phân tích và phát hiện dấu hiệu tấn công hệ thống thông qua các đặc trưng từ Windows, ví udj như Event Logs và MFT.  Chainsaw cung cấp một phương pháp tìm kiếm nhanh chóng thông qua từ khóa và xác định mối đe doạ dựa trên Sigma rules.</p>
+<p><img alt="" src="chainsaw/image-15-24-11.png" /></p>
+<p>Những chức năng chính của Chainsaw:</p>
+<ul>
+<li>Săn tìm mối đe doạ dựa trên Sigma rules và các rule tuỳ chỉnh từ Chaisaw</li>
+<li>Tìm kiếm và trích xuất các dấu vết bằng khớp chuỗi và biểu thức chính quy (regex).</li>
+<li>Được viết bằng Rust, dựa trên thư viện <a href="https://github.com/omerbenamram/evtx">EVTX parser</a></li>
+<li>Xuất kết quả với nhiều định dạng khác nhau: ASCII table, định dạng CSV và định dạng JSON</li>
+</ul>
+<details class="note">
+<summary>Hướng dẫn sử dụng Chainsaw</summary>
+<p>Tải xuống Chainsaw từ mục <a href="https://github.com/countercept/chainsaw/releases">releases</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">USAGE</span><span class="p">:</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>    <span class="n">chainsaw</span> <span class="n">search</span> <span class="no">[FLAGS] [OPTIONS]</span> <span class="p">&lt;</span><span class="n">pattern</span><span class="p">&gt;</span> <span class="p">[--]</span> <span class="no">[path]</span><span class="p">...</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="n">FLAGS</span><span class="p">:</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>    <span class="n">-h</span><span class="p">,</span> <span class="p">-</span><span class="n">-help</span>            <span class="n">Prints</span> <span class="n">help</span> <span class="n">information</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>    <span class="n">-i</span><span class="p">,</span> <span class="p">-</span><span class="n">-ignore-case</span>     <span class="n">Ignore</span> <span class="n">the</span> <span class="n">case</span> <span class="n">when</span> <span class="n">searching</span> <span class="n">patterns</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>        <span class="p">-</span><span class="n">-json</span>            <span class="n">Print</span> <span class="n">the</span> <span class="n">output</span> <span class="k">in</span> <span class="n">json</span> <span class="n">format</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>        <span class="p">-</span><span class="n">-load-unknown</span>    <span class="n">Allow</span> <span class="n">chainsaw</span> <span class="n">to</span> <span class="k">try</span> <span class="n">and</span> <span class="n">load</span> <span class="n">files</span> <span class="n">it</span> <span class="n">cannot</span> <span class="n">identify</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>        <span class="p">-</span><span class="n">-local</span>           <span class="n">Output</span> <span class="n">the</span> <span class="n">timestamp</span> <span class="n">using</span> <span class="n">the</span> <span class="n">local</span> <span class="n">machine</span><span class="s1">&#39;s timestamp</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="s1">    -q                    Supress informational output</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="s1">        --skip-errors     Continue to search when an error is encountered</span>
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="s1">    -V, --version         Prints version information</span>
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="s1">OPTIONS:</span>
+<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="s1">        --extension &lt;extension&gt;...    Only search through files with the provided extension</span>
+<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="s1">        --from &lt;from&gt;                 The timestamp to search from. Drops any documents older than the value provided</span>
+<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="s1">    -o, --output &lt;output&gt;             The path to output results to</span>
+<a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a><span class="s1">    -e, --regex &lt;pattern&gt;...          A string or regular expression pattern to search for</span>
+<a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a><span class="s1">    -t, --tau &lt;tau&gt;...                Tau expressions to search with. e.g. &#39;</span><span class="n">Event</span><span class="p">.</span><span class="n">System</span><span class="p">.</span><span class="n">EventID</span><span class="p">:</span> <span class="p">=</span><span class="n">4104</span><span class="err">&#39;</span>
+<a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a>        <span class="p">-</span><span class="n">-timestamp</span> <span class="p">&lt;</span><span class="n">timestamp</span><span class="p">&gt;</span>       <span class="n">The</span> <span class="n">field</span> <span class="n">that</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">timestamp</span>
+<a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a>        <span class="p">-</span><span class="n">-timezone</span> <span class="p">&lt;</span><span class="n">timezone</span><span class="p">&gt;</span>         <span class="n">Output</span> <span class="n">the</span> <span class="n">timestamp</span> <span class="n">using</span> <span class="n">the</span> <span class="n">timezone</span> <span class="n">provided</span>
+<a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a>        <span class="p">-</span><span class="n">-to</span> <span class="p">&lt;</span><span class="n">to</span><span class="p">&gt;</span>                     <span class="n">The</span> <span class="n">timestamp</span> <span class="n">to</span> <span class="n">search</span> <span class="n">up</span> <span class="n">to</span><span class="p">.</span> <span class="n">Drops</span> <span class="n">any</span> <span class="n">documents</span> <span class="n">newer</span> <span class="n">than</span> <span class="n">the</span> <span class="n">value</span> <span class="n">provided</span>
+<a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a>
+<a id="__codelineno-12-24" name="__codelineno-12-24" href="#__codelineno-12-24"></a><span class="n">ARGS</span><span class="p">:</span>
+<a id="__codelineno-12-25" name="__codelineno-12-25" href="#__codelineno-12-25"></a>    <span class="p">&lt;</span><span class="n">pattern</span><span class="p">&gt;</span>    <span class="n">A</span> <span class="n">string</span> <span class="n">or</span> <span class="n">regular</span> <span class="n">expression</span> <span class="n">pattern</span> <span class="n">to</span> <span class="n">search</span> <span class="k">for</span><span class="p">.</span> <span class="n">Not</span> <span class="n">used</span> <span class="n">when</span> <span class="n">-e</span> <span class="n">or</span> <span class="n">-t</span> <span class="n">is</span> <span class="n">specified</span>
+<a id="__codelineno-12-26" name="__codelineno-12-26" href="#__codelineno-12-26"></a>    <span class="p">&lt;</span><span class="n">path</span><span class="p">&gt;...</span>    <span class="n">The</span> <span class="n">paths</span> <span class="n">containing</span> <span class="n">event</span> <span class="n">logs</span> <span class="n">to</span> <span class="n">load</span> <span class="n">and</span> <span class="n">hunt</span> <span class="n">through</span>
+</code></pre></div>
+<p>Tìm kiếm tất cả chuỗi "mimikatz" không phân biệt hoa thường:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>./chainsaw<span class="w"> </span>search<span class="w"> </span>mimikatz<span class="w"> </span>-i<span class="w"> </span>evtx_attack_samples/
+</code></pre></div>
+<p>Tìm kiếm tất cả sự kiện đăng nhập với regex, xuất dưới dạng JSON:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>./chainsaw<span class="w"> </span>search<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;DC[0-9].insecurebank.local&quot;</span><span class="w"> </span>evtx_attack_samples<span class="w"> </span>--json
+</code></pre></div>
+<p>Tìm kiếm tất cả các tập tin evtx bằng Sigma rules để phát hiện tấn công:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="p">$</span> <span class="p">./</span><span class="n">chainsaw</span> <span class="n">hunt</span> <span class="n">-r</span> <span class="n">rules</span><span class="p">/</span> <span class="n">evtx_attack_samples</span> <span class="n">-s</span> <span class="n">sigma</span><span class="p">/</span><span class="n">rules</span> <span class="p">-</span><span class="n">-mapping</span> <span class="n">mappings</span><span class="p">/</span><span class="n">sigma-event-logs-all</span><span class="p">.</span><span class="n">yml</span> <span class="p">-</span><span class="n">-level</span> <span class="n">critical</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="err">██████╗██╗</span>  <span class="err">██╗</span> <span class="err">█████╗</span> <span class="err">██╗███╗</span>   <span class="err">██╗███████╗</span> <span class="err">█████╗</span> <span class="err">██╗</span>    <span class="err">██╗</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="err">██╔════╝██║</span>  <span class="err">██║██╔══██╗██║████╗</span>  <span class="err">██║██╔════╝██╔══██╗██║</span>    <span class="err">██║</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="err">██║</span>     <span class="err">███████║███████║██║██╔██╗</span> <span class="err">██║███████╗███████║██║</span> <span class="err">█╗</span> <span class="err">██║</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="err">██║</span>     <span class="err">██╔══██║██╔══██║██║██║╚██╗██║╚════██║██╔══██║██║███╗██║</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="err">╚██████╗██║</span>  <span class="err">██║██║</span>  <span class="err">██║██║██║</span> <span class="err">╚████║███████║██║</span>  <span class="err">██║╚███╔███╔╝</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="err">╚═════╝╚═╝</span>  <span class="err">╚═╝╚═╝</span>  <span class="err">╚═╝╚═╝╚═╝</span>  <span class="err">╚═══╝╚══════╝╚═╝</span>  <span class="err">╚═╝</span> <span class="err">╚══╝╚══╝</span>
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>    <span class="n">By</span> <span class="n">Countercept</span> <span class="p">(</span><span class="nv">@FranticTyping</span><span class="p">,</span> <span class="nv">@AlexKornitzer</span><span class="p">)</span>
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="p">[+]</span> <span class="n">Loading</span> <span class="n">detection</span> <span class="n">rules</span> <span class="n">from</span><span class="p">:</span> <span class="p">../../</span><span class="n">rules</span><span class="p">/,</span> <span class="p">/</span><span class="n">tmp</span><span class="p">/</span><span class="n">sigma</span><span class="p">/</span><span class="n">rules</span>
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="p">[+]</span> <span class="n">Loaded</span> <span class="n">129</span> <span class="n">detection</span> <span class="n">rules</span> <span class="p">(</span><span class="n">198</span> <span class="n">not</span> <span class="n">loaded</span><span class="p">)</span>
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="p">[+]</span> <span class="n">Loading</span> <span class="n">event</span> <span class="n">logs</span> <span class="n">from</span><span class="p">:</span> <span class="p">../../</span><span class="n">evtx_attack_samples</span> <span class="p">(</span><span class="n">extensions</span><span class="p">:</span> <span class="p">.</span><span class="n">evtx</span><span class="p">)</span>
+<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="p">[+]</span> <span class="n">Loaded</span> <span class="n">268</span> <span class="n">EVTX</span> <span class="n">files</span> <span class="p">(</span><span class="n">37</span><span class="p">.</span><span class="n">5</span> <span class="n">MB</span><span class="p">)</span>
+<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="p">[+]</span> <span class="n">Hunting</span><span class="p">:</span> <span class="p">[========================================]</span> <span class="n">268</span><span class="p">/</span><span class="n">268</span>
+<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a>
+<a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="p">[+]</span> <span class="n">Group</span><span class="p">:</span> <span class="n">Antivirus</span>
+<a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="err">┌─────────────────────┬────────────────────┬──────────┬───────────┬─────────────┬────────────────────────────────┬──────────────────────────────────┬────────────────────┐</span>
+<a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a><span class="err">│</span>      <span class="n">timestamp</span>      <span class="err">│</span>     <span class="n">detections</span>     <span class="err">│</span> <span class="n">Event</span> <span class="n">ID</span> <span class="err">│</span> <span class="n">Record</span> <span class="n">ID</span> <span class="err">│</span>  <span class="n">Computer</span>   <span class="err">│</span>          <span class="n">Threat</span> <span class="n">Name</span>           <span class="err">│</span>           <span class="n">Threat</span> <span class="n">Path</span>            <span class="err">│</span>        <span class="n">User</span>        <span class="err">│</span>
+<a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a><span class="err">├─────────────────────┼────────────────────┼──────────┼───────────┼─────────────┼────────────────────────────────┼──────────────────────────────────┼────────────────────┤</span>
+<a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a><span class="err">│</span> <span class="n">2019</span><span class="p">-</span><span class="n">07</span><span class="p">-</span><span class="n">18</span> <span class="n">20</span><span class="p">:</span><span class="n">40</span><span class="p">:</span><span class="n">00</span> <span class="err">│</span> <span class="err">‣</span> <span class="n">Windows</span> <span class="n">Defender</span> <span class="err">│</span> <span class="n">1116</span>     <span class="err">│</span> <span class="n">37</span>        <span class="err">│</span> <span class="n">MSEDGEWIN10</span> <span class="err">│</span> <span class="n">Trojan</span><span class="p">:</span><span class="n">PowerShell</span><span class="p">/</span><span class="n">Powersploit</span><span class="p">.</span> <span class="err">│</span> <span class="n">file</span><span class="p">:</span><span class="n">_C</span><span class="p">:\</span><span class="n">AtomicRedTeam</span><span class="p">\</span><span class="n">atomic</span><span class="p">-</span>   <span class="err">│</span> <span class="n">MSEDGEWIN10</span><span class="p">\</span><span class="n">IEUser</span> <span class="err">│</span>
+<a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a><span class="err">│</span>                     <span class="err">│</span>                    <span class="err">│</span>          <span class="err">│</span>           <span class="err">│</span>             <span class="err">│</span> <span class="n">M</span>                              <span class="err">│</span> <span class="n">red-team-master</span><span class="p">\</span><span class="n">atomics</span><span class="p">\</span><span class="n">T1056</span><span class="p">\</span>   <span class="err">│</span>                    <span class="err">│</span>
+<a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a><span class="err">│</span>                     <span class="err">│</span>                    <span class="err">│</span>          <span class="err">│</span>           <span class="err">│</span>             <span class="err">│</span>                                <span class="err">│</span> <span class="nb">Get-Keystrokes</span><span class="p">.</span><span class="n">ps1</span>               <span class="err">│</span>                    <span class="err">│</span>
+<a id="__codelineno-15-24" name="__codelineno-15-24" href="#__codelineno-15-24"></a><span class="err">├─────────────────────┼────────────────────┼──────────┼───────────┼─────────────┼────────────────────────────────┼──────────────────────────────────┼────────────────────┤</span>
+<a id="__codelineno-15-25" name="__codelineno-15-25" href="#__codelineno-15-25"></a><span class="err">│</span> <span class="n">2019</span><span class="p">-</span><span class="n">07</span><span class="p">-</span><span class="n">18</span> <span class="n">20</span><span class="p">:</span><span class="n">53</span><span class="p">:</span><span class="n">31</span> <span class="err">│</span> <span class="err">‣</span> <span class="n">Windows</span> <span class="n">Defender</span> <span class="err">│</span> <span class="n">1117</span>     <span class="err">│</span> <span class="n">106</span>       <span class="err">│</span> <span class="n">MSEDGEWIN10</span> <span class="err">│</span> <span class="n">Trojan</span><span class="p">:</span><span class="n">XML</span><span class="p">/</span><span class="n">Exeselrun</span><span class="p">.</span><span class="n">gen</span><span class="p">!</span><span class="n">A</span>     <span class="err">│</span> <span class="n">file</span><span class="p">:</span><span class="n">_C</span><span class="p">:\</span><span class="n">AtomicRedTeam</span><span class="p">\</span><span class="n">atomic</span><span class="p">-</span>   <span class="err">│</span> <span class="n">MSEDGEWIN10</span><span class="p">\</span><span class="n">IEUser</span> <span class="err">│</span>
+<a id="__codelineno-15-26" name="__codelineno-15-26" href="#__codelineno-15-26"></a><span class="err">│</span>                     <span class="err">│</span>                    <span class="err">│</span>          <span class="err">│</span>           <span class="err">│</span>             <span class="err">│</span>                                <span class="err">│</span> <span class="n">red-team-master</span><span class="p">\</span><span class="n">atomics</span><span class="p">\</span><span class="n">T1086</span><span class="p">\</span>   <span class="err">│</span>                    <span class="err">│</span>
+<a id="__codelineno-15-27" name="__codelineno-15-27" href="#__codelineno-15-27"></a><span class="err">│</span>                     <span class="err">│</span>                    <span class="err">│</span>          <span class="err">│</span>           <span class="err">│</span>             <span class="err">│</span>                                <span class="err">│</span> <span class="n">payloads</span><span class="p">\</span><span class="n">test</span><span class="p">.</span><span class="n">xsl</span>                <span class="err">│</span>                    <span class="err">│</span>
+<a id="__codelineno-15-28" name="__codelineno-15-28" href="#__codelineno-15-28"></a><span class="err">└─────────────────────┴────────────────────┴──────────┴───────────┴─────────────┴────────────────────────────────┴──────────────────────────────────┴────────────────────┘</span>
+<a id="__codelineno-15-29" name="__codelineno-15-29" href="#__codelineno-15-29"></a>
+<a id="__codelineno-15-30" name="__codelineno-15-30" href="#__codelineno-15-30"></a><span class="p">[+]</span> <span class="n">Group</span><span class="p">:</span> <span class="n">Log</span> <span class="n">Tampering</span>
+<a id="__codelineno-15-31" name="__codelineno-15-31" href="#__codelineno-15-31"></a><span class="err">┌─────────────────────┬───────────────────────────────┬──────────┬───────────┬────────────────────────────────┬───────────────┐</span>
+<a id="__codelineno-15-32" name="__codelineno-15-32" href="#__codelineno-15-32"></a><span class="err">│</span>      <span class="n">timestamp</span>      <span class="err">│</span>          <span class="n">detections</span>           <span class="err">│</span> <span class="n">Event</span> <span class="n">ID</span> <span class="err">│</span> <span class="n">Record</span> <span class="n">ID</span> <span class="err">│</span>            <span class="n">Computer</span>            <span class="err">│</span>     <span class="n">User</span>      <span class="err">│</span>
+<a id="__codelineno-15-33" name="__codelineno-15-33" href="#__codelineno-15-33"></a><span class="err">├─────────────────────┼───────────────────────────────┼──────────┼───────────┼────────────────────────────────┼───────────────┤</span>
+<a id="__codelineno-15-34" name="__codelineno-15-34" href="#__codelineno-15-34"></a><span class="err">│</span> <span class="n">2019</span><span class="p">-</span><span class="n">01</span><span class="p">-</span><span class="n">20</span> <span class="n">07</span><span class="p">:</span><span class="n">00</span><span class="p">:</span><span class="n">50</span> <span class="err">│</span> <span class="err">‣</span> <span class="n">Security</span> <span class="n">Audit</span> <span class="n">Logs</span> <span class="n">Cleared</span> <span class="err">│</span> <span class="n">1102</span>     <span class="err">│</span> <span class="n">32853</span>     <span class="err">│</span> <span class="n">WIN</span><span class="p">-</span><span class="n">77LTAPHIQ1R</span><span class="p">.</span><span class="n">example</span><span class="p">.</span><span class="n">corp</span>   <span class="err">│</span> <span class="n">Administrator</span> <span class="err">│</span>
+<a id="__codelineno-15-35" name="__codelineno-15-35" href="#__codelineno-15-35"></a><span class="err">└─────────────────────┴───────────────────────────────┴──────────┴───────────┴────────────────────────────────┴───────────────┘</span>
+<a id="__codelineno-15-36" name="__codelineno-15-36" href="#__codelineno-15-36"></a>
+<a id="__codelineno-15-37" name="__codelineno-15-37" href="#__codelineno-15-37"></a><span class="p">[+]</span> <span class="n">Group</span><span class="p">:</span> <span class="n">Sigma</span>
+<a id="__codelineno-15-38" name="__codelineno-15-38" href="#__codelineno-15-38"></a><span class="err">┌─────────────────────┬────────────────────────────────┬───────┬────────────────────────────────┬──────────┬───────────┬──────────────────────────┬──────────────────────────────────┐</span>
+<a id="__codelineno-15-39" name="__codelineno-15-39" href="#__codelineno-15-39"></a><span class="err">│</span>      <span class="n">timestamp</span>      <span class="err">│</span>           <span class="n">detections</span>           <span class="err">│</span> <span class="n">count</span> <span class="err">│</span>     <span class="n">Event</span><span class="p">.</span><span class="n">System</span><span class="p">.</span><span class="n">Provider</span>      <span class="err">│</span> <span class="n">Event</span> <span class="n">ID</span> <span class="err">│</span> <span class="n">Record</span> <span class="n">ID</span> <span class="err">│</span>         <span class="n">Computer</span>         <span class="err">│</span>            <span class="n">Event</span> <span class="n">Data</span>            <span class="err">│</span>
+<a id="__codelineno-15-40" name="__codelineno-15-40" href="#__codelineno-15-40"></a><span class="err">├─────────────────────┼────────────────────────────────┼───────┼────────────────────────────────┼──────────┼───────────┼──────────────────────────┼──────────────────────────────────┤</span>
+<a id="__codelineno-15-41" name="__codelineno-15-41" href="#__codelineno-15-41"></a><span class="err">│</span> <span class="n">2019</span><span class="p">-</span><span class="n">04</span><span class="p">-</span><span class="n">29</span> <span class="n">20</span><span class="p">:</span><span class="n">59</span><span class="p">:</span><span class="n">14</span> <span class="err">│</span> <span class="err">‣</span> <span class="n">Malicious</span> <span class="n">Named</span> <span class="n">Pipe</span>         <span class="err">│</span> <span class="n">1</span>     <span class="err">│</span> <span class="n">Microsoft-Windows-Sysmon</span>       <span class="err">│</span> <span class="n">18</span>       <span class="err">│</span> <span class="n">8046</span>      <span class="err">│</span> <span class="n">IEWIN7</span>                   <span class="err">│</span> <span class="p">---</span>                              <span class="err">│</span>
+<a id="__codelineno-15-42" name="__codelineno-15-42" href="#__codelineno-15-42"></a><span class="err">│</span>                     <span class="err">│</span>                                <span class="err">│</span>       <span class="err">│</span>                                <span class="err">│</span>          <span class="err">│</span>           <span class="err">│</span>                          <span class="err">│</span> <span class="n">Image</span><span class="p">:</span> <span class="n">System</span>                    <span class="err">│</span>
+<a id="__codelineno-15-43" name="__codelineno-15-43" href="#__codelineno-15-43"></a><span class="err">│</span>                     <span class="err">│</span>                                <span class="err">│</span>       <span class="err">│</span>                                <span class="err">│</span>          <span class="err">│</span>           <span class="err">│</span>                          <span class="err">│</span> <span class="n">PipeName</span><span class="p">:</span> <span class="s2">&quot;\\46a676ab7f179e511   │</span>
+<a id="__codelineno-15-44" name="__codelineno-15-44" href="#__codelineno-15-44"></a><span class="s2">│                     │                                │       │                                │          │           │                          │ e30dd2dc41bd388&quot;</span>                 <span class="err">│</span>
+<a id="__codelineno-15-45" name="__codelineno-15-45" href="#__codelineno-15-45"></a><span class="err">│</span>                     <span class="err">│</span>                                <span class="err">│</span>       <span class="err">│</span>                                <span class="err">│</span>          <span class="err">│</span>           <span class="err">│</span>                          <span class="err">│</span> <span class="n">ProcessGuid</span><span class="p">:</span> <span class="n">365ABB72-D9C4</span><span class="p">-</span><span class="n">5CC</span>   <span class="err">│</span>
+<a id="__codelineno-15-46" name="__codelineno-15-46" href="#__codelineno-15-46"></a><span class="err">│</span>                     <span class="err">│</span>                                <span class="err">│</span>       <span class="err">│</span>                                <span class="err">│</span>          <span class="err">│</span>           <span class="err">│</span>                          <span class="err">│</span> <span class="n">7</span><span class="p">-</span><span class="n">0000</span><span class="p">-</span><span class="n">0010EA030000</span>              <span class="err">│</span>
+<a id="__codelineno-15-47" name="__codelineno-15-47" href="#__codelineno-15-47"></a><span class="err">│</span>                     <span class="err">│</span>                                <span class="err">│</span>       <span class="err">│</span>                                <span class="err">│</span>          <span class="err">│</span>           <span class="err">│</span>                          <span class="err">│</span> <span class="n">ProcessId</span><span class="p">:</span> <span class="n">4</span>                     <span class="err">│</span>
+<a id="__codelineno-15-48" name="__codelineno-15-48" href="#__codelineno-15-48"></a><span class="err">│</span>                     <span class="err">│</span>                                <span class="err">│</span>       <span class="err">│</span>                                <span class="err">│</span>          <span class="err">│</span>           <span class="err">│</span>                          <span class="err">│</span> <span class="n">RuleName</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>                     <span class="err">│</span>
+<a id="__codelineno-15-49" name="__codelineno-15-49" href="#__codelineno-15-49"></a><span class="err">│</span>                     <span class="err">│</span>                                <span class="err">│</span>       <span class="err">│</span>                                <span class="err">│</span>          <span class="err">│</span>           <span class="err">│</span>                          <span class="err">│</span> <span class="n">UtcTime</span><span class="p">:</span> <span class="s2">&quot;2019-04-29 20:59:14.   │</span>
+<a id="__codelineno-15-50" name="__codelineno-15-50" href="#__codelineno-15-50"></a><span class="s2">│                     │                                │       │                                │          │           │                          │ 430&quot;</span>                             <span class="err">│</span>
+<a id="__codelineno-15-51" name="__codelineno-15-51" href="#__codelineno-15-51"></a><span class="err">├─────────────────────┼────────────────────────────────┼───────┼────────────────────────────────┼──────────┼───────────┼──────────────────────────┼──────────────────────────────────┤</span>
+<a id="__codelineno-15-52" name="__codelineno-15-52" href="#__codelineno-15-52"></a><span class="err">│</span> <span class="n">2019</span><span class="p">-</span><span class="n">04</span><span class="p">-</span><span class="n">30</span> <span class="n">20</span><span class="p">:</span><span class="n">26</span><span class="p">:</span><span class="n">51</span> <span class="err">│</span> <span class="err">‣</span> <span class="n">CobaltStrike</span> <span class="n">Service</span>         <span class="err">│</span> <span class="n">1</span>     <span class="err">│</span> <span class="n">Microsoft-Windows-Sysmon</span>       <span class="err">│</span> <span class="n">13</span>       <span class="err">│</span> <span class="n">9806</span>      <span class="err">│</span> <span class="n">IEWIN7</span>                   <span class="err">│</span> <span class="p">---</span>                              <span class="err">│</span>
+<a id="__codelineno-15-53" name="__codelineno-15-53" href="#__codelineno-15-53"></a><span class="err">│</span>                     <span class="err">│</span> <span class="n">Installations</span> <span class="k">in</span> <span class="n">Registry</span>      <span class="err">│</span>       <span class="err">│</span>                                <span class="err">│</span>          <span class="err">│</span>           <span class="err">│</span>                          <span class="err">│</span> <span class="n">Details</span><span class="p">:</span> <span class="s2">&quot;%%COMSPEC%% /b /c st   │</span>
+<a id="__codelineno-15-54" name="__codelineno-15-54" href="#__codelineno-15-54"></a><span class="s2">│                     │                                │       │                                │          │           │                          │ art /b /min powershell.exe -no   │</span>
+<a id="__codelineno-15-55" name="__codelineno-15-55" href="#__codelineno-15-55"></a><span class="s2">│                     │                                │       │                                │          │           │                          │ p -w hidden -noni -c \&quot;</span><span class="k">if</span><span class="p">([</span><span class="n">Int</span>   <span class="err">│</span>
+<a id="__codelineno-15-56" name="__codelineno-15-56" href="#__codelineno-15-56"></a><span class="err">│</span>                     <span class="err">│</span>                                <span class="err">│</span>       <span class="err">│</span>                                <span class="err">│</span>          <span class="err">│</span>           <span class="err">│</span>                          <span class="err">│</span> <span class="n">Ptr</span><span class="p">]::</span><span class="n">Size</span> <span class="o">-eq</span> <span class="n">4</span><span class="p">){</span><span class="nv">$b</span><span class="p">=</span><span class="s1">&#39;powershe   │</span>
+<a id="__codelineno-15-57" name="__codelineno-15-57" href="#__codelineno-15-57"></a><span class="s1">│                     │                                │       │                                │          │           │                          │ ll.exe&#39;</span><span class="p">}</span><span class="k">else</span><span class="p">{</span><span class="nv">$b</span><span class="p">=</span><span class="nv">$env:windir</span><span class="p">+</span><span class="s1">&#39;\   │</span>
+<a id="__codelineno-15-58" name="__codelineno-15-58" href="#__codelineno-15-58"></a><span class="s1">│                     │                                │       │                                │          │           │                          │ \syswow64\\WindowsPowerShell\\   │</span>
+<a id="__codelineno-15-59" name="__codelineno-15-59" href="#__codelineno-15-59"></a><span class="s1">│                     │                                │       │                                │          │           │                          │ v1.0\\powershell.exe&#39;</span><span class="p">};</span><span class="nv">$s</span><span class="p">=</span><span class="n">New</span><span class="p">-</span>   <span class="err">│</span>
+<a id="__codelineno-15-60" name="__codelineno-15-60" href="#__codelineno-15-60"></a><span class="err">│</span>                     <span class="err">│</span>                                <span class="err">│</span>       <span class="err">│</span>                                <span class="err">│</span>          <span class="err">│</span>           <span class="err">│</span>                          <span class="err">│</span> <span class="n">Object</span> <span class="n">System</span><span class="p">.</span><span class="n">Diagnostics</span><span class="p">.</span><span class="n">Proc</span>   <span class="err">│</span>
+<a id="__codelineno-15-61" name="__codelineno-15-61" href="#__codelineno-15-61"></a><span class="err">│</span>                     <span class="err">│</span>                                <span class="err">│</span>       <span class="err">│</span>                                <span class="err">│</span>          <span class="err">│</span>           <span class="err">│</span>                          <span class="err">│</span> <span class="n">essStartInfo</span><span class="p">;</span><span class="nv">$s</span><span class="p">.</span><span class="n">FileName</span><span class="p">=</span><span class="nv">$b</span><span class="p">;</span><span class="nv">$s</span>   <span class="err">│</span>
+<a id="__codelineno-15-62" name="__codelineno-15-62" href="#__codelineno-15-62"></a><span class="err">│</span>                     <span class="err">│</span>                                <span class="err">│</span>       <span class="err">│</span>                                <span class="err">│</span>          <span class="err">│</span>           <span class="err">│</span>                          <span class="err">│</span> <span class="p">.</span><span class="n">Arguments</span><span class="p">=</span><span class="s1">&#39;-noni -nop -w hidd   │</span>
+<a id="__codelineno-15-63" name="__codelineno-15-63" href="#__codelineno-15-63"></a><span class="s1">│                     │                                │       │                                │          │           │                          │ en -c &amp;([scriptblock]::create(   │</span>
+<a id="__codelineno-15-64" name="__codelineno-15-64" href="#__codelineno-15-64"></a><span class="s1">│                     │                                │       │                                │          │           │                          │ (New-Object IO.StreamReader(Ne   │</span>
+<a id="__codelineno-15-65" name="__codelineno-15-65" href="#__codelineno-15-65"></a><span class="s1">│                     │                                │       │                                │          │           │                          │ w-Object IO.Compression.GzipSt   │</span>
+<a id="__codelineno-15-66" name="__codelineno-15-66" href="#__codelineno-15-66"></a><span class="s1">│                     │                                │       │                                │          │           │                          │ ream((New-Object IO.MemoryStre   │</span>
+<a id="__codelineno-15-67" name="__codelineno-15-67" href="#__codelineno-15-67"></a><span class="s1">│                     │                                │       │                                │          │           │                          │ am(,[Convert]::FromBase64Strin   │</span>
+<a id="__codelineno-15-68" name="__codelineno-15-68" href="#__codelineno-15-68"></a><span class="s1">│                     │                                │       │                                │          │           │                          │ g(&#39;&#39;H4sIAIuvyFwCA7VW+2/aSBD+OZ   │</span>
+<a id="__codelineno-15-69" name="__codelineno-15-69" href="#__codelineno-15-69"></a><span class="s1">│                     │                                │       │                                │          │           │                          │ H6P1...                          │</span>
+<a id="__codelineno-15-70" name="__codelineno-15-70" href="#__codelineno-15-70"></a><span class="s1">│                     │                                │       │                                │          │           │                          │ (use --full to show all content) │</span>
+<a id="__codelineno-15-71" name="__codelineno-15-71" href="#__codelineno-15-71"></a><span class="s1">│                     │                                │       │                                │          │           │                          │ EventType: SetValue              │</span>
+<a id="__codelineno-15-72" name="__codelineno-15-72" href="#__codelineno-15-72"></a><span class="s1">│                     │                                │       │                                │          │           │                          │ Image: &quot;C:\\Windows\\system32\   │</span>
+<a id="__codelineno-15-73" name="__codelineno-15-73" href="#__codelineno-15-73"></a><span class="s1">│                     │                                │       │                                │          │           │                          │ \services.exe&quot;                   │</span>
+<a id="__codelineno-15-74" name="__codelineno-15-74" href="#__codelineno-15-74"></a><span class="s1">│                     │                                │       │                                │          │           │                          │ ProcessGuid: 365ABB72-2586-5CC   │</span>
+<a id="__codelineno-15-75" name="__codelineno-15-75" href="#__codelineno-15-75"></a><span class="s1">│                     │                                │       │                                │          │           │                          │ 9-0000-0010DC530000              │</span>
+<a id="__codelineno-15-76" name="__codelineno-15-76" href="#__codelineno-15-76"></a><span class="s1">│                     │                                │       │                                │          │           │                          │ ProcessId: 460                   │</span>
+<a id="__codelineno-15-77" name="__codelineno-15-77" href="#__codelineno-15-77"></a><span class="s1">│                     │                                │       │                                │          │           │                          │ RuleName: &quot;&quot;                     │</span>
+<a id="__codelineno-15-78" name="__codelineno-15-78" href="#__codelineno-15-78"></a><span class="s1">│                     │                                │       │                                │          │           │                          │ TargetObject: &quot;HKLM\\System\\C   │</span>
+<a id="__codelineno-15-79" name="__codelineno-15-79" href="#__codelineno-15-79"></a><span class="s1">│                     │                                │       │                                │          │           │                          │ urrentControlSet\\services\\he   │</span>
+<a id="__codelineno-15-80" name="__codelineno-15-80" href="#__codelineno-15-80"></a><span class="s1">│                     │                                │       │                                │          │           │                          │ llo\\ImagePath&quot;                  │</span>
+<a id="__codelineno-15-81" name="__codelineno-15-81" href="#__codelineno-15-81"></a><span class="s1">│                     │                                │       │                                │          │           │                          │ UtcTime: &quot;2019-04-30 20:26:51.   │</span>
+<a id="__codelineno-15-82" name="__codelineno-15-82" href="#__codelineno-15-82"></a><span class="s1">│                     │                                │       │                                │          │           │                          │ 934&quot;                             │</span>
+<a id="__codelineno-15-83" name="__codelineno-15-83" href="#__codelineno-15-83"></a><span class="s1">├─────────────────────┼────────────────────────────────┼───────┼────────────────────────────────┼──────────┼───────────┼──────────────────────────┼──────────────────────────────────┤</span>
+<a id="__codelineno-15-84" name="__codelineno-15-84" href="#__codelineno-15-84"></a><span class="s1">│ 2019-05-12 12:52:43 │ ‣ Meterpreter or Cobalt        │ 1     │ Service Control Manager        │ 7045     │ 10446     │ IEWIN7                   │ ---                              │</span>
+<a id="__codelineno-15-85" name="__codelineno-15-85" href="#__codelineno-15-85"></a><span class="s1">│                     │ Strike Getsystem Service       │       │                                │          │           │                          │ AccountName: LocalSystem         │</span>
+<a id="__codelineno-15-86" name="__codelineno-15-86" href="#__codelineno-15-86"></a><span class="s1">│                     │ Installation                   │       │                                │          │           │                          │ ImagePath: &quot;%COMSPEC% /c ping    │</span>
+<a id="__codelineno-15-87" name="__codelineno-15-87" href="#__codelineno-15-87"></a><span class="s1">│                     │                                │       │                                │          │           │                          │ -n 1 127.0.0.1 &gt;nul &amp;&amp; echo &#39;</span><span class="n">W</span>   <span class="err">│</span>
+<a id="__codelineno-15-88" name="__codelineno-15-88" href="#__codelineno-15-88"></a><span class="err">│</span>                     <span class="err">│</span>                                <span class="err">│</span>       <span class="err">│</span>                                <span class="err">│</span>          <span class="err">│</span>           <span class="err">│</span>                          <span class="err">│</span> <span class="n">inPwnage</span><span class="err">&#39;</span> <span class="p">&gt;</span> <span class="p">\\\\.\\</span><span class="n">pipe</span><span class="p">\\</span><span class="n">WinPw</span>   <span class="err">│</span>
+<a id="__codelineno-15-89" name="__codelineno-15-89" href="#__codelineno-15-89"></a><span class="err">│</span>                     <span class="err">│</span>                                <span class="err">│</span>       <span class="err">│</span>                                <span class="err">│</span>          <span class="err">│</span>           <span class="err">│</span>                          <span class="err">│</span> <span class="n">nagePipe</span><span class="s2">&quot;                        │</span>
+<a id="__codelineno-15-90" name="__codelineno-15-90" href="#__codelineno-15-90"></a><span class="s2">│                     │                                │       │                                │          │           │                          │ ServiceName: WinPwnage           │</span>
+<a id="__codelineno-15-91" name="__codelineno-15-91" href="#__codelineno-15-91"></a><span class="s2">│                     │                                │       │                                │          │           │                          │ ServiceType: user mode service   │</span>
+<a id="__codelineno-15-92" name="__codelineno-15-92" href="#__codelineno-15-92"></a><span class="s2">│                     │                                │       │                                │          │           │                          │ StartType: demand start          │</span>
+<a id="__codelineno-15-93" name="__codelineno-15-93" href="#__codelineno-15-93"></a><span class="s2">├─────────────────────┼────────────────────────────────┼───────┼────────────────────────────────┼──────────┼───────────┼──────────────────────────┼──────────────────────────────────┤</span>
+<a id="__codelineno-15-94" name="__codelineno-15-94" href="#__codelineno-15-94"></a><span class="s2">│ 2019-06-21 07:35:37 │ ‣ Dumpert Process Dumper       │ 1     │ Microsoft-Windows-Sysmon       │ 11       │ 238375    │ alice.insecurebank.local │ ---                              │</span>
+<a id="__codelineno-15-95" name="__codelineno-15-95" href="#__codelineno-15-95"></a><span class="s2">│                     │                                │       │                                │          │           │                          │ CreationUtcTime: &quot;</span><span class="n">2019</span><span class="p">-</span><span class="n">06</span><span class="p">-</span><span class="n">21</span> <span class="n">0</span>   <span class="err">│</span>
+<a id="__codelineno-15-96" name="__codelineno-15-96" href="#__codelineno-15-96"></a><span class="err">│</span>                     <span class="err">│</span>                                <span class="err">│</span>       <span class="err">│</span>                                <span class="err">│</span>          <span class="err">│</span>           <span class="err">│</span>                          <span class="err">│</span> <span class="n">6</span><span class="p">:</span><span class="n">53</span><span class="p">:</span><span class="n">03</span><span class="p">.</span><span class="n">227</span><span class="s2">&quot;                     │</span>
+<a id="__codelineno-15-97" name="__codelineno-15-97" href="#__codelineno-15-97"></a><span class="s2">│                     │                                │       │                                │          │           │                          │ Image: &quot;</span><span class="n">C</span><span class="p">:\\</span><span class="n">Users</span><span class="p">\\</span><span class="n">administrat</span>   <span class="err">│</span>
+<a id="__codelineno-15-98" name="__codelineno-15-98" href="#__codelineno-15-98"></a><span class="err">│</span>                     <span class="err">│</span>                                <span class="err">│</span>       <span class="err">│</span>                                <span class="err">│</span>          <span class="err">│</span>           <span class="err">│</span>                          <span class="err">│</span> <span class="n">or</span><span class="p">\\</span><span class="n">Desktop</span><span class="p">\\</span><span class="n">x64</span><span class="p">\\</span><span class="n">Outflank-Dum</span>   <span class="err">│</span>
+<a id="__codelineno-15-99" name="__codelineno-15-99" href="#__codelineno-15-99"></a><span class="err">│</span>                     <span class="err">│</span>                                <span class="err">│</span>       <span class="err">│</span>                                <span class="err">│</span>          <span class="err">│</span>           <span class="err">│</span>                          <span class="err">│</span> <span class="n">pert</span><span class="p">.</span><span class="n">exe</span><span class="s2">&quot;                        │</span>
+<a id="__codelineno-15-100" name="__codelineno-15-100" href="#__codelineno-15-100"></a><span class="s2">│                     │                                │       │                                │          │           │                          │ ProcessGuid: ECAD0485-88C9-5D0   │</span>
+<a id="__codelineno-15-101" name="__codelineno-15-101" href="#__codelineno-15-101"></a><span class="s2">│                     │                                │       │                                │          │           │                          │ C-0000-0010348C1D00              │</span>
+<a id="__codelineno-15-102" name="__codelineno-15-102" href="#__codelineno-15-102"></a><span class="s2">│                     │                                │       │                                │          │           │                          │ ProcessId: 3572                  │</span>
+<a id="__codelineno-15-103" name="__codelineno-15-103" href="#__codelineno-15-103"></a><span class="s2">│                     │                                │       │                                │          │           │                          │ RuleName: &quot;&quot;                     │</span>
+<a id="__codelineno-15-104" name="__codelineno-15-104" href="#__codelineno-15-104"></a><span class="s2">│                     │                                │       │                                │          │           │                          │ TargetFilename: &quot;</span><span class="n">C</span><span class="p">:\\</span><span class="n">Windows</span><span class="p">\\</span>   <span class="err">│</span>
+<a id="__codelineno-15-105" name="__codelineno-15-105" href="#__codelineno-15-105"></a><span class="err">│</span>                     <span class="err">│</span>                                <span class="err">│</span>       <span class="err">│</span>                                <span class="err">│</span>          <span class="err">│</span>           <span class="err">│</span>                          <span class="err">│</span> <span class="n">Temp</span><span class="p">\\</span><span class="n">dumpert</span><span class="p">.</span><span class="n">dmp</span><span class="s2">&quot;               │</span>
+<a id="__codelineno-15-106" name="__codelineno-15-106" href="#__codelineno-15-106"></a><span class="s2">│                     │                                │       │                                │          │           │                          │ UtcTime: &quot;</span><span class="n">2019</span><span class="p">-</span><span class="n">06</span><span class="p">-</span><span class="n">21</span> <span class="n">07</span><span class="p">:</span><span class="n">35</span><span class="p">:</span><span class="n">37</span><span class="p">.</span>   <span class="err">│</span>
+<a id="__codelineno-15-107" name="__codelineno-15-107" href="#__codelineno-15-107"></a><span class="err">│</span>                     <span class="err">│</span>                                <span class="err">│</span>       <span class="err">│</span>                                <span class="err">│</span>          <span class="err">│</span>           <span class="err">│</span>                          <span class="err">│</span> <span class="n">324</span><span class="s2">&quot;                             │</span>
+<a id="__codelineno-15-108" name="__codelineno-15-108" href="#__codelineno-15-108"></a><span class="s2">└─────────────────────┴────────────────────────────────┴───────┴────────────────────────────────┴──────────┴───────────┴──────────────────────────┴──────────────────────────────────┘</span>
+</code></pre></div>
+</details>
+<h2 id="event-log-observer">Event Log Observer<a class="headerlink" href="#event-log-observer" title="Permanent link">#</a></h2>
+<p>Event Log Observer là công cụ giúp nhanh chóng tìm và phân tích các cảnh báo bảo mật, sự cố và các sự kiện khác trong hệ điều hành Microsoft Windows. Với Event Log Observer, ta có thể trích xuất dữ liệu cần thiết bằng cú pháp truy vấn SQLite và nâng cao hiệu quả phân tích Event Logs.</p>
+<p>Những chức năng chính của Event Log Observer:</p>
+<ul>
+<li>Điều hướng dễ dàng và trực quan hóa dữ liệu</li>
+<li>Sử dụng SQL để đọc event logs</li>
+<li>Sử dụng cho nhiều loại log khác nhau</li>
+<li>Hỗ trợ tìm kiếm thông tin nhanh chóng</li>
+</ul>
+<details class="note">
+<summary>Hướng dẫn sử dụng Event Log Observer</summary>
+<p>Tải xuóng công cụ: <a href="https://lizard-labs.com/event_log_observer.aspx">Event Log Observer</a></p>
+<p>Giao diện Dashboard của Event Log Observer:</p>
+<p><img alt="" src="event-log-observer/image-15-57-42.png" /></p>
+<p>Tìm kiếm thông tin từ Event Log:</p>
+<p><img alt="" src="event-log-observer/image-15-58-18.png" /></p>
+</details>
+<h2 id="log-parser-lizard">Log Parser Lizard<a class="headerlink" href="#log-parser-lizard" title="Permanent link">#</a></h2>
+<p>Công cụ truy vấn dữ liệu và phân tích Event log cho phép dễ dàng trích xuất thông tin có giá trị bằng sức mạnh của các lệnh truy vấn SQL. Với Log Parser Lizard, ta có thể dễ dàng phân tích các system hoặc application logs khác nhau, sau đó thực hiện các truy vấn SQL đối với chúng.</p>
+<p>Những chức năng chính của  Log Parser Lizard:</p>
+<ul>
+<li>Sử dụng truy vấn SQL để đọc log</li>
+<li>Web API Server</li>
+<li>Lọc dữ liệu và xử lý khối lượng log lớn</li>
+<li>Xuất ra nhiều định dạng: XLS, XLSX, PDF, RTF, TXT, MHT, CSV, HTML,...</li>
+</ul>
+<details class="note">
+<summary>Hướng dẫn sử dụng  Log Parser Lizard</summary>
+<p>Sử dụng câu lệnh SQL để xử lý dữ liệu mà không cần lưu vào database:</p>
+<p><img alt="" src="log-parser-lizard/animation.gif" /></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">src</span><span class="o">-</span><span class="n">ip</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">firewall</span><span class="p">.</span><span class="n">log</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;DROP&#39;</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">TOP</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">c</span><span class="p">:</span><span class="err">\</span><span class="n">webserver</span><span class="p">.</span><span class="n">log</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">sc</span><span class="o">-</span><span class="n">status</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="mi">200</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">cs</span><span class="o">-</span><span class="n">uri</span><span class="o">-</span><span class="n">stem</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">c</span><span class="p">:</span><span class="err">\</span><span class="n">InetPub</span><span class="err">\</span><span class="n">Logs</span><span class="err">\</span><span class="n">ex</span><span class="o">*</span><span class="p">.</span><span class="n">log</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">cs</span><span class="o">-</span><span class="n">uri</span><span class="o">-</span><span class="n">stem</span><span class="w"> </span><span class="k">HAVING</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">50</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">to_lowercase</span><span class="p">(</span><span class="n">extract_extension</span><span class="p">(</span><span class="n">cs</span><span class="o">-</span><span class="n">uri</span><span class="o">-</span><span class="n">stem</span><span class="p">))</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">PageType</span><span class="p">,</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">sc</span><span class="o">-</span><span class="n">bytes</span><span class="p">)</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="k">FROM</span><span class="w"> </span><span class="n">ex131118</span><span class="p">.</span><span class="n">log</span><span class="p">,</span><span class="w"> </span><span class="n">ex131119</span><span class="p">.</span><span class="n">log</span><span class="w"> </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">PageType</span><span class="w"> </span>
+</code></pre></div>
+</details>
+<h2 id="system-monitor">System Monitor<a class="headerlink" href="#system-monitor" title="Permanent link">#</a></h2>
+<blockquote>
+<p>Được đóng góp bởi: <a href="https://www.bkav.com.vn/">Công ty Cổ phần BKAV</a></p>
+</blockquote>
+<p>System Monitor là một công cụ giám sát mức host thuộc bộ SysInternals được Microsoft cung cấp cho các quản trị viên và nhà phát triển. Sau khi cài đặt, System Monitor sẽ mặc định khởi chạy mỗi khi hệ thống khởi động nhằm đảm bảo ghi nhận đầy đủ các sự kiện. 
+Những thông tin được System Monitor thu thập bao gồm việc tiến trình được khởi tạo/ngừng hoạt động, truy cập đến các vùng nhớ, hành vi kết nối mạng,… Các log được System Monitor ghi lại có thể truy cập thông qua Event Viewer tại mục Applications and Services Logs/Microsoft/Windows/Sysmon/Operational.</p>
+<p><img alt="image" src="https://user-images.githubusercontent.com/55577865/236774393-e631d22f-601b-4239-aab8-47ac040a7504.png" /></p>
+<p>Các tính năng nổi bật mà System Monitor cung cấp:</p>
+<ul>
+<li>Ghi lại thông tin các tiến trình bao gồm Command line của tiến trình hiện tại và tiến trình cha.</li>
+<li>Tính toán giá trị hash (MD5, SHA1, SHA256) của tiến trình và các driver/DLL kèm theo.</li>
+<li>Ghi nhận các hành vi truy cập vào các ổ đĩa và vùng nhớ.</li>
+<li>Thu thập các thông tin về kết nối mạng bao gồm IP, tiến trình sử dụng mạng, port number, hostname,…</li>
+<li>Phát hiện các thay đổi ở phần timestamp của các file, cho biết thời gian thực sự của file được khởi tạo.</li>
+<li>Cho phép tuỳ chỉnh hoạt động theo các file config của người dùng.</li>
+</ul>
+<details class="note">
+<summary>Hướng dẫn sử dụng System Monitor</summary>
+<p>Cài đặt:</p>
+<p>Sau khi tải bản nén từ trang chủ của SysInternals (https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon) và giải nén, ta cần sử dụng Command line với quyền Administrator nhằm thực hiện cài đặt. </p>
+<p><img alt="image" src="https://user-images.githubusercontent.com/55577865/236774426-4fb09819-3ecd-4dfc-8e7e-3bee84b110ad.png" /></p>
+<p>Sau khi cài đặt, System Monitor sẽ khởi chạy mà không cần reboot hệ thống. Các event được System Monitor ghi nhận sẽ tích hợp vào Windows Event Viewer tại mục Applications and Services Logs/Microsoft/Windows/Sysmon/Operational. </p>
+<p><img alt="image" src="https://user-images.githubusercontent.com/55577865/236774473-8ed843d3-6c5e-4c21-9459-8b6a80b85be1.png" /></p>
+<p>Phạm vi giám sát mặc định của System Monitor sẽ không đáp ứng yêu cầu trong một số trường hợp. Khi đó, người dùng có thể áp dụng các config khác lên System Monitor nhằm mở rộng phạm vi giám sát lên hệ thống.</p>
+<p><img alt="image" src="https://user-images.githubusercontent.com/55577865/236774503-666a52db-25fe-40f6-a802-ccce17c17a3b.png" /></p>
+<p>Người dùng có thể quay lại mục Sysmon log nhằm kiểm tra lượng event đã được cập nhật như yêu cầu hay chưa.</p>
+<p><img alt="image" src="https://user-images.githubusercontent.com/55577865/236774524-3d2a4729-4a62-4167-bcb7-a2ef06fac08f.png" /></p>
+</details>
+<h2 id="goaccess">GoAccess<a class="headerlink" href="#goaccess" title="Permanent link">#</a></h2>
+<blockquote>
+<p>Được đóng góp bởi: <a href="https://www.bkav.com.vn/">Công ty Cổ phần BKAV</a></p>
+</blockquote>
+<p>GoAccess là trình phân tích nhật ký web, có thể quan sát theo thời gian thực và trình xem tương tác mã nguồn mở chạy trong terminal trong các hệ thống..
+Cung cấp số liệu thống kê HTTP nhanh chóng và có giá trị cho các quản trị viên hệ thống yêu cầu báo cáo máy chủ trực quan một cách nhanh chóng.</p>
+<p><img alt="image" src="https://user-images.githubusercontent.com/55577865/236773602-e14f5ca9-1804-48ef-a869-b29fe214eb7e.png" /></p>
+<p><img alt="image" src="https://user-images.githubusercontent.com/55577865/236773621-db7f7a25-d4fc-4de7-9a5b-7d40eb1ca4e1.png" /></p>
+<details class="note">
+<summary>Hướng dẫn sử dụng GoAccess</summary>
+<p>Cài đặt:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>$ wget https://tar.goaccess.io/goaccess-1.7.2.tar.gz
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>$ tar -xzvf goaccess-1.7.2.tar.gz
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>$ cd goaccess-1.7.2/
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>$ ./configure --enable-utf8 --enable-geoip=mmdb
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>$ make
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a># make install
+</code></pre></div>
+<p>Để xuất ra thiết bị đầu cuối và tạo báo cáo tương tác:</p>
+<p><code>goaccess access.log</code></p>
+<p>Để tạo báo cáo HTML:</p>
+<p><code># goaccess access.log -a &gt; report.html</code></p>
+<p>Để tạo báo cáo JSON:</p>
+<p><code># goaccess access.log -a -d -o json &gt; report.json</code></p>
+<p>Để tạo tệp CSV:</p>
+<p><code># goaccess access.log --no-csv-summary -o csv &gt; report.csv</code></p>
+<p>Try vấn lọc dữ liệu dựa trên thời gian:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a># sed -n &#39;/05\/Dec\/2010/,$ p&#39; access.log | goaccess -a -
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a># sed -n &#39;/&#39;$(date &#39;+%d\/%b\/%Y&#39; -d &#39;1 week ago&#39;)&#39;/,$ p&#39; access.log | goaccess -a -
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a># sed -n &#39;/5\/Nov\/2010/,/5\/Dec\/2010/ p&#39; access.log | goaccess -a -
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a># goaccess access.log --keep-last=5
+</code></pre></div>
+<p>Để phân tích các trang cụ thể, ví dụ: lượt xem trang, html, htm, phpv.v. trong một yêu cầu:</p>
+<p><code># awk '$7~/\.html|\.htm|\.php/' access.log | goaccess -</code></p>
+<p>Phân tích mã trạng thái cụ thể, ví dụ: 500 (Lỗi Máy chủ Nội bộ):</p>
+<p><code># awk '$9~/500/' access.log | goaccess -</code></p>
+<p>Hoặc nhiều mã trạng thái, ví dụ: tất cả 3xx và 5xx:</p>
+<p><code># tail -f -n +0 access.log | awk '$9~/3[0-9]{2}|5[0-9]{2}/' | goaccess -o out.html -</code></p>
+<p>Và để có cái nhìn tổng quan ước tính về số lượng bot (trình thu thập thông tin) đang tấn công máy chủ:</p>
+<p><code># tail -F -n +0 access.log | grep -i --line-buffered 'bot' | goaccess -</code></p>
+<p>Khi sử dụng, lưu ý cần cấu hình đúng các định dạng format theo logs cần đọc.</p>
+</details>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Cập nhật lần cuối:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">June 23, 2023 10:11:09</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Trở lại mục lục
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2023 <a href="https://vncert.vn/"  target="_blank" rel="noopener">Cục An toàn thông tin (VNCERT/CC)</a>
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://vncert.vn/" target="_blank" rel="noopener" title="vncert.vn" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40h-16c-1.1 0-2.2 0-3.3-.1-1.4.1-2.8.1-4.2.1H392c-22.1 0-40-17.9-40-40v-88c0-17.7-14.3-32-32-32h-64c-17.7 0-32 14.3-32 32v88c0 22.1-17.9 40-40 40h-55.9c-1.5 0-3-.1-4.5-.2-1.2.1-2.4.2-3.6.2h-16c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9.1-2.8v-69.6H32c-18 0-32-14-32-32.1 0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7l255.4 224.5c8 7 12 15 11 24z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/VNCERT-CC" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.sections", "navigation.instant", "navigation.tracking", "navigation.top", "navigation.top", "toc.follow", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u0110\u00e3 sao ch\u00e9p", "clipboard.copy": "Sao ch\u00e9p v\u00e0o b\u1ed9 nh\u1edb t\u1ea1m", "search.result.more.one": "1 t\u1eeb kh\u00e1c trong trang", "search.result.more.other": "# t\u1eeb kh\u00e1c trong trang", "search.result.none": "Kh\u00f4ng t\u00ecm th\u1ea5y t\u00e0i li\u1ec7u li\u00ean quan", "search.result.one": "1 t\u00e0i li\u1ec7u li\u00ean quan", "search.result.other": "# t\u00e0i li\u1ec7u li\u00ean quan", "search.result.placeholder": "Nh\u1eadp \u0111\u1ec3 b\u1eaft \u0111\u1ea7u t\u00ecm ki\u1ebfm", "search.result.term.missing": "Kh\u00f4ng", "select.version": "Ch\u1ecdn phi\u00ean b\u1ea3n"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>
+      
+    
+  </body>
+</html>
