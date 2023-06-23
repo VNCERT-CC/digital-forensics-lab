@@ -5,7 +5,10 @@ Cấp độ: Chuyên viên
 ## Tổng quan
 
 Quản trị viên hệ thống ghi nhận có những dấu hiệu truy cập bất thường vào Domain Controller với đặc quyền cao nhưng chưa rõ nguyên nhân. Đơn vị phản ứng tại chỗ đã nhanh chóng tiếp cận hiện trường và thu thập những dữ liệu cần thiết phục vụ cho quá trình điều tra. 
-Hãy vào vai nhà phân tích sự cố và tìm hiểu xem kẻ tấn công đã truy cập được vào hệ thống thông qua những con đường nào, và nhiệm vụ của bạn là tìm bằng chứng hoặc dấu hiệu của các IoC. Vì vậy, câu hỏi tiếp theo sẽ là bạn nên tìm kiếm những chỉ số nào để phát hiện cuộc tấn công?
+
+Hãy vào vai nhà phân tích sự cố và tìm hiểu xem kẻ tấn công đã truy cập được vào hệ thống thông qua những con đường nào, và nhiệm vụ của bạn là tìm bằng chứng hoặc dấu hiệu của các IoC. 
+
+Vì vậy, câu hỏi tiếp theo sẽ là bạn nên tìm kiếm những chỉ số nào để phát hiện cuộc tấn công?
 
 ## Câu hỏi
 
@@ -22,4 +25,8 @@ Hãy vào vai nhà phân tích sự cố và tìm hiểu xem kẻ tấn công đ
 
 ## Tệp đính kèm
 
-1. Sớm ra mắt.. Chúng tôi đang thực hiện xây dựng tình huống này.
+1. [Tệp logfile giám sát](https://github.com/VNCERT-CC/digital-forensics-lab/releases/download/challenge4/DFLab-challenge4-Logfile.PML)
+2. [Tệp pcap giám sát](https://github.com/VNCERT-CC/digital-forensics-lab/releases/download/challenge4/DFLab-challenge4-network.pcapng)
+3. [Tệp Sysmon log](https://github.com/VNCERT-CC/digital-forensics-lab/releases/download/challenge4/DFLab-challenge4-Sysmon-log.evtx)
+4. [Tệp System log](https://github.com/VNCERT-CC/digital-forensics-lab/releases/download/challenge4/DFLab-challenge4-System-log.evtx)
+5. [Tệp System Idle Process](https://github.com/VNCERT-CC/digital-forensics-lab/releases/download/challenge4/DFLab-challenge4-SystemIdleProcess.txt)

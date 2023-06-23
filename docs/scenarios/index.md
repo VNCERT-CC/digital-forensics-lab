@@ -53,4 +53,6 @@ x-forwarded-for.
 
 4. [Tình huống 4: Tấn công chiếm quyền trong môi trường domain](./challenge4/index.md)
 
-5. [Tình huống 5: ](./challenge5/index.md)
+5. [Tình huống 5: Tình huống điều tra phân tích sự cố mail outlook](./challenge5/index.md)
+
+6. [Tình huống 6: Tình huống điều tra tấn công chuyển hướng website](./challenge6/index.md)

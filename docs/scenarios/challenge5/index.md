@@ -1,10 +1,11 @@
-# Tình huống 5: 
+# Tình huống 5: Tình huống điều tra phân tích sự cố mail outlook
 
 Cấp độ: Chuyên viên
 
 ## Tổng quan
 
 Quản trị viên hệ thống nhận thấy có nhiều truy cập xác thực bất thường vào hệ thống, sau khi quan sát nhận thấy có nhiều dấu hiệu liên quan đến rò rỉ thông tin xác thực thông qua giao thức NTLM. 
+
 Quản trị viên nghi ngờ có dấu hiệu leo thang đặc quyền trong hệ thống. Với vai trò là chuyên viên điều tra sự cố, hãy tiến hành tìm hiểu nguyên nhân, cách thức mà kẻ tấn công đã truy cập vào hệ thống.
 
 ## Câu hỏi
@@ -17,4 +18,5 @@ Quản trị viên nghi ngờ có dấu hiệu leo thang đặc quyền trong h�
 
 ## Tệp đính kèm
 
-1. Sớm ra mắt.. Chúng tôi đang thực hiện xây dựng tình huống này.
+1. [Event log](https://github.com/VNCERT-CC/digital-forensics-lab/releases/download/challenge5/DFLab-challenge5-Logfile.evtx)
+2. [Tệp pcap](https://github.com/VNCERT-CC/digital-forensics-lab/releases/download/challenge5/DFLab-challenge5-network.pcapng)
