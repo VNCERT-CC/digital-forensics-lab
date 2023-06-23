@@ -48,6 +48,8 @@ Các tính năng nổi bật của phần mềm bắt gói tin Wireshark:
 
 ## Brim
 
+> Được đóng góp bởi: [Công ty Cổ phần BKAV](https://www.bkav.com.vn/)
+
 Brim hay còn được biết đến với tên ZUI là ứng dụng mã nguồn mở có thể được sủ dụng để phân tích lưu lượng mạng có cấu trúc.
 
 ![image](https://user-images.githubusercontent.com/55577865/236436926-67081cb8-9e6b-495b-92d2-7925be260358.png)
@@ -95,72 +97,7 @@ Brim hay còn được biết đến với tên ZUI là ứng dụng mã nguồn
     Brim cũng cho phép hỗ trợ truy vấn log dựa trên các query:
      
     ![image](https://user-images.githubusercontent.com/55577865/236437313-720611a6-93dd-40a3-95e7-405efa400d00.png)
-  
-## GoAccess
 
-GoAccess là trình phân tích nhật ký web, có thể quan sát theo thời gian thực và trình xem tương tác mã nguồn mở chạy trong terminal trong các hệ thống..
-Cung cấp số liệu thống kê HTTP nhanh chóng và có giá trị cho các quản trị viên hệ thống yêu cầu báo cáo máy chủ trực quan một cách nhanh chóng.
-
-![image](https://user-images.githubusercontent.com/55577865/236773602-e14f5ca9-1804-48ef-a869-b29fe214eb7e.png)
-
-![image](https://user-images.githubusercontent.com/55577865/236773621-db7f7a25-d4fc-4de7-9a5b-7d40eb1ca4e1.png)
-
-??? note "Hướng dẫn sử dụng GoAccess"
-
-    Cài đặt:
-
-    ```
-    $ wget https://tar.goaccess.io/goaccess-1.7.2.tar.gz
-    $ tar -xzvf goaccess-1.7.2.tar.gz
-    $ cd goaccess-1.7.2/
-    $ ./configure --enable-utf8 --enable-geoip=mmdb
-    $ make
-    # make install
-    ```
-
-    Để xuất ra thiết bị đầu cuối và tạo báo cáo tương tác:
-
-    `goaccess access.log`
-
-    Để tạo báo cáo HTML:
-
-    `# goaccess access.log -a > report.html`
-
-    Để tạo báo cáo JSON:
-
-    `# goaccess access.log -a -d -o json > report.json`
-
-    Để tạo tệp CSV:
-
-    `# goaccess access.log --no-csv-summary -o csv > report.csv`
-
-    Try vấn lọc dữ liệu dựa trên thời gian:
-
-    ```
-    # sed -n '/05\/Dec\/2010/,$ p' access.log | goaccess -a -
-    # sed -n '/'$(date '+%d\/%b\/%Y' -d '1 week ago')'/,$ p' access.log | goaccess -a -
-    # sed -n '/5\/Nov\/2010/,/5\/Dec\/2010/ p' access.log | goaccess -a -
-    # goaccess access.log --keep-last=5
-    ```
-
-    Để phân tích các trang cụ thể, ví dụ: lượt xem trang, html, htm, phpv.v. trong một yêu cầu:
-
-    `# awk '$7~/\.html|\.htm|\.php/' access.log | goaccess -`
-
-    Phân tích mã trạng thái cụ thể, ví dụ: 500 (Lỗi Máy chủ Nội bộ):
-
-    `# awk '$9~/500/' access.log | goaccess -`
-
-    Hoặc nhiều mã trạng thái, ví dụ: tất cả 3xx và 5xx:
-
-    `# tail -f -n +0 access.log | awk '$9~/3[0-9]{2}|5[0-9]{2}/' | goaccess -o out.html -`
-
-    Và để có cái nhìn tổng quan ước tính về số lượng bot (trình thu thập thông tin) đang tấn công máy chủ:
-
-    `# tail -F -n +0 access.log | grep -i --line-buffered 'bot' | goaccess -`
-
-    Khi sử dụng, lưu ý cần cấu hình đúng các định dạng format theo logs cần đọc.
-  
 ## Kismet
 
 Kismet là công cụ dò tìm, nghe lén và phát hiện người dùng bất hợp pháp xâm nhập vào hệ thống mạng không dây. 

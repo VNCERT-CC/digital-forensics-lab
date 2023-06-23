@@ -28,6 +28,8 @@ Những tính năng chính của THOR Lite:
 
 ## Autoruns
 
+> Được đóng góp bởi: [Công ty Cổ phần BKAV](https://www.bkav.com.vn/)
+
 Autoruns là một công cụ được phát triển bởi Microsoft Sysinternals cho phép xem, quản lý chương trình khởi động cùng Windows.
 Autoruns là dạng phần mềm loại portable nên người sử dụng không cần cài đặt mà có thể chạy và sử dụng ngay lập tức.
 Autoruns hiện có hai phiên bản với chức năng tương đương: Autoruns GUI và Autoruns command-line. Autoruns hoạt động với Windows XP trở lên.
@@ -65,6 +67,8 @@ Autoruns hiện có hai phiên bản với chức năng tương đương: Autoru
     Autoruns cung cấp các cách tiện lợi và an toàn để quản lý các chương trình tự động chạy trên Windows, giúp người dùng tối ưu hóa hiệu suất hệ thống và bảo vệ máy tính khỏi các chương trình độc hại.
 
 ## Process Monitor 
+
+> Được đóng góp bởi: [Công ty Cổ phần BKAV](https://www.bkav.com.vn/)
 
 Process Monitor là một tiện ích hỗ trợ giám sát tiến trình thuộc bộ công cụ SysInternals được Microsoft phân phối miễn phí. Process Monitor được sử dụng nhằm giám sát các tiến trình đang hoạt động, khoá registry và luồng lưu lượng mạng gửi/nhận từ hệ thống.
 Ngoài ra, Process Monitor còn cho phép người dùng lưu lại các event dưới dạng PML (Process Monitor Log), từ đó cho phép điều tra viên lưu trữ, bảo quản nhằm phục vụ cho các khâu phân tích chuyên sâu.
