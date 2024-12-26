@@ -23,18 +23,27 @@ Hình ảnh Máy chủ Backup:
 ## Phân vùng mạng và thông tin đăng nhập
 
 Danh sách các dải mạng:
+
 DMZ: `192.168.6.0/24`
+
 USERLAN: `192.168.17.0/24`
 
 Danh sách các thiết bị tham gia hệ thống mạng:
+
 Máy chủ Backup (DMZ): `192.168.6.20` cài đặt 
+
 Mật khẩu truy cập: `Administrator / DFCorp@sysad`
+
 Máy chủ ảo hóa (DMZ): `192.168.6.21` cài đặt VMWare ESXi standalone
+
 Mật khẩu truy cập: `root / DFC0rp@ESXi`
 
 Thiết bị Firewall: `192.168.6.1` sử dụng thiết bị `Fortigate 201F`
+
 Máy chủ Database (DMZ): `192.168.6.24` cài đặt `Ubuntu` và `OracleDB 23ai`
+
 Máy chủ Queue (DMZ): `192.168.6.23` cài đặt `CentOS` và `RabbitMQ`
+
 Các nhân viên tham gia với dải mạng `USERLAN`
 
 ## Câu hỏi
