@@ -30,7 +30,7 @@ USERLAN: `192.168.17.0/24`
 
 Danh sách các thiết bị tham gia hệ thống mạng:
 
-Máy chủ Backup (DMZ): `192.168.6.20` cài đặt 
+Máy chủ Backup (DMZ): `192.168.6.20` cài đặt dịch vụ VEEAM BACKUP
 
 Mật khẩu truy cập: `Administrator / DFCorp@sysad`
 
