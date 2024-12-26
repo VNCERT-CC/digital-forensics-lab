@@ -5,14 +5,14 @@ Cấp độ: Chuyên gia
 ## Tổng quan
 
 Sự cố xảy ra trên hạ tầng máy chủ chính của DFCorp, chứa nhiều dữ liệu quan trọng của người dùng cũng như các bí mật kinh doanh. Hiện trạng sự cố:
-‾	Các máy chủ dịch vụ (DB, Queue) không thể truy cập.
-‾	Đội ngũ quản trị đã thử đăng nhập máy chủ ESXi để bật lại VM nhưng không thành công do sai mật khẩu:
+-	Các máy chủ dịch vụ (DB, Queue) không thể truy cập.
+-	Đội ngũ quản trị đã thử đăng nhập máy chủ ESXi để bật lại VM nhưng không thành công do sai mật khẩu:
 
 Hình ảnh Máy chủ ESXi:
 
 ![ESXi Screenshot](images/esxi.png)
  
-‾	Khi đăng nhập vào máy chủ backup, hệ thống luôn luôn sử dụng 100% CPU và có dấu hiệu của tấn công mã hóa dữ liệu:
+-	Khi đăng nhập vào máy chủ backup, hệ thống luôn luôn sử dụng 100% CPU và có dấu hiệu của tấn công mã hóa dữ liệu:
 
 Hình ảnh Máy chủ Backup:
 
